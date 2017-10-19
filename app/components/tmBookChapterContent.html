@@ -1,0 +1,39 @@
+<!--章节内容-->
+<div class="bookChapterContent">
+  <ol class="breadcrumb">
+    <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+    <li><a ui-sref="main">首页</a></li>
+    <li><a ui-sref="library">图书馆</a></li>
+    <li><a ui-sref="bookdetail({Id:articleData.BookId})">红楼梦</a></li>
+    <li><a ui-sref="bookchapter({bookId:articleData.BookId})">图书章节</a></li>
+    <li class="active">{{articleData.Name}}</li>
+  </ol>
+  <div class="article-detail" dw-loading="tmshowarticledetail">
+    <div class="article-detail-title-bar">
+      <p class="article-detail-title">{{articleData.Name}}</p>
+      <p class="article-detail-info">
+        <span>发布时间：{{articleData.CreatedDate | dateFilter | date:'yyyy-MM-dd'}}</span>
+        <span>作者：{{articleData.Author || '无'}}</span>
+        <span>来源：{{articleData.Source || '无'}}</span>
+        <span>浏览次数：{{articleData.ClickCount || 0}}</span>
+      </p>
+      <p class="article-detail-adjust" ng-show="articleData.Id">
+        <a ng-click="favoriteAdd({mainId:articleData.Id,type:articleData.Type,title:articleData.Name,remark:'0'},token)" ng-show="!articleData.FavoriteId">[收藏]</a>
+        <a ng-click="favoriteDelete({id:articleData.FavoriteId},token)" ng-show="articleData.FavoriteId">[取消收藏]</a>
+        <a href="/Content/Upload/Attachment/{{articleData.AttachmentName}}" target="_blank" ng-show="articleData.AttachmentName">[附件下载]</a>
+        <a href="javascript:window.print();">[打印]</a>
+        <a ng-click="reduceFont()">[缩小字体]</a>
+        <a ng-click="increaseFont()">[放大字体]</a>
+      </p>
+    </div>
+    <div id="setFont" class="article-detail-content" ng-bind-html="articleData.Content| trustHtml"></div>
+    <div class="article-detail-changeBar">
+      <p class="article-detail-changeBar-up" ng-show="articleData.UpId>0">
+        <a class="btn btn-primary" onclick="window.scrollTo(0,0);" ui-sref="bookchaptercontent({Id:articleData.UpId})">上一章</a>
+      </p>
+      <p class="article-detail-changeBar-down">
+        <a class="btn btn-primary" onclick="window.scrollTo(0,0);" ui-sref="bookchaptercontent({Id:articleData.DownId})">下一章</a>
+      </p>
+    </div>
+  </div>
+</div>

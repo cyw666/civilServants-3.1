@@ -1,0 +1,25 @@
+<!--个人学习信息-->
+
+<div class="personalLearningInfo ">
+  <div common-header title-header="'个人学习信息'" show-more=false link-url="''"></div>
+  <div class="tmBorder" dw-loading="personalLearningInfo">
+    <div class="personalLearningInfo-leftTime">
+      <p ng-show="classInfoData.Model.RemainingTime" class="text-center">班级还有<span>【{{classInfoData.Model.RemainingTime}}】</span>结束
+      </p>
+      <p ng-show="!classInfoData.Model.RemainingTime" class="text-center">班级<span class="highlight">【已结束】</span></p>
+    </div>
+    <ul>
+      <li>必修课(已学 | 总课数): {{classInfoData.Model.FinishRequiredCount}} | {{classInfoData.Model.RequiredCount}}</li>
+      <li>选修课(已学 | 总课数 | 必学课数):
+        {{classInfoData.Model.FinishElectiveCount}} | {{classInfoData.Model.ElectiveCount}} | {{classInfoData.Model.ElectivePassCount}}
+      </li>
+      <li>考试:<span ng-show="classInfoData.Model.ExamCount>0">(已完成 | 考试数 | 必考数): {{classInfoData.Model.FinishExamCount}} | {{classInfoData.Model.ExamCount}} | {{classInfoData.Model.ExamPassCount}} </span>
+        <span ng-show="classInfoData.Model.ExamCount==0">未安排</span></li>
+      <li><span>培训班考核状态：</span>
+        <span ng-show="classInfoData.ViewBag.PassStatus=='Pass'" style="color:red">通过</span>
+        <span ng-show="classInfoData.ViewBag.PassStatus=='UnPass'" style="color:red">未通过</span>
+        <span ng-show="classInfoData.ViewBag.PassStatus=='UnFinish'">未结业</span>
+      </li>
+    </ul>
+  </div>
+</div>

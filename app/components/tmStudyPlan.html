@@ -1,0 +1,102 @@
+<!--我的学习计划-->
+<div class="studyPlan">
+  <div common-header title-header="stydyPlanData.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="personalCenter">个人中心</a></li>
+      <li class="active">{{stydyPlanData.TitleNav}}</li>
+    </ol>
+    <div class="myTab" dw-loading="studyPlan">
+      <div class="tab-content">
+        <div class="tab-panel perlist clearfix">
+          <div class="title_bar">
+            <span class="list4">课程名称</span>
+            <span class="list1-5">课程进度</span>
+            <span class="list1-5">计划状态</span>
+            <span class="list1-5">计划完成日期</span>
+            <span class="list1-5">操作</span>
+          </div>
+          <div class="list" ng-repeat="studyList in stydyPlanData.ListData">
+              <span class="list4 ellipsis" title="{{studyList.CourseName}}">
+                <a ui-sref="courseDetails({Id:studyList.CourseId})">{{studyList.CourseName}}</a>
+              </span>
+              <span class="list1-5">{{studyList.BrowseScore}}</span>
+              <span class="list1-5">课程未完成</span>
+              <span class="list1-5">{{studyList.PlanFinishDate | dateFilter | date:'yyyy-MM-dd'}}</span>
+              <span class="list1-5">
+                <a ng-click="planAdd(studyList.CourseId)" data-toggle="modal" data-target=".stydyPlanModal">更新</a>&nbsp;&nbsp;
+                <a ng-click="delStudyPlan(studyList.Id)">删除</a>
+              </span>
+          </div>
+          <div ng-transclude="pagation"></div>
+        </div>
+      </div>
+
+      <!-- modal学习计划 -->
+      <div class="modal fade stydyPlanModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">修改计划</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table table-bordered">
+                <tbody>
+                <tr>
+                  <td>课程名称：</td>
+                  <td style="text-align: left">{{planAddData.CourseName}}</td>
+                </tr>
+                <tr>
+                  <td>计划完成日期：</td>
+                  <td>
+                    <div class="datePicker">
+                      <input class="form-control" type="text" ng-model="PlanFinishDate" date-time-picker>
+                      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>开始提醒日期：</td>
+                  <td>
+                    <div class="datePicker">
+                      <input class="form-control" type="text" ng-model="RemindDate" date-time-picker>
+                      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>提醒周期：</td>
+                  <td style="text-align: left">
+                    <select class="form-control" ng-model="selectCycle" ng-options="x for x in remindCycle"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>提醒方式：</td>
+                  <td style="text-align: left">
+                    站内通知
+                  </td>
+                </tr>
+                <tr>
+                  <td>计划说明：</td>
+                  <td>
+                    <textarea class="form-control" ng-model="planAddData.Remark" cols="50" rows="5"></textarea>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button ng-click="addPlanUpdate({PlanFinishDate:PlanFinishDate,RemindDate:RemindDate,RemindCycle:selectCycle,Remark:planAddData.Remark,CourseId:planAddData.CourseId,Id:planAddData.Id})" type="button" class="btn btn-primary">提交</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

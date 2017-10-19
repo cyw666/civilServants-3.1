@@ -1,0 +1,31 @@
+/**
+ * 考试结果查看
+ */
+@import "../styles/mixins";
+.examReview {
+  min-height: 700px;
+  background-color: @background-color-base;
+  .exam_top {
+    margin: 0 auto;
+    padding: 10px 0;
+    .text-center();
+  }
+  .examReviewForm{
+    padding: 20px;
+    tr {
+      td{
+        .text-left();
+        padding: 5px 15px;
+      }
+    }
+    .xz {
+      li{
+        .pull-left();
+        font-size: @font-size-base + 1;
+        font-weight: bold;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+

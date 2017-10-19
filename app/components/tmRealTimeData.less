@@ -1,0 +1,45 @@
+/**
+ * 实时数据
+ */
+@import "../styles/mixins";
+
+.realTimeData {
+  margin-top: 10px;
+  .realTimeList {
+    padding: 0 8px;
+    .clearFix();
+    ul {
+      .pull-left();
+      .wh(142px,100px);
+      text-align: center;
+      background-color: #f5f5f5;
+      color: #2371ff;
+      li {
+        .wh(100%,80px);
+        margin-top: 10px;
+        border-right: 1px solid #d8d8d8;
+        .count {
+          padding-top: 19px;
+          font-size: 17px;
+        }
+        .labelName {
+          padding-top: 5px;
+          line-height: 25px;
+          .fa{
+            font-size: 1.5em;
+            position: relative;
+            top:.14285714em;
+          }
+          span {
+            margin-left: 10px;
+            display: inline-block;
+            line-height: 25px;
+          }
+        }
+        &.lastLi {
+          border: none;
+        }
+      }
+    }
+  }
+}

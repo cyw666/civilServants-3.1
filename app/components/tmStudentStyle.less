@@ -1,0 +1,29 @@
+/**
+ * 学员风采
+ */
+@import "../styles/mixins";
+
+.studyStyle {
+  .styleContent {
+    .courseList {
+      .wh(160px, 280px);
+      margin: 20px 0 0 11%;
+      .text-center();
+      p {
+        .name {
+          margin-top: 20px;
+          .ht-lineHt(30px);
+          font-size: @font-size-lg;
+          font-weight: bold;
+        }
+        .source {
+          line-height: 25px;
+        }
+      }
+      img {
+        display: inline-block;
+        .wh(160px, 200px);
+      }
+    }
+  }
+}

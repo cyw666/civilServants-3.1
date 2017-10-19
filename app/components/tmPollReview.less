@@ -1,0 +1,42 @@
+/**
+ * 问卷调查详情
+ */
+@import "../styles/mixins";
+.pollReview {
+  min-height: 700px;
+  background-color: @background-color-base;
+  .exam_top {
+    margin: 0 auto;
+    padding: 10px 0;
+    .text-center();
+  }
+  .examReviewForm{
+    padding: 20px;
+    tr {
+      td{
+        .text-left();
+        padding: 5px 15px;
+      }
+    }
+  }
+  .tibg {
+    .title{
+      font-size: 15px;
+      background-color: @tab-header-bg;
+      line-height: 25px;
+    }
+    .pollCount{
+      position:relative;
+      top:12px;
+      right:350px;
+      .list2 {
+        width: 120px;
+        margin-left: 10px;
+        .progress{
+          margin-top: 2px;
+          .ht-lineHt(17px);
+        }
+      }
+    }
+  }
+}

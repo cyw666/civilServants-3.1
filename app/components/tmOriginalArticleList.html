@@ -1,0 +1,32 @@
+<!--学员心声-->
+<div class="originalArgicleList">
+  <div common-header title-header="'学员心声'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">学员心声</li>
+    </ol>
+    <div class="originTitle">
+      <h4>{{originalArgicleListData.TitleNav}}</h4>
+      <a ui-sref="originalarticle" target="_blank" class="btn btn-primary">发表心声</a>
+    </div>
+    <div class="myTab" dw-loading="studyPlan">
+      <div class="tab-content" dw-loading="originalArgicleList">
+        <div class="tab-panel perlist">
+          <div class="title_bar">
+            <span class="list5">文章名称</span>
+            <span class="list1-5">作者</span>
+            <span class="list2-5">发布时间</span>
+          </div>
+          <div class="list" ng-repeat="originalArgicleList in originalArgicleListData.ListData">
+              <span class="list5" title="{{originalArgicleList.Name}}"><a ui-sref="articleDetail({ID:originalArgicleList.Id})" target="_blank">{{originalArgicleList.Name}}</a></span>
+              <span class="list1-5 ellipsis">{{originalArgicleList.Author?originalArgicleList.Author:'无'}}</span>
+              <span class="list2-5">{{originalArgicleList.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+          </div>
+          <div tm-pagation conf="paginationConf"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

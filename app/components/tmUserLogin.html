@@ -1,0 +1,76 @@
+<!--首页登陆-->
+<div class="loginBg bgLarge1">
+  <div class="bigBanner textBg1">
+  </div>
+  <div class="grid_8_2 loginPositon">
+    <div>
+      <form class="login" dw-loading="userLogin" ng-if="showLogin">
+        <div class="title">
+          <div class="txt">
+            用户登录
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <input ng-focus="inputFocus()" ng-change="inputChange()" ng-model="login.Account"
+                 type="text" class="form-control" id="exampleInputUser"
+                 my-placeholder
+                 placeholder="请输入用户名">
+          <span class="error" ng-class="showError?'is-visible':''">帐号或密码错误</span>
+          <span class="error" ng-class="showError2?'is-visible':''">用户名密码不能为空</span>
+        </div>
+        <div class="form-group clearfix">
+          <input ng-focus="inputFocus()" ng-change="inputChange()" ng-model="login.PassWord"
+                 type="password" autocomplete="off" class="form-control" id="exampleInputPassword1"
+                 my-placeholder
+                 placeholder="请输入密码"
+          >
+        </div>
+        <div class="checkbox clearfix">
+          <label class="pull-left">
+            <input ng-model="login.RememberMe" type="checkbox">记住密码
+          </label>
+          <div class="forgetPassword pull-right">
+            <a ui-sref="forgetPassword">忘记密码？</a>
+          </div>
+        </div>
+        <button ng-click="clickLogin()" type="submit" class="btn btn-primary">登录</button>
+        <a ui-sref="userRegister" class="btn btn-default">注册</a>
+      </form>
+      <!--登陆成功-->
+      <div class="loginAfter" dw-loading="loginOut" ng-if="!showLogin">
+        <div class="title">
+          <div class="txt">
+            个人信息
+          </div>
+        </div>
+        <div class="login_info">
+          <!--个人中心的登陆后详细和首页不同-->
+          <ul class="loginAfter_ul">
+            <li>欢迎您：<b class="highlight">{{userMessage.Name}}</b> ({{userMessage.Account}})</li>
+            <li>
+              <span class="hours">年度学时：<span class="highlight">{{userMessage.BatchTotalCredit}}</span></span>
+              <span class="hours">当前学时：<span class="highlight">{{userMessage.SumCredit}}</span></span>
+            </li>
+            <li>
+              <span>个人学习档案</span>
+              <span class="item2"><a ui-sref="personaLearningArchives" target="_blank">详细&gt;&gt;</a></span>
+            </li>
+            <li>
+              <span>您有<span class="highlight"> {{userMessage.UnRead}} </span>条新通知！</span>
+              <span class="item2"><a ui-sref="unReadNotice">查看详情&gt;</a></span>
+            </li>
+            <li class="lastChild">
+              <a ui-sref="modifyPassword">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+              <a ui-sref="changeUser">修改信息</a>&nbsp;|&nbsp;
+              <span class="item2" ng-if="userAllMessage.UserType=='管理员'"><a href="/admin" target="_blank">进入管理控制台</a></span>
+            </li>
+            <li class="exit">
+              <a class="btn btn-primary" ng-click="loginOut('out')">退出</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

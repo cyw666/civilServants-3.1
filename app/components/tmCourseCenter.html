@@ -1,0 +1,32 @@
+<!--课程中心-->
+<div class="courseCenter">
+  <div common-header title-header="'课程中心'" show-more=true link-url="'courseCenter'"></div>
+  <div class="btn-group courseLink" role="group">
+    <a class="btn btn-primary active" ng-click="getRecommendCourse()">推荐课程</a>
+    <a class="btn btn-primary" ng-repeat="courseName in courselassification" ng-click="searchCourseList(courseName.Id)" repeat-finish="renderFinish()">{{courseName.Name}}</a>
+  </div>
+  <div class="courseList mar_top_20" dw-loading="courseList">
+    <ul class="clearfix">
+      <li ng-repeat="courseCenterData in courseCenterData">
+        <a ui-sref="courseDetails({Id:courseCenterData.Id})" title="{{courseCenterData.Name}}" target="_blank">
+          <img ng-src="{{imageCourse+'/'+courseCenterData.Img}}" err-Src="images/notCourse.png" alt="">
+        </a>
+        <div ng-if="$index<2" class="hotCourse">
+          <p class="bg"></p>
+          <p class="content">
+            <i class="glyphicon glyphicon-fire" aria-hidden="true"></i>
+            <span>{{courseCenterData.ClickCount}}次</span>
+          </p>
+        </div>
+        <div class="mar_top_10 desc">
+          <p><a ui-sref="courseDetails({Id:courseCenterData.Id})" title="{{courseCenterData.Name}}" target="_blank">{{courseCenterData.Name}}</a>
+          </p>
+          <p class="clearfix"><span class="pull-left">讲师：{{courseCenterData.Teacher}}</span><span
+            class="red pull-right">学分：{{courseCenterData.Credit.toFixed(1)}}分</span></p>
+          <p>时长：{{courseCenterData.Time}}小时</p>
+        </div>
+      </li>
+    </ul>
+    <p ng-show="showNoCourse" class="result">暂无课程</p>
+  </div>
+</div>

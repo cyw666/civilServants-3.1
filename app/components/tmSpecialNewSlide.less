@@ -1,0 +1,43 @@
+/**
+ * 专题学习新闻轮播
+ */
+@import "../styles/mixins";
+
+.specialNewSlideOuter{
+  .slideList{
+    img{
+      .wh(345px,306px);
+    }
+    .titleName{
+      position: absolute;
+      bottom: 25px;
+      margin-left: 10%;
+      width: 80%;
+      a{
+        display: inline-block;
+        color: @white;
+        .text-center();
+        width: 100%;
+        &:hover{
+          color: shade(@white,20%);
+        }
+      }
+    }
+  }
+  .bx-wrapper {
+    margin: 0 auto;
+    .bx-pager {
+      height: 25px;
+      padding: 0;
+      bottom: 0;
+      &.bx-default-pager a {
+        background: transparent;
+        border: 1px solid @white;
+        &:hover,&.active{
+          background: @primary-color;
+          border: 1px solid @primary-color;
+        }
+      }
+    }
+  }
+}

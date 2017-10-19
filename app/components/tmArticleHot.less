@@ -1,0 +1,28 @@
+/**
+ * 热门文章
+ */
+@import "../styles/mixins";
+.articleHot{
+  .text-center();
+  .rankingList{
+    .clearFix();
+    .ht-lineHt(44px);
+    li{
+      .ht-lineHt(44px);
+      .pull-left();
+      a{
+        width: 100%;
+      }
+    }
+    .list2 span{
+      display: inline-block;
+      .wh(100%,44px);
+    }
+    .list8{
+      .text-left();
+      padding-right: 10px;
+      .ellipsis;
+    }
+  }
+}
+

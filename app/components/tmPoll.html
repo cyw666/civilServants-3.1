@@ -1,0 +1,72 @@
+<!--问卷调查-->
+<div class="poll" dw-loading="exam" style="-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;">
+  <div class="exam_top">
+    <img src="/images/poll_top.png" />
+  </div>
+  <div><h2 class="text-center">{{examData.Exam.Name}}</h2></div>
+  <form method="post" class="editForm" name="editForm">
+    <input type="hidden" value="{{examData.examid}}" id="hdnexamid" name="hdnexamid" />
+    <input type="hidden" value="{{examData.isfixed}}" id="hdnisfixed" name="hdnisfixed"/>
+    <table class="table" cellpadding="0" cellspacing="0" style="width:100%;">
+      <tbody>
+      <tr ng-show="checkingQuestions">
+        <!--<td class="biaoti">类型一</td>-->
+      </tr>
+      <tr ng-show="checkingQuestions" ng-repeat="checkques in checkingQuestions" ng-init="outerIndex0 = $index">
+        <td>
+          <input type="hidden" name="questionid{{checkques.Id}}" value="{{checkques.Id}}" />
+          <div class="tibg"><span type="0"> {{$index+1}} </span>、 {{checkques.Name}}</div>
+          <table>
+            <tr ng-repeat="checkList in checkques.QuestionsItems">
+              <td>
+                <input type="radio" value="{{checkList.ItemFlag}}" id="{{checkList.ItemFlag}}-{{checkques.Id}}-{{outerIndex0}}" name="radio{{checkques.Id}}"/>
+                <label for="{{checkList.ItemFlag}}-{{checkques.Id}}-{{outerIndex0}}">{{checkList.ItemFlag}}.{{checkList.Name}}</label>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr ng-show="singleQuestions">
+        <!--<td class="biaoti">类型二</td>-->
+      </tr>
+      <tr ng-show="singleQuestions" ng-repeat="singles in singleQuestions" ng-init="outerIndex1 = $index">
+        <td>
+          <input type="hidden" name="questionid{{singles.Id}}" value="{{singles.Id}}" />
+          <div class="tibg"><span type="1"> {{$index+1}} </span>、 {{singles.Name}}</div>
+          <table>
+            <tr ng-repeat="singleList in singles.QuestionsItems">
+              <td>
+                <input type="radio" value="{{singleList.ItemFlag}}" id="{{singleList.ItemFlag}}-{{singleList.Id}}-{{outerIndex1}}" name="radio{{singles.Id}}" />
+                <label for="{{singleList.ItemFlag}}-{{singleList.Id}}-{{outerIndex1}}">{{singleList.ItemFlag}}.{{singleList.Name}}</label>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr ng-show="multipleQuestions">
+        <!--<td class="biaoti">类型三</td>-->
+      </tr>
+      <tr ng-show="multipleQuestions" ng-repeat="multques in multipleQuestions"  ng-init="outerIndex2 = $index">
+        <td>
+          <input type="hidden" name="questionid{{multques.Id}}" value="{{multques.Id}}" />
+          <div class="tibg"><span type="2"> {{$index+1}} </span>、 {{multques.Name}}</div>
+          <table>
+            <tr ng-repeat="mulList in multques.QuestionsItems">
+              <td>
+                <input type="checkbox" id="{{mulList.ItemFlag}}-{{mulList.Id}}-{{outerIndex2}}" value="{{mulList.ItemFlag}}" name="checkbox{{multques.Id}}" />
+                <label for="{{mulList.ItemFlag}}-{{mulList.Id}}-{{outerIndex2}}">{{mulList.ItemFlag}}.{{mulList.Name}}</label>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center">
+          <button ng-click="submitForm()" type="submit" class="btn btn-primary">提交</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+

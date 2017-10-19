@@ -1,0 +1,176 @@
+<!--@*课程详情*@-->
+<div class="courseDetails">
+  <div common-header title-header="'课程详情'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="courseCenter">课程中心</a></li>
+      <li class="active">{{courseDetailsData.CourseModel.Name}}</li>
+    </ol>
+    <div class="long cur_center" dw-loading="courseDetails">
+      <div class="commonTitle">课程详情</div>
+      <div class="content cur_detail">
+        <table class="table table-bordered">
+          <tbody>
+          <tr>
+            <td class="listtb1">
+              <span>课程名称：</span>
+            </td>
+            <td class="listtb2 cur_title">
+              <strong>{{courseDetailsData.CourseModel.Name}} &nbsp;&nbsp;&nbsp;</strong>
+              <a ng-if="courseDetailsData.CourseModel.FavoriteId==0"
+                 ng-click="favoriteAdd({mainId:courseDetailsData.CourseModel.Id,type:'Course',title:courseDetailsData.CourseModel.Name,remark:'0'},token);"
+                 class="red favoriteadd"><span class="glyphicon glyphicon-heart" style="font-size: 15px" aria-hidden="true"></span> &nbsp;收藏</a>
+              <a ng-if="courseDetailsData.CourseModel.FavoriteId!=0"
+                 ng-click="favoriteDelete({id:courseDetailsData.CourseModel.FavoriteId},token);"
+                 class="red favoritedel"><span class="glyphicon glyphicon-heart" style="font-size: 15px" aria-hidden="true"></span> &nbsp;取消收藏</a>
+            </td>
+            <td class="listtb3">
+              <span>学员评分：</span>
+            </td>
+            <td class="listtb4 starGroup">
+              <span class="star" style="background-position-x: -{{courseDetailsData.CourseModel.StudentGrade*2*121}}px;"></span>{{courseDetailsData.CourseModel.StudentGrade.toFixed(1)}}
+            </td>
+          </tr>
+          <tr>
+            <td class="listtb1">
+              <span>课程分类：</span>
+            </td>
+            <td class="listtb2">
+              <a ui-sref="courseCenter({channelId:courseDetailsData.CourseModel.ChannelId})">{{courseDetailsData.CourseModel.ChannelName}}</a>
+            </td>
+            <td class="listtb3">
+              <span>学员评论：</span>
+            </td>
+            <td class="listtb4"><span>已有<span>{{courseDetailsData.Count}}</span>条评论</span></td>
+          </tr>
+          <tr>
+            <td class="listtb1">
+              <span>课程教师：</span>
+            </td>
+            <td class="listtb2">
+              <span>{{courseDetailsData.CourseModel.Teacher}}</span>
+            </td>
+            <td class="listtb3">
+              <span>课程学时：</span>
+            </td>
+            <td class="listtb4"><span>{{courseDetailsData.CourseModel.Credit}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="listtb1">
+              <span>时长：</span>
+            </td>
+            <td class="listtb2">
+              <span>{{courseDetailsData.CourseModel.Duration}}</span>
+            </td>
+            <td class="listtb3">
+              <span>参加测试：</span>
+            </td>
+            <td class="listtb4">
+              <a ng-if="courseDetailsData.CourseModel.ExamId!=0"
+                 ng-click="havTest(courseDetailsData.CourseModel.ExamId)" class="highlight">参加测试</a>
+              <span ng-if="courseDetailsData.CourseModel.ExamId==0" class="black"
+                    ng-if="courseDetailsData.CourseModel.ExamId">无</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="listtb1">
+              <span>进度：</span>
+            </td>
+            <td class="listtb2">
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar"
+                     aria-valuenow="{{courseDetailsData.CourseModel.BrowseScore}}" aria-valuemin="0" aria-valuemax="100"
+                     ng-style="{'width':courseDetailsData.CourseModel.BrowseScore+'%'};">
+                  {{courseDetailsData.CourseModel.BrowseScore>0?courseDetailsData.CourseModel.BrowseScore.toFixed(1):0.0}}%
+                </div>
+              </div>
+            </td>
+            <td class="listtb3">
+              <span>播放：</span>
+            </td>
+            <td class="listtb4 cur_title">
+              <a ng-if="courseDetailsData.CourseModel.BrowseScore>=0" ui-sref="play({Id:courseDetailsData.CourseModel.Id})" target="_blank">
+                <span class="glyphicon glyphicon-play-circle" style="font-size: 15px" aria-hidden="true"></span>
+                <span>点击播放</span>
+              </a>
+              <a ng-if="courseDetailsData.CourseModel.BrowseScore < 0" ng-click="selectClass(courseDetailsData.CourseModel.Id);" class="favoritedel">
+                <span class="glyphicon glyphicon-play-circle" style="font-size: 15px" aria-hidden="true"></span>
+                <span>选课并播放</span>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="listtb1">
+              <span>课程简介：</span>
+            </td>
+            <td colspan="3" class="listtb5">
+              <div class="curinfo">
+                <p ng-if="courseDetailsData.CourseModel.Description">{{courseDetailsData.CourseModel.Description}}</p>
+                <p ng-if="!courseDetailsData.CourseModel.Description">无</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="listtb1">
+              <span>课程节点:</span>
+            </td>
+            <td colspan="3" class="listtb5">
+              <div ng-if="courseDetailsData.ListData.length==0">
+                未学时间点：<span class="highlight">{{courseDetailsData.CourseModel.Remainder}}</span> 分钟
+              </div>
+              <div ng-if="courseDetailsData.ListData.length>0" class="jiedian">
+                <div class="bar"><span class="number">节点编号</span><span class="name">节点名称</span><span class="tishi">（注：<span class="glyphicon glyphicon-ok" style="font-size: 15px;color: #13cb00" aria-hidden="true"></span> 为已学，<span class="glyphicon glyphicon-ok" style="font-size: 15px;color: #c5c5c5;" aria-hidden="true"></span> 为未学）</span>
+                </div>
+                <div class="jdcontext">
+                  <ul class="clearfix">
+                    <li ng-repeat="nodeList in courseDetailsData.ListData">
+                      <p ng-hide="nodeList.IsFinish">
+                        <span class="number">{{nodeList.Code}}</span>
+                        <span class="name">{{nodeList.Name}} </span>
+                        <span class="glyphicon glyphicon-ok pull-right" style="font-size: 15px;color: #c5c5c5" aria-hidden="true"></span>
+                      </p>
+                      <p ng-show="nodeList.IsFinish">
+                        <span class="number">{{nodeList.Code}}</span>
+                        <span class="name">{{nodeList.Name}} </span>
+                        <span class="glyphicon glyphicon-ok pull-right" style="font-size: 15px;color: #13cb00" aria-hidden="true"></span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="courseComment">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">课程评论</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table">
+              <tbody  ng-repeat="commentList in resultComment.ListData" border="0">
+              <tr>
+                <td class="userImg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAB+FBMVEUAAADe3t7e3t7e3t7e3t7f39/e3t7f39/e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7f3t5pwfvA2el9yvxsw/tkv/vp6eno6Ojl5eXe3t6R0fvg396k2fzi4uLf399wxPtevft8yfyKz/zk39ze3t7j39ze3t622fCo3P7f39/e3t6h2P3a4OPe3t7e3t7e3t7/4sIeHh5fvfv/4sDp6elavPzd3t8RERIbGxvl4dxcvfwZGRr/7swXFxcRExXk5OTf3+AVFRVZvPzj4N7/6cdXu/3/48Pg4ODh397+4sQyMjIlJCOw0+vi4uLx49TU1NT/5cWZmZmgj3xQUFAsKym51+rm5ubp4dnt4tb2483/68nExMTly6/TvKKgoKBsbG05OTlwxf2XzvGfz++j0O6o0OvD2enY2Nj96ND/8s/0487Ozs785Mj/5MC5uLfs0bTDsJiQkJCyoIurmYWFhYWCgYF5enpkW1FZUEdGRkYhISCMzfltwvlmv/h1xPeBx/Sbz/KIxuzQ2+OmzeLl4d7159X25NHo4NDa2s704sv34sro3cnIyMj638D23r/427vCvbevr6/fyazgx6uoqKjNuJ6UlJSTk5O+qI+MjIyXiHeHfG1jY2NaWlpEPzpBPTg8ODQyMC0ICgwJCguXBa2lAAAAM3RSTlMAlwsGHN6yr+uKPiT37OLOfGBd6Aj7++3t7ezizbOuKSL59O/t072ioZ+Vk4h7e21XQDIPSIryAAAC1klEQVQ4y3WVVXviQBiFg7fU3WXd9SskISHBC6VA0VJ32bq3W1t3d3f7mzsREgL0vWAu5n3OmZlnMmAK1JfOGxob6usbGg3njJXYQVw+rSOI2aH38Xj8zWKY0OW35NQKTh4ioqPfx0Osg3LQye71KHFYpc32yvKIxe2g3WGnTRy0mwp+dDoryjI0jcrVOxqkWFMadsePaC+oNIpN6F3EF9ZuyoAaH+oFvTotTw/EJ9SZhSP43Al6OVMFzqGQXEvL0VS33w+qlFcOQIxR0iT7e0c23esEQLngafPAHw2yckpi2ERLOxqf9UOeViwG5wotr+vnS9uOQ44cJUAoLyhEzXG3FBEaGfSOmFgpfwyJhQVIzAckblHcJmiapfbXbG1ttq+UmxYTu51IyEdHqOPEqxTroPdDyeTuB+S1dXg3f9EOinKztHvP7wLQqTEj8OK/5Le1d8OrqzEv8pA5+GJkM5HY2AhRe2EkghEr5cXtP2/nB72xWKyD9/hQG2I+8ZevhlLMwItbn7lGGVnfRZtBGLASbgi/fiVFKfEOr4Q5owQrBo77S3huEZ9z8kIxVsSPlv6DxH4LLxSJIrgW8JzegAsEUawGizWQywxYLSBWl4BoDuQQ8QXRQ5sxpMS+NjzLkwLBgA48ZUZwXKnhAWEnwoEbIYUrsoQmBZsbAk/7JA+MWKUOpMzOvoG5B0+W8WX8UeRhxOqSPZ2au2YynTPXJq7fe/b4DjMx2dMJMvnixRVpn2J8JOm7YfaZSR8z3Q4C4sXFVJLX5WHMCEb4NfdIpkr8uMRey03SnIbnlrhG4eNClIuBM2YFTNVdcZnl0gMgNpNmJdXtUrGApgkQ1mmP0iO7rIBo0qQ/Upw4mSF6rnCiXq189pB425dDVGkyH9IK65Qvq1p+SGW0p6oZUuF5ek5osVy0nDlCkiSDHAaN5qrmiwf+MbSePV5TW3e0rrbmWPOFVsXUf1xhKYcasIMQAAAAAElFTkSuQmCC" alt="用户头像"></td>
+                <td class="user text-left" style="font-weight: 600">{{commentList.UserName}}</td>
+                <td class="time">发表于：{{commentList.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="comment text-left">{{commentList.Comment}}</td>
+                <td></td>
+              </tr>
+              </tbody>
+            </table>
+            <div tm-pagation conf="paginationConf"></div>
+          </div>
+        </div>
+      </div>
+      <div tm-related-course related-course-data="relatedCourseData"></div>
+    </div>
+  </div>
+</div>

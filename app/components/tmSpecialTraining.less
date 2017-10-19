@@ -1,0 +1,25 @@
+/**
+ * 专题培训(首页)
+ */
+@import "../styles/mixins";
+
+.specialTraining {
+  margin-left: 16px;
+  margin-top: 25px;
+  .specialContent {
+    margin-top: 20px;
+    min-height: 464px;
+    li {
+      margin-top: 10px;
+      .title {
+        .ht-lineHt(34px);
+        padding: 0 10px;
+        font-size: @font-size-lg;
+        .ellipsis();
+      }
+      .specialImg {
+        .wh(334px, 115px);
+      }
+    }
+  }
+}

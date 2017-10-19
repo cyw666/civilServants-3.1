@@ -1,0 +1,12 @@
+<!--专题学习新闻-->
+<div class="specialNews">
+  <div common-header title-header="specialNewsData.TitleNav" show-more=true link-url="articleUrl"></div>
+  <ul class="specialNewsContent" dw-loading="{{categoryCode}}">
+    <li ng-repeat="list in specialNewsData.ListData">
+      <span class="arrow"></span>
+      <span class="title ellipsis" title="{{list.Name}}">
+        <a ui-sref="articleDetail({ID:list.Id})" target="_blank">{{list.Name}}</a>
+      </span>
+    </li>
+  </ul>
+</div>

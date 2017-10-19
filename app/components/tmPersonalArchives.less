@@ -1,0 +1,60 @@
+/**
+ * 个人学习档案
+ */
+@import "../styles/mixins";
+
+.personalArchives{
+  .statisticsTitle{
+    padding-top: 10px;
+    border-bottom: 2px solid @primary-color;
+    span{
+      display: inline-block;
+      .wh(100px,30px);
+      line-height: 30px;
+      text-align: center;
+      font-weight:bold;
+      background: @primary-color;
+      color: @white;
+    }
+  }
+  .statisticsBox{
+    .border-base();
+    border-top: 0;
+    padding: 10px 0 5px 0;
+    .statisticsBoxInner{
+      width: 96%;
+      margin: 0 auto;
+      .font-red{
+        color: @red-3;
+        font-weight: bold;
+      }
+    }
+    .zhi{
+      padding: 0 10px;
+    }
+    fieldset{
+      .border-base();
+    }
+    legend{
+      font-size: @font-size-base;
+    }
+    .search{
+      margin-left: 22px;
+    }
+    .searchBtn{
+      margin-left: 20px;
+      padding: 4px 10px;
+    }
+    .table1{
+      background: @background-color-base;
+    }
+    .courseDetails{
+      color: @primary-color;
+    }
+    td,th{
+      .border-base();
+      .ht-lineHt(30px);
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<!--修改信息-->
+<div class="changeUserInfo">
+  <div common-header title-header="'修改信息'" show-more=false link-url="''"></div>
+
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="personalCenter">个人中心</a></li>
+      <li class="active">修改信息</li>
+    </ol>
+    <div class="change-user-info" dw-loading="changeUserInfo">
+      <form class="form-horizonta">
+        <div class="form-group">
+          <label class="col-sm-2">账号：</label>
+          <div class="col-sm-10">{{userInfo.Account}}</div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2">姓名：</label>
+          <div class="col-sm-10">{{userInfo.Name}}</div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2">性别：</label>
+          <div class="col-sm-10">
+              <label class="radio-inline">
+                <input type="radio" name="sex" ng-model="sex" value="男" ng-checked="userInfo.Sex==1">男
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="sex" ng-model="sex" value="女" ng-checked="userInfo.Sex==0">女
+              </label>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2">部门：</label>
+          <div class="col-sm-10">{{userInfo.GroupName}}</div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">职位：</label>
+          <div class="col-sm-10 ">
+            <select class="form-control select-grade" name="grade" ng-model="Grade" ng-options="list.Id as list.Name for list in gradeList">
+              <option value="">--请选择职位--</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">职务：</label>
+          <div class="col-sm-10 ">
+            <input type="text" ng-model="Business" name="business"
+                   class="form-control"
+                   my-placeholder
+                   placeholder="例：老师"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">电话：</label>
+          <div class="col-sm-10 ">
+            <input type="tel" ng-model="Tel" name="tel"
+                   class="form-control"
+                   my-placeholder
+                   placeholder="例：0571-88776655"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">手机：</label>
+          <div class="col-sm-10 ">
+            <input type="tel" ng-model="Mobile" name="mobile"
+                   class="form-control"
+                   my-placeholder
+                   placeholder="例：123-4567-8901"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">邮箱：</label>
+          <div class="col-sm-10 ">
+            <input type="tel" ng-model="Email" name="email"
+                   class="form-control"
+                   my-placeholder
+                   placeholder="例：example@email.com"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" ng-click="changeUser()"> 提交</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+

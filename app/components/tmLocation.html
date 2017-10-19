@@ -1,0 +1,27 @@
+<div class="container_24 location-container">
+  <!--搜索结果-->
+  <ol ng-show="isResult" class="breadcrumb">
+    <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+    <li><a ui-sref="main">首页</a></li>
+    <li ng-show="Data.CategoryName">
+      <a ng-show="Data.CategoryName=='公务员培训'" ui-sref="csTrainingNews">{{Data.CategoryName}}</a>
+      <a ng-show="Data.CategoryName=='专业技术人员培训'" ui-sref="patpTrainingNews">{{Data.CategoryName}}</a>
+      <a ng-show="Data.CategoryName=='新闻资讯'" ui-sref="newsinfo">{{Data.CategoryName}}</a>
+      <a ng-show="Data.CategoryName!=='新闻资讯'&&Data.CategoryName!=='专业技术人员培训'&&Data.CategoryName!=='公务员培训'">{{Data.CategoryName}}</a>
+    </li>
+    <li class="active">搜索结果</li>
+  </ol>
+</div>
+<style>
+  .breadcrumb {
+    background: #FFF;
+    margin-bottom: 0px;
+    height: 42px;
+    padding: 11px 15px;
+  }
+
+  .location-container {
+    padding: 0 5px;
+    margin-top: 15px;
+  }
+</style>

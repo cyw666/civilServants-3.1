@@ -1,0 +1,11 @@
+<!--文章分类-->
+<div class="articleCategory">
+  <div common-header title-header="'文章分类'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ul class="categoryGuide">
+      <li ng-repeat="list in categoryData.ListData" title="{{list.Name}}">
+        <a class="btn btn-primary" ng-click="refreshList({categoryId:list.Id,CategoryCode:'',search:''})">{{list.Name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

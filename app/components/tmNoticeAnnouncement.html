@@ -1,0 +1,35 @@
+<!--@*通知公告 轮播*@-->
+
+<div class="noticeAnnouncement">
+  <div class="notice"  dw-loading="noticeAnnouncement">
+    <!--轮播-->
+    <div class="noticeSlide">
+      <div class="noticeSlideList" ng-repeat="list in noticeData.ListData" repeat-finish="repeatFinish()">
+        <a ui-sref="noticeDetail({ID:list.Id})" target="_blank">
+          <img ng-src="{{noticeData.Path+'/'+list.Img}}"  title="{{list.Name}}" err-Src="images/notFound.jpeg">
+        </a>
+        <p class="titleBg"></p>
+        <p class="titleName">
+          <a class="ellipsis" ui-sref="articleDetail({ID:list.Id})" title="{{list.Name}}" target="_blank">
+            {{list.Name}}
+          </a>
+        </p>
+      </div>
+    </div>
+    <!--列表-->
+    <div class="notice-body clearfix">
+      <div class="notice-body-left pull-left">通知公告</div>
+      <div class="notice-body-right pull-left">
+        <ul>
+          <li ng-repeat="list in noticeData.ListData">
+            <a class="title" ui-sref="noticeDetail({ID:list.Id})" title="{{list.Name}}" target="_blank">
+              <i class="glyphicon glyphicon-triangle-right"></i>
+              {{list.Name}}
+            </a>
+            <span class="time">{{list.CreateDate | dateFilter |date :'yyyy-MM-dd'}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

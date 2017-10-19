@@ -1,0 +1,38 @@
+/**
+ * 电子书引导模块(首页)
+ */
+@import "../styles/mixins";
+.bookGuide {
+  .bookList{
+    .clearFix();
+    .wh(100%,210px);
+    padding-top: 20px;
+    li{
+      width: 283px;
+      img{
+        .wh(114px,162px);
+      }
+      .content{
+        width: 169px;
+        padding: 5px 15px 0 15px;
+        .title{
+          padding: 0 0 15px 0;
+          .ellipsis();
+        }
+        .desc{
+          color: @text-color-3;
+          margin: 10px 0;
+          height: 60px;
+        }
+        .author{
+          color: @text-color-2;
+        }
+        .clickCount{
+          color: @orange-3;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
+

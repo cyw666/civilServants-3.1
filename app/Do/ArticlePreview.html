@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章预览</title>
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body>
+<div class="bigOuter">
+  <div class="container_24">
+    <div class="topbg pad_top_20">
+      <div class="topimg" ></div>
+    </div>
+  </div>
+  <div class="container_24">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a>首页</a></li>
+      <li class="active">文章内容</li>
+    </ol>
+  </div>
+  <div class="container_24">
+    <div class="article-detail article-detail-container container_24">
+      <div class="article-detail article-detail-title-bar">
+        <p class="article-detail article-detail-title text-center grid_24">文章标题</p>
+        <p class="article-detail article-detail-info">
+          <span>发布时间：2017-05-27</span>
+          <span>作者：cyw</span>
+          <span>来源：来源</span>
+          <span>浏览次数：10</span>
+        </p>
+        <p class="article-detail article-detail-info" ng-show="articleData.Id">
+          <a class="favoriteadd">[收藏]</a>
+          <a>[打印]</a>
+          <a>[缩小字体]</a>
+          <a>[放大字体]</a>
+        </p>
+      </div>
+      <div id="setFont" class="article-detail article-detail-content justify" ng-bind-html="articleData.Content| trustHtml">
+        文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容
+      </div>
+
+    </div>
+
+  </div>
+  <div class="container_24">
+    <!--@*bottom*@-->
+    <div class="footer container_24">
+      <div class="footerBg">
+        <p>Copyright@2012泸州市专业技术人员继续教育中心 All Right Reserved .</p>
+      </div>
+      <div class="footerBottom">
+        <div class="bottomLeft pull-left">
+          <h4 class="one">联系地址：四川泸州黄孝河路69号</h4>
+          <h4 class="two">联系电话：0830 - 3603227 0830 - 2645809</h4>
+          <p>川公网安备 51050202000223号</p>
+          <p>技术支持：杭州精英在线教育有限公司 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：(0571)28990788</p>
+        </div>
+        <p class="pull-left">友情链接</p>
+        <ul class="bottomTight pull-left">
+          <li>
+            <a>
+              <span class="link">泸州人事人才网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">大蜀人才网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">泸州市人事考试</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">四川人才网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">中国人事人才网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">中国国家人事人才培训网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">泸州人才网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">中国人才网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="link">泸州市政府网</span>
+              <span class="array"> > </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html  ng-app="luZhouApp">
+  <head>
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <title ng-bind="pageTitle">干部教育网络学院 </title>
+    <meta name="keywords" content="干部教育网络学院,干部教育网络,干部教育">
+    <meta name="description" content="干部教育网络学院">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+    <link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading/angular-loading.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!--[if lte IE 8]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.6/html5shiv.min.js"></script>
+    <script src="https://cdn.staticfile.org/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdn.staticfile.org/console-polyfill/0.2.3/index.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdn.staticfile.org/es5-shim/4.5.9/es5-sham.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div ui-view></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <!--<script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>-->
+
+    <!--UMEditor-->
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="plugins/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="plugins/ueditor/ueditor.all.min.js"></script>
+    <!-- 语言包文件 -->
+    <script type="text/javascript" src="plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--视频播放-->
+    <script src="plugins/jwplayer/jwplayer.js"></script>
+    <!--echarts-->
+    <script src="plugins/echarts.min.js"></script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular-loading/angular-loading.js"></script>
+    <script src="bower_components/angular-ueditor/dist/angular-ueditor.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="plugins/FlexPaper/js/flexpaper.js"></script>
+    <script src="plugins/FlexPaper/js/flexpaper_handlers.js"></script>
+    <script src="plugins/jquery.easyui.min.js"></script>
+    <script src="plugins/jsencrypt.min.js"></script>
+    <script src="plugins/bootstrap-datetimepicker.min.js"></script>
+    <script src="plugins/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="plugins/upload.js"></script>
+    <script src="plugins/base64.js"></script>
+    <script src="plugins/jquery.bxslider.min.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/globalConfig.js"></script>
+        <script src="scripts/app.js"></script>
+
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/coursecenter.js"></script>
+        <script src="scripts/controllers/personalcenter.js"></script>
+        <script src="scripts/controllers/testcenter.js"></script>
+        <script src="scripts/filters/filters.js"></script>
+        <script src="scripts/services/commonservice.js"></script>
+        <script src="scripts/directives/tmpagation.js"></script>
+        <script src="scripts/directives/tmheader.js"></script>
+        <script src="scripts/directives/tmfooter.js"></script>
+        <script src="scripts/directives/tmnoticeannouncement.js"></script>
+        <script src="scripts/directives/tmspecialtraining.js"></script>
+        <script src="scripts/directives/tmuserlogin.js"></script>
+        <script src="scripts/directives/tmcoursecenter.js"></script>
+        <script src="scripts/directives/tmgovernmentranking.js"></script>
+        <script src="scripts/directives/tmrealtimedata.js"></script>
+        <script src="scripts/directives/tmnavbars.js"></script>
+        <script src="scripts/directives/tmimportantnotice.js"></script>
+        <script src="scripts/directives/tmnewsinformation.js"></script>
+        <script src="scripts/directives/tmguideentry.js"></script>
+        <!--<script src="scripts/directives/tmcivilservicetraininglink.js"></script>-->
+        <!--<script src="scripts/directives/tmtechniciantraininglink.js"></script>-->
+        <!--<script src="scripts/directives/tmfriendlylink.js"></script>-->
+        <script src="scripts/directives/repeatfinish.js"></script>
+        <script src="scripts/directives/errsrc.js"></script>
+        <script src="scripts/directives/tmcourseclassify.js"></script>
+        <script src="scripts/directives/tmcoursesupermarket.js"></script>
+        <script src="scripts/directives/tmcourserankinglist.js"></script>
+        <script src="scripts/directives/tmlocation.js"></script>
+        <!--<script src="scripts/directives/tmnewswithoutphoto.js"></script>-->
+        <!--<script src="scripts/directives/tmnewsphoto.js"></script>-->
+        <!--<script src="scripts/controllers/cstrainingnews.js"></script>-->
+        <!--<script src="scripts/controllers/patptrainingnews.js"></script>-->
+        <script src="scripts/controllers/searchresult.js"></script>
+        <script src="scripts/directives/tmsearchresult.js"></script>
+        <script src="scripts/directives/tmuserinformation.js"></script>
+        <script src="scripts/directives/tmpersonalcenternav.js"></script>
+        <script src="scripts/directives/tmstudentshourranking.js"></script>
+        <script src="scripts/directives/tmmycenter.js"></script>
+        <!--<script src="scripts/controllers/newsinfo.js"></script>-->
+        <!--<script src="scripts/directives/tmpolicyandnotify.js"></script>-->
+        <!--<script src="scripts/directives/tmnewswithphoto.js"></script>-->
+        <script src="scripts/directives/tmshowarticledetail.js"></script>
+        <script src="scripts/controllers/articledetail.js"></script>
+        <script src="scripts/directives/tmexamlist.js"></script>
+        <script src="scripts/directives/tmtrainingcenter.js"></script>
+        <script src="scripts/directives/tmclassmy.js"></script>
+        <script src="scripts/directives/tmcoursedetails.js"></script>
+        <script src="scripts/controllers/coursedetails.js"></script>
+        <script src="scripts/directives/tmstudystat.js"></script>
+        <script src="scripts/controllers/studystat.js"></script>
+        <script src="scripts/controllers/teststat.js"></script>
+        <script src="scripts/directives/tmteststat.js"></script>
+        <script src="scripts/controllers/myfavorite.js"></script>
+        <script src="scripts/directives/tmmyfavorite.js"></script>
+        <script src="scripts/controllers/noticedetail.js"></script>
+        <script src="scripts/controllers/studyplan.js"></script>
+        <script src="scripts/directives/tmstudyplan.js"></script>
+        <script src="scripts/controllers/unreadnotice.js"></script>
+        <script src="scripts/directives/tmunreadnotice.js"></script>
+        <script src="scripts/controllers/modifypassword.js"></script>
+        <script src="scripts/directives/tmmodifypassword.js"></script>
+        <script src="scripts/directives/tmsecuritysetting.js"></script>
+        <script src="scripts/controllers/securitysetting.js"></script>
+        <script src="scripts/controllers/changeuserinfo.js"></script>
+        <script src="scripts/directives/tmchangeuserinfo.js"></script>
+        <script src="scripts/controllers/classdetail.js"></script>
+        <script src="scripts/directives/tmpersonallearninginfo.js"></script>
+        <script src="scripts/directives/tmclassnavigation.js"></script>
+        <script src="scripts/controllers/classplan.js"></script>
+        <script src="scripts/directives/tmclassplan.js"></script>
+        <script src="scripts/controllers/classstudent.js"></script>
+        <script src="scripts/directives/tmclassstudent.js"></script>
+        <script src="scripts/directives/tmclasspaperlist.js"></script>
+        <script src="scripts/controllers/classpaperlist.js"></script>
+        <script src="scripts/controllers/photoalbumlist.js"></script>
+        <script src="scripts/directives/tmphotoalbumlist.js"></script>
+        <script src="scripts/directives/tmclasstopiclist.js"></script>
+        <script src="scripts/controllers/classtopiclist.js"></script>
+        <script src="scripts/controllers/classcourse.js"></script>
+        <script src="scripts/directives/tmclasscourse.js"></script>
+        <script src="scripts/directives/tmclassnotice.js"></script>
+        <script src="scripts/controllers/classnotice.js"></script>
+        <script src="scripts/controllers/classexam.js"></script>
+        <script src="scripts/directives/tmclassexam.js"></script>
+        <script src="scripts/controllers/classarticledetail.js"></script>
+        <script src="scripts/directives/datetimepicker.js"></script>
+        <script src="scripts/controllers/messagelist.js"></script>
+        <script src="scripts/directives/tmmessagelist.js"></script>
+        <script src="scripts/controllers/messagedetail.js"></script>
+        <script src="scripts/directives/tmmessagedetail.js"></script>
+        <script src="scripts/controllers/exam.js"></script>
+        <script src="scripts/directives/tmexam.js"></script>
+        <script src="scripts/controllers/personalearningarchives.js"></script>
+        <script src="scripts/directives/tmpersonalarchives.js"></script>
+        <script src="scripts/controllers/examdetaillist.js"></script>
+        <script src="scripts/directives/tmexamdetail.js"></script>
+        <script src="scripts/controllers/examreview.js"></script>
+        <script src="scripts/directives/tmexamreview.js"></script>
+        <script src="scripts/controllers/play.js"></script>
+        <script src="scripts/controllers/classpaperadd.js"></script>
+        <script src="scripts/controllers/classtopicadd.js"></script>
+        <script src="scripts/directives/tmpublish.js"></script>
+        <script src="scripts/directives/tmumeditor.js"></script>
+        <script src="scripts/controllers/photoalbumadd.js"></script>
+        <script src="scripts/directives/tmphotoalbumadd.js"></script>
+        <script src="scripts/controllers/forgetpassword.js"></script>
+        <script src="scripts/directives/tmforgetpassword.js"></script>
+        <script src="scripts/directives/tmtip.js"></script>
+        <script src="scripts/controllers/photopreview.js"></script>
+        <script src="scripts/directives/tmphotopreview.js"></script>
+        <script src="scripts/directives/tmkindeditor.js"></script>
+        <script src="scripts/directives/tmtrainingcourseclassify.js"></script>
+        <script src="scripts/directives/tmplay.js"></script>
+        <script src="scripts/directives/tmdrag.js"></script>
+        <script src="scripts/directives/tmstarbox.js"></script>
+        <script src="scripts/directives/tmplaymp4.js"></script>
+        <script src="scripts/directives/myplaceholder.js"></script>
+        <script src="scripts/services/pubsubservice.js"></script>
+        <script src="scripts/controllers/userrankinglist.js"></script>
+        <script src="scripts/directives/tmuserrankinglist.js"></script>
+        <script src="scripts/directives/tmplayjy.js"></script>
+        <script src="scripts/directives/tmplayscorm.js"></script>
+        <script src="scripts/services/antiforgerytoken.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/directives/tmlogin.js"></script>
+        <script src="scripts/controllers/rankgroup.js"></script>
+        <script src="scripts/directives/tmrankingdetail.js"></script>
+        <script src="scripts/controllers/rankcourseclick.js"></script>
+        <script src="scripts/directives/tmrankcourseclick.js"></script>
+        <script src="scripts/controllers/rankcoursefinish.js"></script>
+        <script src="scripts/directives/tmrankcoursefinish.js"></script>
+        <script src="scripts/controllers/rankloginsum.js"></script>
+        <script src="scripts/directives/tmrankloginsum.js"></script>
+        <script src="scripts/controllers/software.js"></script>
+        <script src="scripts/directives/tmsoftware.js"></script>
+        <script src="scripts/controllers/originalarticle.js"></script>
+        <script src="scripts/directives/tmoriginalarticle.js"></script>
+        <script src="scripts/controllers/classlist.js"></script>
+        <script src="scripts/directives/tmclasslist.js"></script>
+        <script src="scripts/controllers/polllist.js"></script>
+        <script src="scripts/directives/tmpolllist.js"></script>
+        <script src="scripts/controllers/poll.js"></script>
+        <script src="scripts/directives/tmpoll.js"></script>
+        <script src="scripts/controllers/pollreview.js"></script>
+        <script src="scripts/directives/tmpollreview.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/directives/tmregister.js"></script>
+        <script src="scripts/directives/mytree.js"></script>
+        <script src="scripts/controllers/originalarticlelist.js"></script>
+        <script src="scripts/directives/tmoriginalarticlelist.js"></script>
+        <script src="scripts/controllers/library.js"></script>
+        <script src="scripts/directives/tmbookcategory.js"></script>
+        <script src="scripts/directives/tmlibrary.js"></script>
+        <script src="scripts/controllers/article.js"></script>
+        <script src="scripts/directives/tmarticlecategory.js"></script>
+        <script src="scripts/directives/tmarticlehot.js"></script>
+        <script src="scripts/directives/tmarticlelist.js"></script>
+        <script src="scripts/controllers/bookdetail.js"></script>
+        <script src="scripts/directives/tmbookdetail.js"></script>
+        <script src="scripts/directives/verificationcode.js"></script>
+        <script src="scripts/controllers/collegeinfo.js"></script>
+        <script src="scripts/directives/tmcollegeinfo.js"></script>
+        <script src="scripts/controllers/studentstyle.js"></script>
+        <script src="scripts/directives/tmstudentstyle.js"></script>
+        <script src="scripts/controllers/studentstyledetail.js"></script>
+        <script src="scripts/directives/tmstudentstyledetail.js"></script>
+        <script src="scripts/controllers/resultshow.js"></script>
+        <script src="scripts/directives/tmresultshow.js"></script>
+        <script src="scripts/controllers/bookchapter.js"></script>
+        <script src="scripts/directives/tmbookchapter.js"></script>
+        <script src="scripts/controllers/bookchaptercontent.js"></script>
+        <script src="scripts/directives/tmbookchaptercontent.js"></script>
+        <script src="scripts/directives/tmplaysingle.js"></script>
+        <script src="scripts/directives/tmclassgarden.js"></script>
+        <script src="scripts/directives/tmrankingtab.js"></script>
+        <script src="scripts/directives/tmbookguide.js"></script>
+        <script src="scripts/directives/tmrankingguide.js"></script>
+        <script src="scripts/controllers/speciallearning.js"></script>
+        <script src="scripts/directives/tmspeciallearning.js"></script>
+        <script src="scripts/controllers/coursecenterbuy.js"></script>
+        <script src="scripts/directives/tmcoursesupermarketbuy.js"></script>
+        <script src="scripts/directives/tmuserinformationbuy.js"></script>
+        <script src="scripts/controllers/shoppingcart.js"></script>
+        <script src="scripts/controllers/orderdetaillist.js"></script>
+        <script src="scripts/controllers/payconfirm.js"></script>
+        <script src="scripts/controllers/orderconfirm.js"></script>
+        <script src="scripts/controllers/orderlist.js"></script>
+        <script src="scripts/controllers/invoicelist.js"></script>
+        <script src="scripts/controllers/applyinvoice.js"></script>
+        <script src="scripts/directives/tmorderconfirm.js"></script>
+        <script src="scripts/directives/tmapplyinvoice.js"></script>
+        <script src="scripts/directives/tminvoicelist.js"></script>
+        <script src="scripts/directives/tmorderdetaillist.js"></script>
+        <script src="scripts/directives/tmorderlist.js"></script>
+        <script src="scripts/directives/tmpayconfirm.js"></script>
+        <script src="scripts/directives/tmshoppingcart.js"></script>
+        <script src="scripts/controllers/tryplay.js"></script>
+        <script src="scripts/directives/tmtryplay.js"></script>
+        <script src="scripts/controllers/speciallearningone.js"></script>
+        <script src="scripts/directives/tmspecialbanner.js"></script>
+        <script src="scripts/directives/tmspecialnewslide.js"></script>
+        <script src="scripts/directives/tmspecialnews.js"></script>
+        <script src="scripts/directives/tmspeciallearningcourse.js"></script>
+        <script src="scripts/directives/tmspecialimg.js"></script>
+        <script src="scripts/controllers/trainingclass.js"></script>
+        <script src="scripts/controllers/noticelist.js"></script>
+        <script src="scripts/directives/tmnoticelist.js"></script>
+        <script src="scripts/directives/tmchart.js"></script>
+        <script src="scripts/directives/tmrelatedcourse.js"></script>
+        <script src="scripts/directives/expander.js"></script>
+        <script src="scripts/controllers/error.js"></script>
+        <script src="scripts/directives/tmplaypdf.js"></script>
+        <script src="scripts/directives/commonheader.js"></script>
+        <script src="scripts/directives/tmclassdetail.js"></script>
+        <script src="scripts/directives/tmclassifysearch.js"></script>
+        <!-- endbuild -->
+  </body>
+</html>

@@ -1,0 +1,115 @@
+
+<div class="payConfirm">
+  <div common-header title-header="'支付确认'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <div class="cartList" dw-loading="payConfirm">
+      <ul>
+        <div class="title clearfix">
+          <span class="list1">商品名称</span>
+          <span class="list2">类型</span>
+          <span class="list2">数量</span>
+          <span class="list2">单价</span>
+          <span class="list2">总价</span>
+        </div>
+        <li class="content clearfix" ng-repeat="list in orderDetailListData.ListData">
+          <span class="list1"><a ui-sref="courseDetails({Id:list.Id})" target="_blank"  title="{{list.ProductName}}">{{list.ProductName}}</a></span>
+          <span class="list2">{{list.ProductType=='Course'?'课程':'图书'}}</span>
+          <span class="list2">{{list.Count}}</span>
+          <span class="list2">￥{{list.Price.toFixed(2)}}</span>
+          <span class="list2">￥{{list.TotalPrice.toFixed(2)}}</span>
+        </li>
+      </ul>
+      <div class="bottom clearfix">
+        <p class="bottomInfo">
+          总价: ￥{{orderDetailListData.TotalPrice.toFixed(2)}}
+        </p>
+        <ul>
+          <li>
+            <input id="ctl09_rblPayType_0" ng-model="payType" type="radio" name="payType" value="Alipay">
+            <label for="ctl09_rblPayType_0"><img src="images/alipay.png" alt="支付宝"></label>
+          </li>
+          <li>
+            <input id="ctl09_rblPayType_1" ng-model="payType" type="radio" name="payType" value="Wechatpay">
+            <label for="ctl09_rblPayType_1"><img src="../images/weixinpay.png" alt="支付宝"></label>
+          </li>
+        </ul>
+        <a ng-click="goPayConfirm(payType)" class="btn btn-primary">确认支付</a>
+      </div>
+      <div class="payContent justify" ng-bind-html="payContent | trustHtml"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .payConfirm {
+    text-align: center;
+  }
+  .payConfirm .cartList .title {
+    font-weight: bold;
+    background: #EDF3FC;
+    color: #666;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0 0 0;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+  }
+  .payConfirm .cartList span{
+    float: left;
+  }
+  .payConfirm .cartList .list1{
+    width: 40%;
+  }
+  .payConfirm .cartList .list2{
+    width: 15%;
+  }
+  .payConfirm .cartList .content {
+    border-bottom: 1px dotted #80b2ff;
+    border-top: 1px dotted #80b2ff;
+    height: 48px;
+    line-height: 48px;
+    margin: 10px 0;
+    background-color: #f2f7ff;
+  }
+  .payConfirm .cartList .content .list1{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .payConfirm .bottom{
+    text-align: left;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f2f7ff;
+  }
+  .payConfirm .bottomInfo {
+    margin: 15px 0 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .payConfirm .bottom li{
+    height:25px;
+    line-height: 25px;
+  }
+  .payConfirm .bottom li label{
+    color: #545454;
+    font-weight: normal;
+  }
+  .payConfirm .bottom li label img{
+    width: 75px;
+  }
+  .payConfirm .bottom>span{
+    margin: 20px 0 40px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .payConfirm .bottom .btn {
+    float: right;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 7px 28px;
+    margin-top: 20px;
+  }
+</style>
+
+

@@ -1,0 +1,120 @@
+/**
+ * header
+ */
+@import "../styles/mixins";
+.tmHeader{
+  .header {
+    width: 100%;
+    background-color: @footer-background;
+    .headerContent {
+      background-color: @footer-background;
+      .ht-lineHt(40px);
+      color: @text-color-3;
+      a {
+        color: @text-color-3;
+        &:hover {
+          color: @text-color-2;
+        }
+      }
+      .phone {
+        color: @primary-color;
+        .glyphicon{
+          margin: 0 12px;
+        }
+      }
+    }
+  }
+  .headerSearch {
+    padding-bottom: 5px;
+    ul{
+      li{
+        .logoImg {
+          .wh(55px,100px);
+          .pull-left();
+          background: @logo no-repeat center;
+        }
+        .logoText {
+          h3 {
+            font-size: 35px;
+            font-weight: 600;
+            margin-top: 25px;
+            color: #444548;
+            .text-center();
+          }
+          p {
+            font-size: @font-size-lg;
+            line-height: 30px;
+            .text-center();
+          }
+        }
+      }
+      .searchInput {
+        height: 100px;
+        vertical-align: middle;
+        padding-left: 24px;
+        .input-group {
+          margin-top: 30px;
+          .form-control {
+            .ht-lineHt(44px);
+            width: 335px;
+            padding: 0 10px 0 40px;
+          }
+          .input-group-btn {
+            height: 44px;
+            line-height: 44px;
+            .ht-lineHt(44px);
+            display: block;
+            .btn {
+              padding: 11px 16px;
+              background-color: #444548;
+              color: @white;
+            }
+          }
+          .searchBg{
+            position: absolute;
+            left: 9px;
+            top: 7px;
+            color: #c7c7c7;
+            z-index: 5;
+          }
+        }
+      }
+      .flag {
+        .pull-left();
+        margin: 30px 0 0 15px;
+        .wh(82px,60px);
+        background: @flag no-repeat left;
+      }
+      .Img {
+        .text-center();
+        padding: 0 19px;
+        margin-top: 5px;
+        position: relative;
+        span{
+          font-size: @font-size-sm;
+        }
+        .smWeixinImg,.smAppImg{
+          .square(80px);
+        }
+      }
+      .appImg:hover .bigAppImg, .weiXinImg:hover .bigWeiXinImg{
+        visibility: visible;
+        opacity: 1;
+        .transition(all,0.5s);
+      }
+      .bigAppImg ,.bigWeiXinImg{
+        position: absolute;
+        left: 10px;
+        top: 0;
+        z-index: 99999;
+        .square(120px);
+        visibility: hidden;
+        opacity: 0;
+        .transition(all,0.5s);
+      }
+    }
+  }
+}
+
+
+

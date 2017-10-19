@@ -1,0 +1,719 @@
+/*主题二*/
+/*公共样式*/
+@import "mixins";
+@primary-color: @blue-3;
+/*首页banner背景*/
+@big-banner:'/images/banner2.png';
+@big-banner-text:'/images/bannerText2.png';
+@import "normalize";
+@import "base";
+@import "960_24_col.css";
+@import "drag";
+@import "tree";
+@import "bootstrap-datetimepicker";
+@import "jquery.bxslider.css";
+// 左浮动
+.pull-left {
+  .pull-left();
+}
+
+// 右浮动
+.pull-right {
+  .pull-right();
+}
+
+// 清除浮动
+.clearFix {
+  .clearFix();
+}
+
+/*超出显示...*/
+.ellipsis {
+  .ellipsis();
+}
+
+/*input focus*/
+.form-control, input {
+  .transition();
+  &:focus {
+    .input-focus();
+  }
+  &:hover {
+    .input-hover();
+  }
+}
+
+//
+// Buttons
+// --------------------------------------------------
+.btn {
+  color: @white;
+  &[disabled] {
+    color: @white;
+  }
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+  outline: none;
+}
+
+.button-variant(@color, @background,@border,@color2,@background2,@border2) {
+  background-color: @background;
+  color: @color;
+  border: 1px solid @border;
+  .transition();
+  &:hover {
+    background-color: @background2;
+    color: @color2;
+    border: 1px solid @border2;
+  }
+  &:focus {
+    background-color: @background2;
+    color: @color2;
+    border: 1px solid @border2;
+  }
+  &:active {
+    background-color: @background2;
+    color: @color2;
+    border: 1px solid @border2;
+  }
+  &:active:focus {
+    background-color: @background2;
+    color: @color2;
+    border: 1px solid @border2;
+  }
+}
+
+.disabled-btn(@dis-color,@dis-bg,@dis-border) {
+  color: @dis-color;
+  background-color: @dis-bg;
+  border: 1px solid @dis-border;
+}
+
+.btn-default {
+  .button-variant(@text-color, @component-background, @border-color-base, @primary-color, @component-background, @primary-color);
+  &:active {
+    &:focus {
+      background-color: @component-background;
+      color: @primary-color;
+      border: 1px solid @primary-color;
+    }
+  }
+  &[disabled] {
+    .disabled-btn(@disabled-color-dark, @disabled-bg, @border-color-base);
+  }
+}
+
+.btn-primary {
+  .button-variant(@white, @primary-color, @primary-4, @white, @primary-4, @primary-4);
+  &:active {
+    &:focus {
+      background-color: @primary-4;
+      color: @white;
+      border: 1px solid @primary-4;
+    }
+  }
+  &[disabled] {
+    .disabled-btn(@white, tint(@primary-color, 30%), @primary-color);
+  }
+}
+
+.btn-success {
+  .button-variant(@white, @success-color, tint(@success-color, 20%), @white, tint(@success-color, 20%), tint(@success-color, 20%));
+  &:active {
+    &:focus {
+      background-color: tint(@success-color, 20%);
+      color: @white;
+      border: 1px solid tint(@success-color, 20%);
+    }
+  }
+  &[disabled] {
+    .disabled-btn(@white, tint(@success-color, 30%), @success-color);
+  }
+}
+
+.btn-info {
+  .button-variant(@white, @info-color, tint(@info-color, 20%), @white, tint(@info-color, 20%), tint(@info-color, 20%));
+  &:active {
+    &:focus {
+      background-color: tint(@info-color, 20%);
+      color: @white;
+      border: 1px solid tint(@info-color, 20%);
+    }
+  }
+  &[disabled] {
+    .disabled-btn(@white, tint(@info-color, 30%), @info-color);
+  }
+}
+
+.btn-warning {
+  .button-variant(@white, @warning-color, tint(@warning-color, 20%), @white, tint(@warning-color, 20%), tint(@warning-color, 20%));
+  &:active {
+    &:focus {
+      background-color: tint(@warning-color, 20%);
+      color: @white;
+      border: 1px solid tint(@warning-color, 20%);
+    }
+  }
+  &[disabled] {
+    .disabled-btn(@white, tint(@warning-color, 30%), @warning-color);
+  }
+}
+
+.btn-danger {
+  .button-variant(@white, @error-color, tint(@error-color, 20%), @white, tint(@error-color, 20%), tint(@error-color, 20%));
+  &:active {
+    &:focus {
+      background-color: tint(@error-color, 20%);
+      color: @white;
+      border: 1px solid tint(@error-color, 20%);
+    }
+  }
+  &[disabled] {
+    .disabled-btn(@white, tint(@error-color, 30%), @error-color);
+  }
+}
+
+.highlight {
+  color: @highlight-color;
+}
+
+/*两端对齐*/
+.justify {
+  .justify();
+}
+
+/*圆点*/
+.dian {
+  .dian();
+}
+
+/*标题*/
+.commonTitle {
+  .ht-lineHt(50px);
+  font-size: @font-size-lg;
+  font-weight: bold;
+  .text-center();
+}
+
+/*文章分类，个人中心导航*/
+.categoryGuide {
+  padding: 20px 20px 0 20px;
+  .clearFix();
+  li {
+    width: 50%;
+    .pull-left();
+    .text-center();
+    margin-bottom: 20px;
+    a.btn {
+      .wh(100px, 38px);
+      line-height: 38px;
+      padding: 0;
+    }
+  }
+}
+
+/*路径导航通用样式*/
+.breadcrumb {
+  .fa-cog {
+    color: @text-color-3;
+  }
+}
+
+//搜索框
+.formSearch {
+  padding-left: 40px;
+  padding-bottom: 20px;
+  .form-control {
+    height: 28px;
+    padding: 0 12px;
+  }
+  .form-group {
+    width: 70%;
+    input.form-control {
+      width: 100%;
+    }
+  }
+  select.form-control {
+    padding: 0;
+  }
+  .btn {
+    padding: 3px 23px;
+  }
+}
+
+//日期选择
+.datePicker {
+  display: inline-block;
+  position: relative;
+  input {
+    padding-right: 25px;
+  }
+  .glyphicon-calendar {
+    position: absolute;
+    .square(14px);
+    right: 8px;
+    top: 50%;
+    margin-top: -7px;
+    line-height: 14px;
+    font-size: @font-size-sm;
+  }
+}
+
+/*模板通用边框*/
+.tmBorder {
+  .border-base();
+}
+
+.borderTopBold {
+  border-top: 6px solid @primary-color;
+}
+
+/*星星*/
+.star {
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  .wh(121px, 18px);
+  background: url(../images/star_all.png) 0 0 no-repeat;
+  vertical-align: middle;
+}
+
+/*验证码*/
+.verificationCode {
+  .wh(110px, 30px);
+  margin-left: 10px;
+}
+
+/*进度条*/
+.progress {
+  height: 18px;
+  margin-top: 9px;
+  margin-bottom: 0;
+  background-color: darken(@gray-ccc, 2%);
+  .progress-bar {
+    background-color: @primary-color;
+    &.progress-bar-success {
+      background-color: @success-color;
+    }
+    &.progress-bar-info {
+      background-color: @info-color;
+    }
+    &.progress-bar-warning {
+      background-color: @warning-color;
+    }
+    &.progress-bar-danger {
+      background-color: @error-color;
+    }
+  }
+}
+
+/*购物车头部*/
+.shoppingTitle {
+  .text-left();
+  margin-top: 20px;
+  font-size: 20px;
+  .verticalLine {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    left: 0px;
+    margin-left: 10px;
+    .wh(30px, 20px);
+    border-left: 2px @border-style-base @orange-3;
+  }
+}
+
+/*table*/
+.table {
+  td, th {
+    .text-center();
+  }
+  & > tbody {
+    & > tr {
+      .transition(background-color);
+      &:hover {
+        background-color: @item-hover-bg;
+      }
+    }
+    & > tr {
+      & > th {
+        background-color: @item-header-bg;
+      }
+    }
+  }
+}
+
+/*文章、通知列表*/
+.articleList {
+  .titleName {
+    width: 60%;
+  }
+  .titleDate {
+    width: 40%;
+  }
+  td {
+    &.name {
+      .text-left();
+    }
+    .arrow{
+      margin: 0 10px;
+      .wh(11px,20px);
+      display: inline-block;
+      vertical-align: middle;
+      background: @common-arrow-right no-repeat center;
+    }
+    img {
+      padding: 0 10px;
+    }
+    a {
+      display: inline-block;
+      width: 80%;
+      vertical-align: middle;
+      .ellipsis();
+    }
+  }
+}
+
+/*标签页*/
+.myTab {
+  .text-center();
+  ul.nav-tabs {
+    background-color: @tab-header-bg;
+    & > li {
+      & > a {
+        padding: 12px 20px;
+        font-size: @font-size-lg;
+        margin-right: 0;
+        &:hover {
+          border: 1px solid transparent;
+          background-color: @tab-header-bg;
+        }
+      }
+      &.active > a {
+        color: @primary-color;
+        background-color: @component-background;
+        .border-base();
+        border-top: 3px solid @primary-color;
+        border-bottom-color: transparent;
+        .transition(color);
+      }
+    }
+  }
+  .perlist {
+    .title_bar {
+      width: 100%;
+      font-weight: bold;
+      background: @item-header-bg;
+      color: @text-color;
+      zoom: 1;
+      border-bottom: 1px dashed @border-color-split;
+      .clearFix()
+    }
+    span a.fav {
+      margin-left: 10px;
+    }
+    .list {
+      width: 100%;
+      border-bottom: 1px dashed @border-color-split;
+      zoom: 1;
+      .clearFix();
+      .transition();
+      &:hover {
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+        background-color: @item-hover-bg;
+      }
+    }
+  }
+}
+
+.list-item(@width) {
+  width: @width;
+  float: left;
+  line-height: 37px;
+  padding-left: 10px;
+  padding-right: 10px;
+  .ellipsis();
+}
+
+.list {
+  width: 100%;
+  .clearFix();
+}
+
+.list0-75 {
+  .list-item(7.5%);
+}
+
+.list1 {
+  .list-item(10%);
+}
+
+.list1-5 {
+  .list-item(15%);
+}
+
+.list2 {
+  .list-item(20%);
+}
+
+.list2-5 {
+  .list-item(25%);
+}
+
+.list3 {
+  .list-item(30%);
+}
+
+.list3-5 {
+  .list-item(35%);
+}
+
+.list4 {
+  .list-item(40%);
+}
+
+.list4-5 {
+  .list-item(45%);
+}
+
+.list5 {
+  .list-item(50%);
+}
+
+.list5-5 {
+  .list-item(55%);
+}
+
+.list6 {
+  .list-item(60%);
+}
+
+.list6-5 {
+  .list-item(65%);
+}
+
+.list7 {
+  .list-item(70%);
+}
+
+.list7-5 {
+  .list-item(75%);
+}
+
+.list8 {
+  .list-item(80%);
+}
+
+.list8-5 {
+  .list-item(85%);
+}
+
+.list9 {
+  .list-item(90%);
+}
+
+.list9-5 {
+  .list-item(95%);
+}
+
+.list10 {
+  .list-item(100%);
+}
+
+/*排行标签页*/
+.rankTab {
+  text-align: center;
+  ul.nav-tabs {
+    background-color: @component-background;
+    border-bottom: none;
+    height: 45px;
+    & > li {
+      width: 33.33%;
+      .text-center();
+      & > a {
+        display: inline-block;
+        color: @text-color;
+        .ht-lineHt(45px);
+        padding: 0;
+        margin: 0 30px;
+        font-size: @font-size-lg;
+        width: 33.33%;
+        border-bottom: 3px solid transparent;
+        &:hover {
+          border: 1px solid transparent;
+          background-color: @tab-header-bg;
+        }
+      }
+      &.active {
+        & > a {
+          color: @primary-color;
+          border: 1px solid transparent;
+          border-bottom: 3px solid @primary-color;
+          .text-center();
+          background-color: @component-background;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+/*偶数行背景*/
+.rankListBg {
+  background-color: darken(@white, 3);
+}
+
+/*placeholder*/
+.placeholder {
+  position: absolute;
+  color: @text-color*3;
+  cursor: text;
+  z-index: 1;
+}
+
+/*暂无数据*/
+.result {
+  color: @text-color;
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  line-height: 250px;
+}
+
+/*排行前三背景*/
+.rankFirstBg {
+  background: @rank-first-bg center no-repeat;
+}
+
+.rankSecondBg {
+  background: @rank-second-bg center no-repeat;
+}
+
+.rankThirdBg {
+  background: @rank-third-bg center no-repeat;
+}
+
+/*margin*/
+.mar_top_5 {
+  margin-top: 5px;
+}
+
+.mar_top_10 {
+  margin-top: 10px;
+}
+
+.mar_top_12 {
+  margin-top: 12px;
+}
+
+.mar_top_15 {
+  margin-top: 15px;
+}
+
+.mar_top_20 {
+  margin-top: 20px;
+}
+
+.mar_top_34 {
+  margin-top: 34px;
+}
+
+.mar_top_40 {
+  margin-top: 40px;
+}
+
+.mar_left_14 {
+  margin-left: 14px;
+}
+
+.mar_left_10 {
+  margin-left: 10px;
+}
+
+.mar_left_15 {
+  margin-left: 15px;
+}
+
+.mar_left_20 {
+  margin-left: 20px;
+}
+
+.mar_left_24 {
+  margin-left: 24px;
+}
+
+.mar_left_30 {
+  margin-left: 30px;
+}
+
+.mar_left_45 {
+  margin-left: 45px;
+}
+
+.mar_right_10 {
+  margin-right: 10px;
+}
+
+.mar_right_12 {
+  margin-right: 12px;
+}
+
+.mar_right_20 {
+  margin-right: 20px;
+}
+
+.mar_bottom_20 {
+  margin-bottom: 20px;
+}
+
+/*paddingleft*/
+.pad_left_10 {
+  padding-left: 10px;
+}
+
+.pad_left_15 {
+  padding-left: 15px;
+}
+
+.pad_left_16 {
+  padding-left: 16px;
+}
+
+.pad_left_20 {
+  padding-left: 20px;
+}
+
+.pad_left_25 {
+  padding-left: 25px;
+}
+
+.pad_left_35 {
+  padding-left: 35px;
+}
+
+.pad_left_45 {
+  padding-left: 45px;
+}
+
+.pad_right_10 {
+  padding-right: 10px;
+}
+
+.pad_right_15 {
+  padding-right: 15px;
+}
+
+.pad_right_20 {
+  padding-right: 20px;
+}
+
+.pad_right_30 {
+  padding-right: 30px;
+}
+
+.pad_top_20 {
+  padding-top: 20px;
+}
+
+@import "components";

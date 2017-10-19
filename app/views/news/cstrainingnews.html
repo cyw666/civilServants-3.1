@@ -1,0 +1,38 @@
+<div tm-header></div>
+<div tm-nav-bars></div>
+
+<div class="container_24">
+  <div class="container_24 mar_top_15 pad_left_20">
+    <div class="grid_12">
+      <a class="newsCenterAnchor com-header-blue mar_left_10" ng-click="goThere('newsPhoto')">
+        图片新闻
+      </a>
+      <a class="newsCenterAnchor com-header-green mar_left_10" ng-click="goThere('policy')">
+        政策法规
+      </a>
+      <a class="newsCenterAnchor com-header-cyan mar_left_10" ng-click="goThere('notify')">
+        公告通知
+      </a>
+    </div>
+  </div>
+  <div class="container_24">
+    <div tm-news-photo class="clearfix"></div>
+    <div id="policy" class="clearfix" tm-policy-and-notify my-data="newsData.policies"
+         my-title="newsData.newsCenterTitle[0]"></div>
+    <div id="notify" class="clearfix" tm-policy-and-notify my-data="newsData.notifies"
+         my-title="newsData.newsCenterTitle[1]"></div>
+  </div>
+</div>
+<div tm-footer></div>
+
+<style>
+  a.newsCenterAnchor {
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,47 @@
+<!--添加相册-->
+<div class="tmPhotoAlbumAdd">
+  <div common-header title-header="location" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="trainingClass">培训班</a></li>
+      <li><a ui-sref="classDetail({Id:Id})">{{data.TrainingName}}</a></li>
+      <li class="active">{{location}}</li>
+    </ol>
+    <div class="photo-album-add mar_bottom_20">
+      <form>
+        <div class="photo-album-add-title">
+          <h4 class="text-center">添加相册</h4>
+        </div>
+        <div class="photo-album-add-body">
+          <div class="form-group clearfix">
+            <span class="grid_8 text-right">相册标题：</span>
+            <div>
+              <input class="form-control grid_6" type="text" ng-model="name">
+            </div>
+          </div>
+          <div class="form-group clearfix">
+            <span class="grid_8 text-right">相册说明：</span>
+            <div>
+              <textarea class="form-control grid_10" ng-model="description" id="txtContent" name="Content" cols="50" rows="5" type="text"></textarea>
+            </div>
+          </div>
+          <div class="form-group clearfix">
+            <span class="grid_8 text-right">相册封面：</span>
+            <div class="clearfix grid_4">
+              <input class="upLoadFile" type="file" name="ImageToUpload" id="ImageToUpload"
+                      multiple="multiple" onchange="fileSelected('ImageToUpload', 'ImageTraining', 1);">
+              <div id="ImageMessage" style="display:none;padding: 10px;height: 34px"></div>
+              <input type="hidden" id="hidValueImage" name="ImgUrl" ng-model="ImgUrl" />
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-album-add-submit text-center">
+          <input ng-click="getPhotoAlbumAdd(Id)" type="submit" class="btn btn-primary"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

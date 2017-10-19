@@ -1,0 +1,25 @@
+<!--图书章节-->
+<div class="bookChapter">
+  <div common-header title-header="'图书章节'" show-more=false link-url="''"></div>
+
+  <div class="tmBorder" dw-loading="bookChapter">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="library">图书馆</a></li>
+      <li><a ui-sref="bookdetail({Id:bookId})">红楼梦</a></li>
+      <li class="active">图书章节</li>
+    </ol>
+    <div class="bookTitle">
+      <h2 class="titleName">{{bookChapterData.BookName}}</h2>
+      <p>作者: &nbsp;<strong>{{bookChapterData.Author}}</strong> &nbsp;出版时间: &nbsp;{{bookChapterData.Time}}&nbsp;</p>
+    </div>
+    <div class="bookChapterContent">
+      <ul>
+        <li ng-repeat="list in bookChapterData.ListData"><a ui-sref="bookchaptercontent({Id:list.Id})">{{list.Name}}</a>
+        </li>
+      </ul>
+      <div tm-pagation conf="paginationConf"></div>
+    </div>
+  </div>
+</div>

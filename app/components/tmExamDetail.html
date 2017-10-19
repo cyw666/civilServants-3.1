@@ -1,0 +1,33 @@
+<!--考试记录-->
+<div class="examDetail">
+  <div common-header title-header="'考试记录'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="testCenter">考试中心</a></li>
+      <li class="active">考试记录</li>
+    </ol>
+    <div class="myTab" dw-loading="examDetail">
+      <div class="tab-content" dw-loading="myCenter">
+        <div class="tab-panel perlist">
+          <div class="title_bar clearfix">
+            <span class="list3">分数</span>
+            <span class="list3-5">考试时间</span>
+            <span class="list3-5">答题情况</span>
+          </div>
+          <div class="list" ng-repeat="examList in examDetailData.Model">
+            <span class="list3">{{examList.Score}}</span>
+            <span class="list3-5">{{examList.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</span>
+            <span class="list3-5" ng-if="examDetailData.ViewFlag">
+              <a target="_blank" ui-sref="examReview({examId:Id,recordId:examList.Id})">查看</a>
+            </span>
+            <span class="list3-5" ng-if="!examDetailData.ViewFlag">不允许被查看</span>
+          </div>
+          <div tm-pagation conf="paginationConf"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

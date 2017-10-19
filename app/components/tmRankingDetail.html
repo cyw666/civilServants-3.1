@@ -1,0 +1,34 @@
+<!--单位排行列表（more）-->
+<div class="rankingDetail" dw-loading="rankingDetail">
+  <div common-header title-header="govermentRanking.ViewBag.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">{{govermentRanking.ViewBag.TitleNav}}</li>
+    </ol>
+    <div class="myTab" dw-loading="userRankingList">
+      <div class="tab-content">
+        <div class="tab-panel perlist">
+          <div class="title_bar">
+            <span class="list2">排名</span>
+            <span class="list2">单位名称</span>
+            <span class="list2">平均学分</span>
+            <span class="list2">总学分</span>
+            <span class="list2">总人数</span>
+          </div>
+          <div class="list" ng-repeat="govermentRankingList in govermentRanking.ListData">
+            <span class="list2">{{(paginationConf.currentPage-1)*paginationConf.itemsPerPage+$index+1}}</span>
+            <span class="list2 ellipsis" title="{{govermentRankingList.DepartmentName}}">{{govermentRankingList.DepartmentName}}</span>
+            <span class="list2">{{govermentRankingList.Average}}</span>
+            <span class="list2">{{govermentRankingList.Credit}}</span>
+            <span class="list2">{{govermentRankingList.UserCount}}</span>
+          </div>
+        </div>
+      </div>
+      <div tm-pagation conf="paginationConf"></div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,21 @@
+<!--相关课程-->
+
+<div class="relatedCourse">
+  <div class="title">
+    <h3>相关课程</h3>
+  </div>
+  <ul class="clearfix">
+    <li ng-repeat="courseCenterData in relatedCourseData.ListData">
+      <a ui-sref="courseDetails({Id:courseCenterData.Id})" title="{{courseCenterData.Name}}" target="_blank">
+        <img ng-src="{{relatedCourseData.ImageCourse+'/'+courseCenterData.Img}}" err-Src="images/notCourse.png" alt="">
+      </a>
+      <div class="mar_top_10 desc">
+        <p><a ui-sref="courseDetails({Id:courseCenterData.Id})" title="{{courseCenterData.Name}}" target="_blank">{{courseCenterData.Name}}</a>
+        </p>
+        <p class="clearfix"><span class="pull-left">讲师：{{courseCenterData.Teacher}}</span><span
+          class="red pull-right">学分：{{courseCenterData.Credit.toFixed(1)}}分</span></p>
+        <p>时长：{{courseCenterData.Time}}小时</p>
+      </div>
+    </li>
+  </ul>
+</div>

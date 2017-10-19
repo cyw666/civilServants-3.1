@@ -1,0 +1,44 @@
+<!--班级列表-->
+<div class="classList">
+  <div common-header title-header="classListData.Nav" show-more=false link-url="''"></div>
+
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">{{classListData.Nav}}</li>
+    </ol>
+    <form class="form-inline formSearch">
+      <div class="form-group">
+        <input ng-model="searchTitle" type="text" class="form-control"
+               my-placeholder
+               placeholder="请输入要搜索的班级">
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="getClassList({'title':searchTitle})">搜索</button>
+    </form>
+    <div class="myTab" dw-loading="trainingCenter">
+        <div class="tab-content">
+          <div class="tab-panel perlist">
+            <div class="title_bar">
+              <span class="list4">培训班名称</span>
+              <span class="list1">班级分数</span>
+              <span class="list2-5">开班日期</span>
+              <span class="list1-5">状态</span>
+              <span class="list1">活跃度</span>
+            </div>
+            <div class="list" ng-repeat="classList in classListData.ListData">
+              <span class="list4 ellipsis" title="{{classList.Name}}"><a ng-click="checkUserClass(classList.Id)">{{classList.Name}}</a></span>
+              <span class="list1">{{classList.Score}}</span>
+              <span class="list2-5">{{classList.StartTime | dateFilter | date:'yyyy-MM-dd'}}~{{classList.EndTime | dateFilter | date:'yyyy-MM-dd'}}</span>
+
+              <span class="list1-5" ng-if="!classList.ApplyStatus"><a ng-click="addClass(classList.Id)">点击报名</a></span>
+              <span class="list1-5" ng-if="classList.ApplyStatus">{{JudgeStatus(classList.ApplyStatus)}}</span>
+
+              <span class="list1">{{classList.ArticleCount}}</span>
+            </div>
+          </div>
+        </div>
+        <div tm-pagation conf="paginationConf"></div>
+      </div>
+  </div>
+</div>

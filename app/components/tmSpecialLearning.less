@@ -1,0 +1,34 @@
+/**
+ * 专题学习more
+ */
+@import "../styles/mixins";
+
+.specialLearning {
+  .specialLearningList {
+    li{
+      width: 100%;
+      margin: 10px;
+      .specialImg {
+        .wh(334px,115px);
+      }
+      .right {
+        padding: 5px 10px;
+        width: 50%;
+        .title{
+          font-size: @font-size-lg;
+          font-weight: 600;
+        }
+        .desc {
+          color: @text-color-2;
+          margin-top: 5px;
+          height: 40px;
+        }
+        .userCount {
+          color: @orange-3;
+          margin-top: 10px;
+          .ht-lineHt(25px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+/**
+ * 课程超市列表
+ */
+@import "../styles/mixins";
+
+.courseSupermarket {
+  .formSearch {
+    input.searchType {
+      width: 85%;
+    }
+  }
+  .courseList {
+    position: relative;
+    border-top: 1px solid @border-color-base;
+    .sortCourse {
+      .recommendCourse {
+        margin: 3px 5px 3px 30px;
+      }
+      .tag {
+        .pull-left();
+        padding: 10px 15px 10px 0;
+        span {
+          padding-left: 10px;
+        }
+        a {
+          margin-left: 5px;
+        }
+      }
+      .title_bar {
+        .text-left();
+        margin-left: 155px;
+        span {
+          line-height: 37px;
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+    .NewCourseList {
+      .text-center();
+      font-size: 12px;
+      border-top: 1px solid @border-color-base;
+      ul {
+        li {
+          border-bottom: 1px solid @border-color-base;
+          padding-top: 10px;
+          .line span {
+            display: inline-block;
+          }
+          .block1 {
+            width: 30px;
+            margin-top: 25px;
+          }
+          .block2 {
+            height: 84px;
+            img {
+              .wh(110px, 74px);
+            }
+          }
+          .block3 {
+            .text-left();
+            width: 430px;
+            margin-left: 15px;
+            .CourseName a {
+              font-size: @font-size-base + 1;
+            }
+            .line3, .line2 {
+              line-height: 25px;
+              a {
+                font-size: @font-size-sm;
+              }
+            }
+          }
+          .block4 {
+            .onlineDate {
+              display: block;
+              margin-right: 10px;
+            }
+            .play {
+              .wh(97px, 27px);
+              border: none;
+              background-color: @primary-color;
+              color: @white;
+              margin-top: 14px;
+              display: block;
+              margin-right: 10px;
+              .text-center();
+              line-height: 27px;
+              .border-radius();
+              &:hover {
+                background-color: lighten(@primary-color, 3%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .checkCourse > a.btn {
+    margin: 10px 0 0 5px;
+    padding: 4px 10px;
+  }
+}
+
+

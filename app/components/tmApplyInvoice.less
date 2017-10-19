@@ -1,0 +1,78 @@
+/**
+ * 申请发票
+ */
+@import "../styles/mixins";
+.applyInvoice{
+  .description{
+    margin: 10px 10px 10px 40px;
+    .border-base();
+    padding: 10px 10px 10px 20px;
+    li{
+      .dian{
+        background-color: @orange-3;
+        position: relative;
+        left: -10px;
+      }
+    }
+  }
+  .cartList{
+    text-align: center;
+    .title {
+      font-weight: bold;
+      background: @item-header-bg;
+      color: @text-color;
+      .ht-lineHt(40px);
+      margin: 10px 0 0 0;
+      .border-base();
+      border-top: 0;
+      .clearFix();
+    }
+    .content {
+      border-bottom: 1px dotted #80b2ff;
+      border-top: 1px dotted #80b2ff;
+      .ht-lineHt(48px);
+      margin: 10px 0;
+      background-color: @gray-f3;
+      .clearFix();
+    }
+    span{
+      .pull-left();
+    }
+    .list1{
+      width: 10%;
+    }
+    .list2{
+      width: 20%;
+    }
+    .list3{
+      width: 30%;
+    }
+
+  }
+  .invoiceMessage{
+    padding: 10px 20px;
+    .form-group {
+      width: 48%;
+      .ht-lineHt(46px);
+      label{
+        width: 80px;
+      }
+      input[type="text"]{
+        width: 270px;
+      }
+      .radio>span{
+        display: inline-block;
+        width: 80px;
+        color: @text-color;
+        font-size: @font-size-base;
+        font-weight: bold;
+      }
+      .submit {
+        .text-center();
+        .btn{
+          width: 270px;
+        }
+      }
+    }
+  }
+}

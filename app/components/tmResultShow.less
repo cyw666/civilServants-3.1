@@ -1,0 +1,22 @@
+/**
+ * 成果展示
+ */
+@import "../styles/mixins";
+.resultShow{
+  .resultContent{
+    li{
+      .wh(202px,260px);
+      border: 1px solid @border-color-base;
+      margin: 20px 0 20px 70px;
+      text-align: center;
+      img{
+        display: inline-block;
+        .square(200px);
+      }
+      p{
+        padding: 10px;
+        .ellipsis();
+      }
+    }
+  }
+}

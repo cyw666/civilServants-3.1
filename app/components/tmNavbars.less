@@ -1,0 +1,42 @@
+/**
+ * 导航
+ */
+@import "../styles/mixins";
+.navBg {
+  text-align: center;
+  background: @primary-color;
+  .nav{
+    height: 42px;
+    margin:0 auto;
+    background: @primary-color;
+  }
+  .nav-tabs {
+    border-bottom: none;
+    &>li{
+      &>a{
+        color: @white;
+        padding: 0;
+        font-size: @font-size-lg;
+        font-weight: 500;
+        margin-right: 0;
+        border: none;
+        .wh(170px,42px);
+        line-height: 42px;
+        &:focus {
+          border-color: transparent;
+          background-color: transparent;
+        }
+        &:hover {
+          background-color: @primary-5;
+        }
+      }
+    }
+  }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: @white;
+    background-color: @primary-5;
+    border: none;
+  }
+}
+
+

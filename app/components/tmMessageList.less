@@ -1,0 +1,24 @@
+/**
+ * 留言板
+ */
+@import "../styles/mixins";
+.messageList{
+  .messageTitle{
+    .clearFix();
+    margin-bottom: 20px;
+    h4 {
+      .pull-left();
+      margin-left: 40%;
+      .ht-lineHt(34px);
+    }
+    .btn {
+      .pull-right();
+      margin-right: 10px;
+    }
+  }
+  .modal-body {
+    .addMessage {
+      text-align: center;
+    }
+  }
+}

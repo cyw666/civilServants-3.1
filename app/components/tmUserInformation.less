@@ -1,0 +1,53 @@
+/**
+ * 个人信息
+ */
+@import "../styles/mixins";
+
+.UserInformation {
+  .loginAfter_ul {
+    li {
+      line-height: 40px;
+      .wh(270px, 40px);
+      margin: 0 auto;
+      border-bottom: 1px solid @border-color-base;
+      .hours {
+        display: inline-block;
+        width: 110px;
+      }
+      .item2 {
+        .pull-right();
+        a {
+          color: @text-color-3;
+          &:hover {
+            color: @text-color-2;
+          }
+        }
+      }
+      &.lastChild {
+        border-bottom: 0;
+        font-size: @font-size-sm;
+        a {
+          color: @text-color-2;
+          &:hover {
+            color: @text-color;
+          }
+        }
+        .item2 {
+          a {
+            color: @primary-color;
+            &:hover {
+              color: @text-color;
+            }
+          }
+        }
+      }
+    }
+    .exit {
+      .text-center();
+      .btn {
+        border-radius: 6px;
+        padding: 2px 25px;
+      }
+    }
+  }
+}

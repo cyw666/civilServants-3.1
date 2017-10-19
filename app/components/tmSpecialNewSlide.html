@@ -1,0 +1,15 @@
+<!--专题学习新闻轮播-->
+<div class="specialNewSlideOuter" dw-loading="specialNewSlide">
+  <div class="specialNewSlide">
+    <div class="slideList" ng-repeat="list in slideData.ListData" repeat-finish="startSlide()">
+      <a ui-sref="articleDetail({ID:list.Id})" target="_blank">
+        <img ng-src="{{slideData.Path+'/'+list.Img}}"  title="{{list.Name}}" err-Src="images/notFound.jpeg">
+      </a>
+      <p class="titleName">
+        <a class="ellipsis" ui-sref="articleDetail({ID:list.Id})" title="{{list.Name}}" target="_blank">
+          {{list.Name}}
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

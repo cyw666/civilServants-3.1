@@ -1,0 +1,35 @@
+<!--图书列表-->
+<div class="library">
+  <div common-header title-header="booksData.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">{{booksData.TitleNav}}</li>
+    </ol>
+    <form class="form-inline formSearch">
+      <div class="form-group">
+        <input ng-model="searchTitle" type="text" class="form-control" my-placeholder placeholder="请输入要搜索的图书">
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="searchCategory({'title':searchTitle,page:1})">搜索</button>
+    </form>
+    <div class="libraryList" dw-loading="library">
+      <div class="libraryTitle" ng-if="booksData.Ptitle==''">{{booksData.TitleNav}} ({{booksData.Count}})</div>
+      <div class="libraryTitle" ng-if="booksData.Ptitle!=''">{{booksData.Ptitle}}&nbsp;({{booksData.Count}})</div>
+      <ul class="libraryContent">
+        <li ng-repeat="list in booksData.ListData">
+          <a class="bookImg" ui-sref="bookdetail({Id:list.Id})" target="_blank">
+            <img ng-src="{{imgPath+'/'+list.Icon}}" err-src="images/notFound.jpeg" alt="{{list.Name}}">
+          </a>
+          <p class="name">{{list.Name}}</p>
+          <p class="author">作者:{{list.Author}}</p>
+          <p class="author">点击数:{{list.ClickCount}}</p>
+          <p class="read"><a ui-sref="bookdetail({Id:list.Id})" class="btn btn-primary" target="_blank">阅读本书</a></p>
+        </li>
+      </ul>
+      <div tm-pagation conf="paginationConf"></div>
+    </div>
+  </div>
+</div>
+
+

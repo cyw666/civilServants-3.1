@@ -1,0 +1,40 @@
+/**
+ * footer
+ */
+@import "../styles/mixins";
+.footer {
+  .imgLink {
+    margin: 23px 0;
+    li{
+      margin-right: 14px;
+      &.last{
+        margin-right: 0;
+      }
+    }
+  }
+  .friendlyLink{
+    .text-center();
+    margin: 0px auto 24px;
+    .clearFix();
+    .dropup{
+      width: 188px;
+      .pull-left();
+      .btn{
+        width: 100%;
+        padding: 3px 12px;
+      }
+    }
+  }
+  .footerBg {
+    height: 156px;
+    background-color: @footer-background;
+    padding: 40px 0 40px 0;
+    .text-center();
+    p{
+      line-height: 32px;
+      font-size: @font-size-sm;
+      color: @text-color-3;
+      margin-left: 30px;
+    }
+  }
+}

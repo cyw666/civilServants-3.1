@@ -1,0 +1,36 @@
+<!--发表-->
+<div class="tmPublish mar_top_20">
+  <div common-header title-header="location" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="trainingClass">培训班</a></li>
+      <li><a ui-sref="classDetail({Id:Id})">{{data.TrainingName}}</a></li>
+      <li class="active">{{location}}</li>
+    </ol>
+    <div class="art_detail">
+      <div class="content">
+        <form>
+          <div class="bttitle clearfix">
+            <span class="grid_1">标题：</span><input class="grid_6 form-control" ng-model="title" name="Name" type="text"/>
+          </div>
+          <div class="bttitle clearfix mar_top_10">
+            <span class="grid_1">分类：</span>
+            <select class="grid_4 form-control" ng-model="categoryId" name="CategoryId" ng-options="list.Id as list.Name for list in topicCategoryData" >
+              <option value="">请选择分类</option>
+            </select>
+          </div>
+          <div class="bj mar_top_10">
+            <!-- 加载编辑器的容器 -->
+            <div class="ueditor" config="config" ng-model="content"></div>
+          </div>
+          <div class="bs">
+            <button ng-click="publishTopic()" type="submit" class="btn btn-primary">提交审核</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

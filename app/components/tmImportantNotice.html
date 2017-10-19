@@ -1,0 +1,63 @@
+<div class="importantNotice">
+  <span class="triangle-topleft"></span>
+  <h4>重要通知</h4>
+  <div class="slide">
+    <ul  id="slide">
+      <li ng-repeat="item in importantNoticeData"><a target="_blank" ui-sref="noticeDetail({ID:item.Id})">{{item.Name}}</a></li>
+    </ul>
+  </div>
+  <span class="triangle-topright"></span>
+</div>
+<style>
+  .importantNotice {
+    margin: 10px auto 0;
+    width: 1080px;
+    height: 48px;
+    color: #f7f7f7;
+    background: url("images/notice.png") no-repeat;
+    position: relative;
+    left: -10px;
+  }
+  .importantNotice h4 {
+    position: absolute;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 48px;
+    padding-left: 30px;
+    background: url("../images/icon_guide_view_03.png") no-repeat center left;
+    margin-left: 23px;
+
+  }
+  .importantNotice .slide{
+    position: absolute;
+    overflow: hidden;
+    height: 48px;
+  }
+  .importantNotice ul{
+    display: inline-block;
+    margin-left: 140px;
+  }
+  .importantNotice ul li a{
+    color: #f7f7f7;
+    font-size: 16px;
+    line-height: 48px;
+  }
+  .triangle-topright{
+    width: 0;
+    height: 0;
+    border-top: 6px solid #1e5e8a;
+    border-right: 6px solid transparent;
+    position: absolute;
+    right: 0;
+    bottom: -6px;
+  }
+  .triangle-topleft {
+    width: 0;
+    height: 0;
+    border-top: 6px solid #1e5e8a;
+    border-left: 6px solid transparent;
+    position: absolute;
+    left:0;
+    bottom: -6px;
+  }
+</style>

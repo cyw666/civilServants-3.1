@@ -1,0 +1,41 @@
+
+<!--通知列表-->
+<div class="articleList">
+  <div common-header title-header="noticeTitle" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">
+        <span ng-show="noticeListData.CategoryName">{{noticeListData.CategoryName}}</span>
+        <span ng-hide="noticeListData.CategoryName">{{noticeListData.TitleNav}}</span>
+      </li>
+    </ol>
+    <form class="form-inline formSearch">
+      <div class="form-group">
+        <input ng-model="searchTitle" type="text" class="form-control"
+               my-placeholder
+               placeholder="请输入搜索关键词">
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="getNoticeList({page:1,search:searchTitle})">搜索</button>
+    </form>
+    <div dw-loading="articleList" class="mar_top_20">
+      <table class="table" ng-show="paginationConf.totalItems">
+        <tr>
+          <th class="titleName">文章名称</th>
+          <th class="titleDate">发布日期</th>
+        </tr>
+        <tr ng-repeat="listData in noticeListData.ListData | filter:{Name:search}">
+          <td class="name">
+            <span class="arrow"></span>
+            <a ui-sref="noticeDetail({ID:listData.Id})" title="{{listData.Name}}" target="_blank">{{listData.Name}}</a>
+          </td>
+          <td class="listDate">{{listData.CreateDate | dateFilter | date:'yyyy/MM/dd-HH:mm:ss'}}</td>
+        </tr>
+      </table>
+      <div ng-show="paginationConf.totalItems" class="mar_top_5" tm-pagation conf="paginationConf"></div>
+      <p ng-show="!paginationConf.totalItems" class="result">暂无数据</p>
+    </div>
+  </div>
+</div>
+

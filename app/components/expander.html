@@ -1,0 +1,9 @@
+<!--折叠面板-->
+<div class="expander">
+  <div class="title">
+    <span  ng-click="toggle()" ng-hide="showMe" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <span  ng-click="toggle()" ng-show="showMe" class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    <a ng-click="titleClick(params)">{{title}}</a>
+  </div>
+  <div class="body" ng-hide="!showMe" ng-transclude></div>
+</div>

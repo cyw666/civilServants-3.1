@@ -1,0 +1,84 @@
+/*分页*/
+@import "../styles/mixins";
+.page-list{
+  .clearFix();
+  .pagination {
+    .pull-left();
+    margin: 10px 0 10px 10px;
+    span {
+      cursor: pointer;
+      color: @text-color;
+    }
+    .separate{
+      span {
+        cursor: default;
+        border-top: none;
+        border-bottom: none;
+        &:hover {
+          background: none;
+        }
+      }
+    }
+    &> .active > span {
+      background-color: @primary-color;
+      border-color: @primary-4;
+      color: @white;
+      .transition();
+      &:hover {
+        background-color: @primary-4;
+        border-color: @primary-4;
+        color: @white;
+      }
+      &:focus {
+        background-color: @primary-color;
+        border-color: @primary-color;
+      }
+    }
+    &> li > span{
+      padding: 4px 10px;
+      border: 1px solid @border-color-base;
+      .transition();
+      &:hover {
+        color: @primary-color;
+        border:1px solid @primary-color;
+        background-color: @component-background;
+      }
+    }
+    li{
+      &.disabled span{
+        color: @text-color-2;
+        cursor: not-allowed;
+        border: 1px solid @border-color-base;
+      }
+    }
+  }
+  .page-total {
+    .pull-left();
+    margin: 10px 10px;
+    .ht-lineHt(28px);
+    input,span{
+      height: 28px;
+      .pull-left();
+    }
+    input {
+      width: 50px;
+      padding: 3px 12px;
+      margin-left: 5px;
+    }
+    select {
+      width: 50px;
+    }
+    button.btn-default {
+      .pull-left();
+      margin-left: 5px;
+      padding: 0;
+      .wh(40px,28px);
+    }
+  }
+  .no-items {
+    .text-center();
+    font-size: @font-size-lg;
+    font-weight: 600;
+    padding: 20px;
+  }
+}

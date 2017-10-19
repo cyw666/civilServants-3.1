@@ -1,0 +1,40 @@
+<!--新闻资讯-->
+<div class="tmNewsInformation">
+  <div class="borderNews">
+    <div class="myTab">
+      <ul class="nav nav-tabs" ng-init="vm.activeTab=0">
+        <li ng-class="{active: vm.activeTab == 0}" >
+          <a ng-click="vm.activeTab = 0;getNewsContent('newsInformation')">新闻资讯</a>
+        </li>
+        <li ng-class="{active: vm.activeTab == 1}" >
+          <a ng-click="vm.activeTab = 1;getNewsContent('cadreEducationNews')">干教资讯</a>
+        </li>
+        <li ng-class="{active: vm.activeTab == 2}" >
+          <a ng-click="vm.activeTab = 2;getNewsContent('newsHot')">时政热点</a>
+        </li>
+        <a class="more" ui-sref="article" target="_blank"></a>
+      </ul>
+      <div class="tab-content" dw-loading="articleList">
+        <div class="tab-panel perlist">
+          <div class="top">
+            <h4>
+              <a title="{{articleListData.ListData[0].Name}}" class="title" ui-sref="articleDetail({ID:articleListData.ListData[0].Id})" target="_blank">{{articleListData.ListData[0].Name}}</a>
+            </h4>
+            <p class="description"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{articleListData.ListData[0].Description|wordLimit:62}}</p>
+          </div>
+          <ul class="bottom clearfix">
+            <li class="pull-left" ng-repeat="articleList in articleListData.ListData" ng-if="$index>0">
+              <span class="arrow"></span>
+              <span class="title" title="{{articleList.Name}}">
+                <a ui-sref="articleDetail({ID:articleList.Id})" target="_blank">{{articleList.Name}}</a>
+              </span>
+              <span class="time">{{articleList.CreateDate | dateFilter |date :'yyyy-MM-dd'}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div tm-real-time-data></div>
+  </div>
+
+</div>

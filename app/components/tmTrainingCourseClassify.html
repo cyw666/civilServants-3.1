@@ -1,0 +1,11 @@
+<!--@*培训班分类*@-->
+<div class="courseClassify">
+  <div common-header title-header="courseClassify.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <p class="panels" ng-repeat="courseList in courseClassify.ListData" ng-click="getClassList({categoryId:courseList.Id})">
+      {{courseList.Name}}
+    </p>
+  </div>
+</div>
+
+

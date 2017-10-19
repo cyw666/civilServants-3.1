@@ -1,0 +1,81 @@
+<!--留言板详情-->
+<div class="messageListDetail">
+  <div common-header title-header="messageDetailData.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="personalCenter">个人中心</a></li>
+      <li><a ui-sref="messageList">留言板</a></li>
+      <li class="active">{{messageDetailData.TitleNav}}</li>
+    </ol>
+    <div class="myTab" dw-loading="studyPlan">
+      <div class="tab-content" dw-loading="messageListDetail">
+        <div class="tab-panel perlist clearfix">
+          <div class="title_bar clearfix">
+            <h3>{{messageDetailData.TitleNav}}</h3>
+          </div>
+          <div class="message-body grid_20">
+            <div class="grid_2 mar_top_15 text-right">
+              {{messageDetailData.Model.UserName}}：
+            </div>
+            <div class="message grid_17 mar_top_5">
+              <div class="panel panel-warning">
+                <div class="panel-heading">
+                  <div class="panel-title">
+                    <p>{{messageDetailData.Model.Name}}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="panel-body well" style="margin-bottom:0px;">
+                  <div class="message-info">
+                    <div class="message-content grid_10">
+                      {{messageDetailData.Model.Content}}
+                    </div>
+                    <div class="message-time grid_6 text-right">
+                      <span ng-if="messageDetailData.Model.Class=='Curricula'">课程建设</span><br/>
+                      <span ng-if="messageDetailData.Model.Class=='Support'">支持服务</span><br/>
+                      <span ng-if="messageDetailData.Model.Class=='Platform'">平台功能</span><br/>
+                      <span>{{messageDetailData.Model.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                    </div>
+                  </div>
+                  <div ng-repeat="item in messageDetailData.Model.ReplyMessageList">
+                    <div class="grid_2 mar_top_15 text-right">
+                      {{item.UserName}}：
+                    </div>
+                    <div class="message grid_14 mar_top_5">
+                      <div class="panel panel-success">
+                        <div class="panel-heading">
+                          <div class="panel-title">
+                            <p>{{item.Name}}</span>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <div class="message-info">
+                            <div class="message-content grid_8">
+                              {{item.Content}}
+                            </div>
+                            <div class="message-time grid_5 text-right">
+                              <span>{{item.Class}}</span><br><br>
+                              <span>{{item.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

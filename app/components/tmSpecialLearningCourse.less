@@ -1,0 +1,36 @@
+/**
+ * 专题学习more
+ */
+@import "../styles/mixins";
+
+.specialLearningCourse {
+  .courseList {
+    margin-top: 15px;
+    .clearFix();
+    li {
+      .pull-left();
+      margin: 20px 26px 0 0;
+      &.last {
+        margin-right: 0;
+      }
+      img {
+        .wh(280px, 158px);
+      }
+      .courseName {
+        margin-top: 10px;
+        width: 280px;
+        a {
+          color: #003333;
+          font-size: @font-size-lg;
+          &:hover {
+            color: lighten(#003333, 5%);
+          }
+        }
+      }
+      .courseTeacher {
+        color: @text-color-3;
+        margin-top: 5px;
+      }
+    }
+  }
+}

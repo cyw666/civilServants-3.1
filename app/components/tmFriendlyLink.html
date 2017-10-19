@@ -1,0 +1,13 @@
+<!--友情链接(短模块)-->
+<div class="friendlyLinkShort">
+  <h4>{{firenlyLinkData.TitleNav}}</h4>
+  <ul dw-loading="friendlyLink">
+    <li ng-repeat="firenlyLink in firenlyLinkData.ListData">
+      <a target="_blank" href="{{firenlyLink.Url}}" title="{{firenlyLink.Name}}">
+        <span class="linkName">{{firenlyLink.Name}}</span>
+        <span class="linkArrow"> > </span>
+      </a>
+    </li>
+  </ul>
+</div>
+

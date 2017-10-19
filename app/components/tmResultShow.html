@@ -1,0 +1,18 @@
+<!--成果展示-->
+<div class="resultShow">
+  <div common-header title-header="resultShowData.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main" href="#/main">首页</a></li>
+      <li class="active">{{resultShowData.TitleNav}}</li>
+    </ol>
+    <ul class="resultContent clearfix" dw-loading="resultShow">
+      <li class="pull-left" ng-repeat="list in resultShowData.ListData">
+        <a ui-sref="articleDetail({ID:list.Id})" target="_blank"><img ng-src="{{resultShowData.Path+'/'+list.Img}}" alt="{{list.Name}}" err-Src="images/notCourse.png"></a>
+        <p><a ui-sref="articleDetail({ID:list.Id})" target="_blank">{{list.Name}}</a></p>
+      </li>
+    </ul>
+  </div>
+</div>
+

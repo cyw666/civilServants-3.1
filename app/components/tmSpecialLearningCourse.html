@@ -1,0 +1,13 @@
+<!--专题学习课程-->
+<div class="specialLearningCourse">
+  <div common-header title-header="specialCourseData.ChannelName" show-more=true link-url="'courseCenter'"></div>
+  <ul class="courseList" dw-loading="specialLearningCourse">
+    <li ng-repeat="list in specialCourseData.ListData" ng-class="{'last':($index+1)%4==0}">
+      <a ui-sref="courseDetails({Id:list.Id})" title="{{list.Name}}" target="_blank">
+        <img ng-src="{{specialCourseData.ImageCourse+'/'+list.Img}}" err-Src="images/notCourse.png" alt="">
+      </a>
+      <p class="courseName ellipsis" title="{{list.Name}}"><a ui-sref="courseDetails">{{list.Name}}</a></p>
+      <p class="courseTeacher">讲师：{{list.Teacher}}</p>
+    </li>
+  </ul>
+</div>

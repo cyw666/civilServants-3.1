@@ -1,0 +1,43 @@
+<!--班级园地模块（首页）-->
+<div class="classGarden mar_top_20">
+  <div common-header title-header="'班级园地'" show-more=true link-url="'trainingClass'"></div>
+
+  <div class="borderNews">
+    <div class="myTab" dw-loading="classGarden">
+      <ul class="nav nav-tabs" ng-init="vm2.activeTab=0">
+        <li ng-repeat="list in trainingClassType.ListData" ng-class="{active: vm2.activeTab == $index}">
+          <a ng-click="vm2.activeTab = $index;getClassList(list.Id)">{{list.Name}}</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-panel perlist">
+          <div class="title_bar">
+            <div class="list3-5">班级名称</div>
+            <div class="list2-5">培训时间</div>
+            <div class="list2">培训地点</div>
+            <div class="list2">状态</div>
+          </div>
+          <div class="list" ng-repeat="list in classListData.ListData">
+            <div class="list3-5 bookLog">
+              <span class="classLogoBg"></span>
+              <a ng-click="checkUserClass(list.Id)">{{list.Name}}</a>
+            </div>
+            <div class="list2-5">{{list.StartTime | dateFilter | date:'yyyy-MM-dd'}}~{{list.EndTime | dateFilter |
+              date:'yyyy-MM-dd'}}
+            </div>
+            <div class="list2">{{list.Address || "无"}}</div>
+
+            <div class="list2" ng-if="!list.ApplyStatus"><a class="btn btn-info" ng-click="addClass(list.Id)">点击报名</a>
+            </div>
+            <div class="list2" ng-if="list.ApplyStatus=='Normal'"><a disabled class="btn btn-success">{{JudgeStatus(list.ApplyStatus)}}</a>
+            </div>
+            <div class="list2" ng-if="list.ApplyStatus=='UnAudit'||list.ApplyStatus=='UnApprove'"><a disabled
+                                                                                                     class="btn btn-default">{{JudgeStatus(list.ApplyStatus)}}</a>
+            </div>
+          </div>
+        </div>
+        <div ng-show="showNoClass" class="result">暂无培训班</div>
+      </div>
+    </div>
+  </div>
+</div>

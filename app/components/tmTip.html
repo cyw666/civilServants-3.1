@@ -1,0 +1,10 @@
+<!--小提示-->
+<div class="tip" ng-show="showTip">
+  <div class="title">
+    <span>您有 <span>{{unReadNoticeList.length}}</span> 条未读消息！</span>
+    <a class="pull-right" ng-click="closeTip()">×</a>
+  </div>
+  <p>
+    <a ui-sref="noticeDetail({ID:unReadNoticeList[0].Id})" target="_blank">{{unReadNoticeList[0].Name}}</a>
+  </p>
+</div>

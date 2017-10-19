@@ -1,0 +1,36 @@
+<div class="orderConfirm" dw-loading="orderConfirm">
+  <ul>
+    <li>商户订单号:{{invoiceData.OrderId}}</li>
+    <li>商品名称:{{invoiceData.Title}}</li>
+    <li>购买时间:{{invoiceData.CreateTime | dateFilter  | date :'yyyy-MM-dd HH:mm:ss'}}</li>
+    <li>交易类型：	{{invoiceData.Type}}</li>
+    <li>交易金额:￥{{invoiceData.Money.toFixed(2)}}</li>
+  </ul>
+
+  <button type="button" ng-click="getConfirmPay()" class="btn btn-primary">确认支付</button>
+
+</div>
+<div class="payContent justify" ng-bind-html="payContent | trustHtml"></div>
+
+<style>
+  .orderConfirm {
+    width: 600px;
+    margin: 100px auto;
+    border: 1px solid #80b2ff;
+    background-color: #f2f7ff;
+    min-height: 350px;
+    padding: 10px;
+  }
+  .orderConfirm ul{
+    margin-top: 20px;
+  }
+  .orderConfirm ul li{
+    height:40px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+  .orderConfirm .btn {
+    margin-top: 20px;
+  }
+</style>
+

@@ -1,0 +1,32 @@
+/**
+ * 问卷调查
+ */
+@import "../styles/mixins";
+.poll {
+  min-height: 700px;
+  background-color: @background-color-base;
+  .exam_top {
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .editForm {
+    padding: 20px;
+  }
+  .table {
+    tr {
+      td{
+        text-align: left;
+        padding: 5px 15px;
+        .xz {
+          li{
+            .pull-left();
+            font-size: 15px;
+            font-weight: bold;
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+  }
+}

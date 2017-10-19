@@ -1,0 +1,32 @@
+/**
+ * 图书章节
+ */
+@import "../styles/mixins";
+.bookChapter{
+  .bookTitle{
+    p {
+      .text-right();
+      padding-right: 40px;
+      margin-bottom: 10px;
+    }
+    .titleName {
+      line-height: 3.1em;
+      .text-center();
+      color: @text-color-2;
+      margin-top: 10px;
+    }
+  }
+  .bookChapterContent {
+    border-top: 5px @border-style-base @border-color-base;
+    li {
+      .ht-lineHt(35px);
+      a {
+        font-size: 1.3em;
+        line-height: 1.3em;
+        color: @text-color-2;
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div tm-header></div>
+<div tm-nav-bars></div>
+<div class="container_24">
+  <div class="container_24 content">
+    <div ng-hide="newsData.CategoryName=='图片新闻'" tm-news-without-photo my-data="newsData"></div>
+    <div ng-show="newsData.CategoryName=='图片新闻'" tm-news-with-photo></div>
+  </div>
+  <div ng-show="paginationConf.totalItems" tm-pagation conf="paginationConf"></div>
+</div>
+
+<div tm-footer></div>
+
+<style>
+  .content {
+    min-height: 250px;
+  }
+
+  .news-body ul li {
+    margin-top: 10px;
+  }
+
+  .news span.dian {
+    display: inline-block;
+    margin: 5px;
+  }
+
+</style>

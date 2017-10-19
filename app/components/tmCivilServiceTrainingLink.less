@@ -1,0 +1,38 @@
+/**
+ * 公务员培训
+ */
+@import "../styles/mixins";
+.civilServiceTrainingLink{
+  .com-header{
+    a.pull-right{
+      line-height: 40px;
+      color: @white;
+      font-size: @font-size-sm;
+      padding-right: 10px;
+    }
+  }
+  .civil-body {
+    height: 175px;
+    margin-left: 10px;
+    li{
+      height: 35px;
+      a{
+        display: inline-block;
+        padding: 7px 5px;
+        font-size: @font-size-base;
+        color: @text-color;
+        max-width: 316px;
+        .ellipsis();
+        &:hover{
+          color: @primary-4;
+          .dian{
+            background-color: @primary-4;
+          }
+        }
+        .content{
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<!--星级评分-->
+<div class="starts-rate">
+  <ul class="my-stars-list">
+    <li class="my-stars-items" ng-mouseover="mouseoverStar(myStar)" ng-mouseleave="mouseleaveStar(myStar)"
+        ng-click="stars(myStar)" ng-class="{myStarsSel: clickCnt > $index , myStarHover: hoverCnt > $index }"
+        ng-repeat="myStar in myStars track by $index" title="{{ myStar }}星">{{ myStar }}
+    </li>
+  </ul>
+  <span class="rate-text">
+    {{ratingText}}
+  </span>
+</div>
+

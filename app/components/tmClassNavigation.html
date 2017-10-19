@@ -1,0 +1,16 @@
+<!--班级导航-->
+<div class="classNavigation">
+  <div common-header title-header="'班级导航'" show-more=false link-url="''"></div>
+  <ul class="classdh tmBorder">
+    <li><span class="dian1"></span><a ui-sref="classDetail({Id:Id})">班级首页</a></li>
+    <li><span class="dian1"></span><a ui-sref="classPlan({Id:Id})">教学计划</a></li>
+    <li><span class="dian1"></span><a ui-sref="classStudent({Id:Id})">同学名录</a></li>
+    <li><span class="dian1"></span><a ui-sref="classPaperList({Id:Id})">班级论文</a></li>
+    <li><span class="dian1"></span><a ui-sref="photoAlbumList({Id:Id})">班级相册</a></li>
+    <li><span class="dian1"></span><a ui-sref="classTopicList({Id:Id})">班级话题</a></li>
+    <li><span class="dian1"></span><a ui-sref="classNotice({Id:Id})">班级公告</a></li>
+    <li><span class="dian1"></span><a ui-sref="classCourse({Id:Id,Type:'required'})">必修课程</a></li>
+    <li><span class="dian1"></span><a ui-sref="classCourse({Id:Id,Type:'electives'})">选修课程</a></li>
+    <li><span class="dian1"></span><a ui-sref="classExam({Id:Id})">班级考试</a></li>
+  </ul>
+</div>

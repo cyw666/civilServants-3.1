@@ -1,0 +1,33 @@
+/**
+ * 小提示
+ */
+@import "../styles/mixins";
+
+.tip {
+  .transition();
+  background: @white;
+  .wh(150px,104px);
+  position: fixed;
+  bottom: 0px;
+  left: 1px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid @primary-color;
+  .title {
+    background-color: @primary-color;
+    color: @white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    a {
+      color: @white;
+      padding: 0 4px 0 5px;
+      .ht-lineHt(30px);
+      &:hover {
+        color: @text-color;
+      }
+    }
+    span {
+      .ht-lineHt(30px);
+    }
+  }
+}

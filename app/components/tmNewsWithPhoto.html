@@ -1,0 +1,65 @@
+<div class="newsWithPhoto mar_top_15">
+    <div class="com-header com-header-blue" style="margin-left: 0px">
+        <h4 class="pull-left">{{newsData.CategoryName}}</h4>
+    </div>
+    <div class="container_24" dw-loading="tmnewswithphoto">
+        <div ng-repeat="x in newsData.ListData" class="news-with-photo container_24 grid_11 pull-left mar_top_15 mar_left_10">
+            <img title="{{x.Name}}" class="grid_4" ng-src="{{newsData.Path+'/'+x.Img}}" err-src="images/notFound.jpeg">
+            <div class="news-with-photo news-with-photo-content grid_7">
+                <p class="news-with-photo news-with-photo-name">
+                    <a title="{{x.Name}}" ui-sref="articleDetail({ID:x.Id})" class="" target="_blank">{{x.Name}}</a>
+                    <span class="pull-right">{{x.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</span>
+                </p>
+
+                <p class="news-with-photo news-with-photo-desc">
+                    {{x.Description}}
+                </p>
+            </div>
+        </div>
+        <div ng-show="!newsData.ListData.length" class="result">
+            暂无数据
+        </div>
+    </div>
+</div>
+<style>
+  .newsWithPhoto{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+    .news-with-photo img{
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        height: 132px;
+    }
+    .news-with-photo-content{
+        padding:0 5px 2px 5px;
+
+    }
+    .news-with-photo-name>a{
+      color: #333;
+        display: inline-block;
+        width: 75%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        font-weight: 500;
+        height: auto;
+    }
+  .news-with-photo-name>a:hover{
+    color: #62a3db;
+  }
+    .news-with-photo .news-with-photo-desc{
+        color: #9c9c9c;
+        max-height: 104px;
+        overflow: hidden;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+    .news-with-photo-name span{
+        color: #62a3db;
+    }
+</style>
+

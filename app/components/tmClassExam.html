@@ -1,0 +1,37 @@
+<!--班级考试-->
+<div class="trainingCenter">
+  <div common-header title-header="Data.TitleNav" show-more=false link-url="''"></div>
+
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="trainingClass">培训班</a></li>
+      <li><a ui-sref="classDetail({Id:Id})">{{Data.TrainingName}}</a></li>
+      <li class="active">{{Data.TitleNav}}</li>
+    </ol>
+    <div class="borderTopBold" dw-loading="classExam">
+      <h2 class="commonTitle">{{Data.TitleNav}}</h2>
+      <div class="myTab">
+        <div class="tab-content">
+          <div class="tab-panel perlist">
+            <div class="title_bar">
+              <span class="list4">考试名称</span>
+              <span class="list2">考试学时</span>
+              <span class="list2">最高分</span>
+              <span class="list2">参加测试</span>
+            </div>
+            <div class="list" ng-repeat="list in Data.ListData">
+                <span class="list4 ellipsis">{{list.Name}}</span>
+                <span class="list2">{{list.Credit}}</span>
+                <span class="list2">{{list.TotalScore}}</span>
+                <span class="list2"><a ng-click="havTest(list.Id)" target="_blank">参加测试</a></span>
+            </div>
+            <div ng-transclude="pagation"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

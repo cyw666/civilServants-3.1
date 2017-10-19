@@ -1,0 +1,175 @@
+
+<!--课程超市列表-->
+<div class="courseSupermarketBuy">
+  <div common-header title-header="'课程中心'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">课程中心</li>
+    </ol>
+    <form class="form-inline formSearch">
+      <select class="form-control" ng-init="selectedName = selectText[0]" ng-model="selectedName" ng-options="x.name for x in selectText"  ng-change="judgement(selectedName.id)">
+      </select>
+      <div class="form-group">
+        <input ng-show="showInput1" my-placeholder ng-model="searchTitle1" type="text" class="form-control" placeholder="请输入要搜索的课程">
+        <select class="form-control" ng-show="showInput2"  ng-init="searchTitle2 = videoType[0]" ng-model="searchTitle2" ng-options="x.name for x in videoType"  ng-change="judgement(selectedName.id)">
+        </select>
+        <input ng-show="showInput3" my-placeholder ng-model="searchTitle3" type="text" class="form-control" placeholder="请输入主讲人">
+      </div>
+      <button ng-hide="showInput2" type="submit" class="btn btn-primary" ng-click="judgement(selectedName.id)">搜索</button>
+    </form>
+    <div class="courseList  mar_top_15 clearfix" dw-loading="courseSupermarket">
+      <div class="sortCourse clearfix">
+        <div class="tag clearfix" style="text-align: right;">
+          <span><img src="images/sfp.png"><a href="javascript:;" ng-click="judgement(selectedName.id,'ThreeScreenCourse')">精品三分屏</a></span>
+          <span><img src="images/dsp.png"><a href="javascript:;" ng-click="judgement(selectedName.id,'SingleCourse')">单视频课件</a></span>
+          <span><img src="images/dh.png"><a href="javascript:;" ng-click="judgement(selectedName.id,'AnimationCourse')">动画类课件</a></span>
+        </div>
+        <div class="title_bar clearfix">
+          <span class="list1">选课</span>
+          <span class="list2"><a ng-click="judgement(selectedName.id,null,'Name','order')">课程名称<span id="asc_Name">▼</span></a></span>
+          <span class="list3"><a ng-click="judgement(selectedName.id,null,'CommentCount','order')">价格<span id="asc_CommentCount">▼</span></a></span>
+          <span class="list3"><a ng-click="judgement(selectedName.id,null,'Credit','order')">学时<span id="asc_Credit">▼</span></a></span>
+          <span class="list3"><a ng-click="judgement(selectedName.id,null,'ClickCount','order')">点击量<span id="asc_ClickCount">▼</span></a></span>
+          <span class="list3"><a ng-click="judgement(selectedName.id,null,'CreateDate','order')">上线时间<span id="asc_CreateDate">▼</span></a></span>
+          <span class="list3">播放</span>
+          <span class="list4">购买</span>
+        </div>
+      </div>
+
+      <div class="NewCourseList">
+        <ul>
+          <li ng-repeat="courseList in courseSupermarketData.ListData" class="clearfix">
+            <p class="list1">
+              <input ng-disabled="{{courseList.Learning>=0?1:0}}" name="subcheck" type="checkbox" class="check" value={{courseList.Id}}>
+            </p>
+            <p class="list2"><a ui-sref="courseDetails({Id:courseList.Id})" target="_blank"  title="{{courseList.Name}}">{{courseList.Name}}</a></p>
+            <p class="list3 money">￥{{courseList.Price.toFixed(2)}}</p>
+            <p class="list3">{{courseList.Credit.toFixed(1)}}</p>
+            <p class="list3">{{courseList.ClickCount}}</p>
+            <p class="list3">{{courseList.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</p>
+            <p class="list3">
+              <a ng-if="courseList.ShopStatus=='HasBuy'||courseList.ShopStatus=='Free'" ui-sref="play({Id:courseList.Id})" target="_blank" class="play">播放</a>
+              <a ng-if="courseList.ShopStatus=='NoBuy'||courseList.ShopStatus=='InShoppingCart'||courseList.ShopStatus=='InOrder'" ui-sref="tryplay({Id:courseList.Id})" target="_blank" class="play">试看</a>
+            </p>
+            <p class="list4">
+              <button ng-if="courseList.ShopStatus=='HasBuy'" class="btn btn-success" disabled="disabled">已购买</button>
+              <button ng-if="courseList.ShopStatus=='Free'" class="btn btn-success" disabled="disabled">免费课程</button>
+              <button ng-if="courseList.ShopStatus=='NoBuy'" ng-click="addCourseToCart(courseList.Id)" class="btn btn-primary">加入购物车</button>
+              <button ng-if="courseList.ShopStatus=='InShoppingCart'" class="btn btn-primary" disabled="disabled">已加入购物车</button>
+              <button ng-if="courseList.ShopStatus=='InOrder'" class="btn btn-primary" disabled="disabled">已下单</button>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <p ng-show="!paginationConf.totalItems" class="result">暂无数据</p>
+      <div class="clearfix">
+        <div class="checkCourse pull-left">
+          <a class="btn btn-default" ng-click="checkAll()">全选</a>
+          <a class="btn btn-default" ng-click="selectInvert()">反选</a>
+          <a class="btn btn-default" ng-click="ckBatch()">批量加入购物车</a>
+        </div>
+        <div ng-transclude="pagation" ng-show="paginationConf.totalItems"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .courseSupermarketBuy a:hover {
+    color: #0f0f0f;
+  }
+  .courseSupermarketBuy .form-group input {
+    /*width: 400px;*/
+  }
+  .courseList{
+    border-top: 1px solid #f2f2f2;
+  }
+  .courseList .txt{
+    width:58%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .courseList .title_bar{
+    padding: 10px 0 10px 0;
+    text-align: center;
+    background: #edf3fc;
+    /*float: left;*/
+    /*margin-left: 20px;*/
+  }
+  .courseList .title_bar>span{
+    float: left;
+  }
+
+  .courseList a{
+    color: #333;
+  }
+  .courseList a:hover{
+    color: #333;
+  }
+  .courseList span{
+    text-align: center;
+  }
+
+  .courseList .list1{
+    width: 5%;
+  }
+  .courseList .list2{
+    width: 30%;
+  }
+  .courseList .NewCourseList .list2{
+    text-align: left;
+  }
+
+  .NewCourseList .list2{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .courseList .list3{
+    width: 10%;
+  }
+  .courseList .list4{
+    width: 14%;
+  }
+  .courseList .list4 .btn{
+    width: 100px;
+  }
+  /*.courseList .NewCourseList>div{
+    height: 40px;
+    line-height: 40px;
+  }*/
+  .courseList .NewCourseList{
+    text-align: center;
+    font-size: 12px;
+    border-top: 1px solid #f2f2f2;
+  }
+  .courseList .NewCourseList li>p{
+    float: left;
+  }
+  .courseList .NewCourseList a:hover{
+    color: #7abc1d;
+  }
+  .courseList .NewCourseList .money{
+    font-weight: bold;
+    font-size: 15px;
+    color: #00A854;
+  }
+  .courseList .NewCourseList li{
+    border-bottom: 1px solid #f2f2f2;
+    margin-top: 10px;
+    line-height: 35px;
+  }
+
+  .checkCourse>a.btn{
+    color: #000;
+    background-color: #e0e0e0;
+    margin: 10px 0 0 5px;
+    padding:4px 10px;
+  }
+</style>

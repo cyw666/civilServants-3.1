@@ -1,0 +1,100 @@
+<!--考试结果查看-->
+<div class="examReview">
+  <div class="exam_top">
+    <img src="/images/exam_top.png" />
+  </div>
+  <form class="examReviewForm" dw-loading="examReview">
+    <table class="fromEditTable" cellpadding="0" cellspacing="0">
+      <tbody>
+      <tr>
+        <td>
+          <div class="xz">
+            <ul>
+              <li>考试名称：</li>
+              <li class="highlight">{{examReviewData.Exam.Name}}</li>
+              <li>考试类型:</li>
+              <li class="highlight">{{examReviewData.Exam.ExamTypeName}}</li>
+              <li>总分：</li>
+              <li class="highlight">{{examReviewData.Exam.TotalScore}}</li>
+              <li>及格分：</li>
+              <li class="highlight">{{examReviewData.Exam.PassingScore}}</li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="xz score">
+            <ul>
+              <li>您的得分：</li>
+              <li class="highlight">{{examReviewData.UserExamDetail.Score}}</li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      <tr ng-show="checkingQuestions">
+        <td class="biaoti">一、判断题(共 {{checkingQuestions.length}} 题,共 {{examAllScore(examReviewData.Type0Questions)}} 分),答对 {{countIf(examReviewData.Type0Questions)}} 题,共{{rightScore(examReviewData.Type0Questions)}}分</td>
+      </tr>
+      <tr  ng-show="checkingQuestions"  ng-repeat="checkques in checkingQuestions">
+        <td class="tibg">
+          <div>
+            第<span> {{$index+1}} </span>题、 {{checkques.Question.Name}} （分值：{{checkques.Question.Score}}）
+            <span>正确选项： {{checkques.Question.Answer}} ,</span>
+            <span class="xxys">您的选项 <span class="highlight">{{checkques.UserAnswer}}</span>,&nbsp;&nbsp;您的得分 <span class="highlight">{{checkques.UserScore}}</span></span>
+            <table>
+              <tr ng-repeat="checkList in checkques.Question.QuestionsItems">
+                <td>{{checkList.ItemFlag}} . {{checkList.Name}}</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+
+      <tr ng-show="singleQuestions">
+        <td class="biaoti">
+          <span ng-show="checkingQuestions.length&&singleQuestions.length">二</span>
+          <span ng-show="!checkingQuestions.length&&singleQuestions.length">一</span>
+          、单选题(共 {{singleQuestions.length}} 题,共 {{examAllScore(examReviewData.Type1Questions)}} 分),答对 {{countIf(examReviewData.Type1Questions)}} 题,共{{rightScore(examReviewData.Type1Questions)}}分
+        </td>
+      </tr>
+      <tr  ng-show="singleQuestions"  ng-repeat="singleques in singleQuestions">
+        <td class="tibg">
+          <div>
+            第<span> {{$index+1}} </span>题、 {{singleques.Question.Name}} （分值：{{singleques.Question.Score}}）
+            <span>正确选项： {{singleques.Question.Answer}} ,</span>
+            <span class="xxys">您的选项 <span class="highlight">{{singleques.UserAnswer}}</span>,&nbsp;&nbsp;您的得分 <span class="highlight">{{singleques.UserScore}}</span></span>
+            <table>
+              <tr ng-repeat="singleList in singleques.Question.QuestionsItems">
+                <td>{{singleList.ItemFlag}} . {{singleList.Name}}</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+
+      <tr ng-show="multipleQuestions">
+        <td class="biaoti">
+          <span ng-show="checkingQuestions.length&&singleQuestions.length&&multipleQuestions.length">三</span>
+          <span ng-show="checkingQuestions.length||singleQuestions.length&&multipleQuestions.length">二</span>
+          <span ng-show="!checkingQuestions.length&&!singleQuestions.length&&multipleQuestions.length">一</span>
+          、多选题(共 {{multipleQuestions.length}} 题,共 {{examAllScore(examReviewData.Type2Questions)}} 分),答对 {{countIf(examReviewData.Type2Questions)}} 题,共{{rightScore(examReviewData.Type2Questions)}}分
+        </td>
+      </tr>
+      <tr  ng-show="multipleQuestions"  ng-repeat="multipeques in multipleQuestions">
+        <td class="tibg">
+          <div>
+            第<span> {{$index+1}} </span>题、 {{multipeques.Question.Name}} （分值：{{multipeques.Question.Score}}）
+            <span>正确选项： {{multipeques.Question.Answer}} ,</span>
+            <span class="xxys">您的选项 <span class="highlight">{{multipeques.UserAnswer}}</span>,&nbsp;&nbsp;您的得分 <span class="highlight">{{multipeques.UserScore}}</span></span>
+            <table>
+              <tr ng-repeat="multipeList in multipeques.Question.QuestionsItems">
+                <td>{{multipeList.ItemFlag}} . {{multipeList.Name}}</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

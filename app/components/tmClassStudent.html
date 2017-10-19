@@ -1,0 +1,41 @@
+<!--同学名录-->
+<div class="trainingCenter">
+  <div common-header title-header="'同学名录'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="trainingClass">培训班</a></li>
+      <li><a ui-sref="classDetail({Id:Id})">{{classStudentData.TrainingName}}</a></li>
+      <li class="active">同学名录</li>
+    </ol>
+    <div class="borderTopBold" dw-loading="classStudent">
+      <h2 class="commonTitle">同学名录</h2>
+      <div class="myTab">
+        <div class="tab-content">
+          <div class="tab-panel perlist">
+            <div class="list">
+              <span class="list4">总报名数：{{classStudentData.Apply}}</span>
+              <span class="list4">审核通过：{{classStudentData.Pass}}</span>
+            </div>
+            <div class="list">
+              <span class="list4">通过审核名单：</span>
+            </div>
+            <div class="title_bar">
+              <span class="list3">姓名</span>
+              <span class="list3">电话</span>
+              <span class="list3">单位</span>
+            </div>
+            <div class="list" ng-repeat="list in classStudentData.ListData">
+              <span class="list3">{{list.UserName}}</span>
+              <span class="list3" ng-if="list.Tel">{{list.Tel}}</span>
+              <span class="list3" ng-if="!list.Tel">暂无电话</span>
+              <span class="list3">{{list.GroupName}}</span>
+            </div>
+            <div ng-transclude="pagation"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

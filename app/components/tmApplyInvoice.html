@@ -1,0 +1,92 @@
+<!--申请发票-->
+<div class="applyInvoice">
+  <div common-header title-header="'申请发票'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <div class="description">
+      <ul>
+        <li><span class="dian"></span><span>发票一经开出后，不能在修改任何信息，填写时，请仔细核对付款单位名称和发票项目。若因此造成的任何损失由用户自行承担；</span></li>
+        <li><span class="dian"></span><span>发票邮寄费用需要到付，建议您在完成年度教育任务后在同一开具发票，避免产生多次邮寄费用；</span></li>
+        <li><span class="dian"></span><span>由于收件地址、手机号等因素导致发票邮寄不到或在过程中丢失的，由用户自行处理，并承担相关的损失。</span></li>
+        <li class="mar_top_10">发票领取方式：</li>
+        <li><span class="dian"></span><span>自取（请在提出申请10个工作日内到广州市越秀区连新路171号3号楼302凭身份证领取，逾期将不再办理。）邮寄（默认安排顺丰快递以运费到付的形式寄出，若有其他邮寄要求请在发票附注提出。）</span></li>
+      </ul>
+    </div>
+    <div class="cartList">
+      <ul>
+        <li class="title">
+          <span class="list1">操作</span>
+          <span class="list2">编号</span>
+          <span class="list1">订单时间</span>
+          <span class="list2">订单详情</span>
+          <span class="list3">订单价格</span>
+        </li>
+        <li class="content">
+          <span class="list1">操作</span>
+          <span class="list2">79797979646464646498764</span>
+          <span class="list1">2017-5-19</span>
+          <span class="list2">订单详情</span>
+          <span class="list3">￥100.00</span>
+        </li>
+      </ul>
+    </div>
+    <div class="invoiceMessage">
+      <div>发票及邮寄信息</div>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="userName">用户姓名：</label>
+          <input type="text" class="form-control" id="userName" ng-model="invoice.userName"
+                 my-placeholder placeholder="请输入用户姓名">
+        </div>
+        <div class="form-group">
+          <label for="invoiceTitle">发票抬头：</label>
+          <input type="text" class="form-control" id="invoiceTitle" ng-model="invoice.invoiceTitle"
+                 my-placeholder placeholder="请输入发票抬头">
+        </div>
+        <div class="form-group">
+          <label for="money">金额：</label>
+          <input type="text" class="form-control" id="money" ng-model="invoice.money"
+                 my-placeholder placeholder="请输入金额">
+        </div>
+        <div class="radio">
+          <span>提取方式：</span>
+          <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 自取
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 快递
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="orderNum">订单号：</label>
+          <input type="text" class="form-control" id="orderNum" ng-model="invoice.orderNum"
+                 disabled>
+        </div>
+        <div class="form-group">
+          <label for="phoneNum">手机号：</label>
+          <input type="text" class="form-control" id="phoneNum" ng-model="invoice.phoneNum"
+                 my-placeholder placeholder="请输入手机号">
+        </div>
+        <div class="form-group">
+          <label for="address">地址：</label>
+          <input type="text" class="form-control" id="address" ng-model="invoice.address"
+                 my-placeholder placeholder="请输入地址">
+        </div>
+        <div class="form-group">
+          <label for="postCode">邮编：</label>
+          <input type="text" class="form-control" id="postCode" ng-model="invoice.postCode"
+                 my-placeholder placeholder="请输入邮编">
+        </div>
+        <div class="form-group">
+          <label for="remark">备注：</label>
+          <input type="text" class="form-control" id="remark" ng-model="invoice.remark"
+                 my-placeholder placeholder="请输入备注">
+        </div>
+        <div class="submit">
+          <button type="submit" class="btn btn-primary">提交</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

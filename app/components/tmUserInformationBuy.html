@@ -1,0 +1,105 @@
+<div class="UserInformation">
+  <div common-header title-header="'个人信息'" show-more=false link-url="''"></div>
+  <div class="content login_info tmBorder" dw-loading="loginOut">
+    <ul class="loginAfter_ul">
+      <li class="welcom">欢迎您:<b class="highlight">{{info.Model.Name}}</b>({{info.Model.Account}})</li>
+      <li>
+        <span  class="hours">课程学时：<span class="highlight">{{info.Model.PcCredit+info.Model.MobileCredit}}</span></span>
+        <span>考试学时：<span class="highlight">{{info.Model.ExamCredit}}</span></span>
+      </li>
+      <li>
+        <span  class="hours">当前学时：<span class="highlight">{{info.Model.SumCredit}}</span></span>
+        <span  class="hours">规定学时：<span class="highlight">{{info.Model.BatchTotalCredit}}</span></span>
+      </li>
+      <li>
+        <span>考核状态：<span class="highlight">{{info.Model.PassStatus?"通过":"未通过"}}</span></span>
+      </li>
+      <li>
+        <span>个人学习档案</span>
+        <span class="item2 grey"><a ui-sref="personaLearningArchives" target="_blank">详细&gt;&gt;</a></span>
+      </li>
+      <li>
+        <span class="grey"><a ui-sref="shoppingcart">购物车&gt;&gt;</a></span>
+        <span class="item2 grey"><a ui-sref="orderlist">我的订单&gt;&gt;</a></span>
+      </li>
+      <li>
+        <span class="grey"><a ui-sref="invoicelist">我的发票&gt;&gt;</a></span>
+        <span class="item2 grey"><a ui-sref="orderlist"></a></span>
+      </li>
+      <li>
+        <span class="item1">您有<span class="highlight"> {{info.Model.UnRead}} </span>条新通知！</span>
+        <span class="item2 grey"><a ui-sref="unReadNotice">详细&gt;&gt;</a></span>
+      </li>
+      <li class="lastChild fontSize12 grey">
+        <a ui-sref="modifyPassword">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a ui-sref="changeUser">修改信息</a> &nbsp;|&nbsp;
+        <span class="item2" ><a href="/admin/" target="_blank">进入管理控制台</a></span>
+      </li>
+      <li class="lastChild lastChild1">
+        <a class="exit" href="javascript:;" ng-click="out('out')">退出</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<style>
+  .UserInformation {
+  }
+  .UserInformation .txt {
+    line-height: 65px;
+    color: #666;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .UserInformation .loginAfter_ul li {
+    color: #333;
+    height: 40px;
+    line-height: 40px;
+    width: 270px;
+    margin:0 auto;
+    border-bottom: 1px solid #d4d5d7;
+  }
+  .UserInformation .loginAfter_ul .hours{
+    display: inline-block;
+    width: 110px;
+  }
+
+  .UserInformation .loginAfter_ul .grey a {
+    color: #666;
+  }
+  .UserInformation .loginAfter_ul .grey a:hover {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .UserInformation .item2 {
+    float: right;
+  }
+  .UserInformation .loginAfter_ul li.lastChild {
+    border-bottom: 0;
+  }
+  .UserInformation .loginAfter_ul li.lastChild1 {
+    text-align: center;
+  }
+  .UserInformation .loginAfter_ul .fontSize12 a {
+    font-size: 12px;
+  }
+  .UserInformation .exit {
+    display: block;
+    margin: 7px auto;
+    width: 80px;
+    height: 26px;
+    background-color: #db1011;
+    text-align: center;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 6px;
+  }
+  .UserInformation .loginAfter_ul .lastChild .item2 a {
+    color: #db1011;
+  }
+  .UserInformation .loginAfter_ul .lastChild .item2 a:hover {
+    color: #333;
+  }
+</style>
+

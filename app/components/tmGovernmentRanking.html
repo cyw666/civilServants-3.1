@@ -1,0 +1,77 @@
+<!--单位排行-->
+<div class="govermentRanking"  dw-loading="rankingList">
+  <h4>{{govermentRanking.TitleNav}}</h4>
+  <p class="title">
+    <span class="rank1">排行</span>
+    <span class="rank2">单位</span>
+    <span class="rank3">平均学时</span>
+  </p>
+  <ul class="rankingList" ng-repeat="rankingData in govermentRanking.ListData"  ng-class="{'rankListBg':$index%2!=0}">
+    <li class="list1">
+      <span ng-if="$index<3" ng-class="{'rankFirstBg':$index==0,'rankSecondBg':$index==1,'rankThirdBg':$index==2}"></span>
+      <span ng-if="$index>=3">{{$index+1}}</span>
+    </li>
+    <li class="list2" title="{{rankingData.DepartmentName}}">{{rankingData.DepartmentName}}</li>
+    <li class="list3">{{rankingData.Average}}</li>
+  </ul>
+</div>
+<style>
+  .govermentRanking {
+    padding-left: 20px;
+  }
+  .govermentRanking h4 {
+    line-height: 52px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .govermentRanking .rankingList{
+    width: 265px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 10px;
+  }
+  .govermentRanking .title {
+    border:1px solid #dadada;
+    border-radius: 3px;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 10px 10px 10px;
+  }
+  .govermentRanking .title span ,.govermentRanking .rankingList li{
+    float: left;
+  }
+  .govermentRanking .title span{
+    color: #000;
+  }
+  .govermentRanking .title .rank1,.govermentRanking .rankingList .list1{
+    width: 60px;
+    text-align: left;
+    padding-left: 10px;
+  }
+  .govermentRanking .rankingList .list1{
+    padding-left: 15px;
+  }
+  .govermentRanking .title .rank2,.govermentRanking .rankingList .list2{
+    width: 140px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .govermentRanking .title .rank3,.govermentRanking .rankingList .list3{
+    width: 65px;
+    text-align: right;
+  }
+
+  .govermentRanking .rankingList .list2{
+    text-align: left;
+  }
+  .govermentRanking .rankingList .list3{
+    text-align: center;
+  }
+  .govermentRanking .title .rank2{
+    padding-right: 60px;
+  }
+</style>

@@ -1,0 +1,71 @@
+/**
+ * 新闻资讯（首页）
+ */
+@import "../styles/mixins";
+
+.tmNewsInformation {
+  width: 100%;
+  .borderNews {
+    border: 1px solid @border-color-split;
+    margin-left: 11px;
+    height: 482px;
+  }
+  .tab-content {
+    margin-top: 15px;
+    .perlist {
+      .top {
+        height: 123px;
+        background-color: @gray-f3;
+        .title {
+          display: inline-block;
+          .wh(90%, 56px);
+          line-height: 56px;
+          font-size: @font-size-lg;
+          font-weight: 600;
+          .ellipsis();
+        }
+        .description {
+          line-height: 25px;
+          font-size: @font-size-lg;
+          text-align: left;
+          padding: 0 20px;
+          color: @text-color-2;
+        }
+      }
+      .bottom {
+        li {
+          .ht-lineHt(36px);
+          width: 100%;
+          span {
+            display: inline-block;
+            .pull-left();
+          }
+          .arrow {
+            margin: 0 20px;
+            .wh(11px,36px);
+            display: inline-block;
+            vertical-align: middle;
+            background: @common-arrow-right no-repeat center;
+          }
+          .title {
+            width: 70%;
+            .text-left();
+            .ellipsis();
+          }
+          .time {
+            .pull-right();
+            margin-right: 20px;
+            color: @text-color-3;
+          }
+        }
+      }
+    }
+  }
+  .more{
+    .ht-lineHt(50px);
+    .pull-right();
+    background: @common-header-more no-repeat center;
+    width: 60px;
+  }
+}
+

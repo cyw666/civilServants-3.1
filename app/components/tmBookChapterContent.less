@@ -1,0 +1,62 @@
+/**
+ * 章节内容
+ */
+@import "../styles/mixins";
+
+.bookChapterContent {
+  .article-detail {
+    padding: 0 5px;
+    .article-detail-title-bar {
+      border-bottom: @border-width-base @border-style-base @border-color-base;
+      .article-detail-title {
+        font-size: @font-size-base + 8;
+        font-weight: 600;
+        line-height: 35px;
+        .ellipsis();
+        .text-center();
+      }
+      .article-detail-info {
+        line-height: 30px;
+        font-size: @font-size-sm;
+        color: @text-color-3;
+        .text-center();
+        span {
+          margin: 0 15px;
+        }
+      }
+      .article-detail-adjust {
+        color: @text-color-3;
+        .text-center();
+        line-height: 35px;
+        a {
+          color: @text-color-3;
+          line-height: 30px;
+          margin: 0 5px;
+          &:hover {
+            color: @text-color-2;
+          }
+        }
+      }
+    }
+    .article-detail-content {
+      min-height: 500px;
+      word-wrap: break-word;
+      padding: 10px 20px;
+    }
+    .article-detail-changeBar {
+      margin: 20px 0 20px 0;
+      .text-center();
+      .clearFix();
+      .article-detail-changeBar-up{
+        .pull-left();
+      }
+      .article-detail-changeBar-down{
+        .pull-right();
+      }
+      a {
+        width: 200px;
+        margin: 0 20px;
+      }
+    }
+  }
+}

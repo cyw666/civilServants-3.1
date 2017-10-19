@@ -1,0 +1,23 @@
+<!--专题学习more-->
+<div class="specialLearning">
+  <div common-header title-header="'专题学习'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ul class="specialLearningList">
+      <li ng-repeat="list in studySpecialData.ListData" class="clearfix">
+        <div class="left pull-left">
+          <a ui-sref="{{list.Url}}" target="_blank">
+            <img class="specialImg" ng-src="{{studySpecialData.ImagePath+'/'+list.Icon}}" err-Src="images/notFound.jpeg" alt="">
+          </a>
+        </div>
+        <div class="right pull-left">
+          <p class="title ellipsis" >
+            <a ui-sref="{{list.Url}}" target="_blank">{{list.SeriesName}}</a>
+          </p>
+          <p class="desc">{{list.SeriesDescription|wordLimit:45}}</p>
+          <p class="userCount">用户量：{{list.UserCount}}</p>
+        </div>
+      </li>
+    </ul>
+    <p ng-show="showNoSpecialClass" class="result">暂无专题学习</p>
+  </div>
+</div>

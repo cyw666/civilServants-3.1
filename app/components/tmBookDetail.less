@@ -1,0 +1,88 @@
+/**
+ * 图书详情
+ */
+@import "../styles/mixins";
+
+.bookDetail{
+  .bookTitle {
+    .titleName {
+      .ht-lineHt(70px);
+      .text-center();
+      margin-top: 10px;
+    }
+  }
+  .bookContent{
+    .clearFix();
+    img{
+      .pull-left();
+      .wh(187px,247px);
+      margin: 20px 0 0 20px;
+    }
+    .bookTxt {
+      .pull-left();
+      padding-left: 11px;
+      margin-top: 20px;
+      &>p{
+        .ht-lineHt(25px);
+      }
+      h4 {
+        .ht-lineHt(30px);
+        font-weight: normal;
+        font-size: @font-size-base+8;
+        color: @text-color-2;
+      }
+      .group a.btn {
+        margin: 30px 10px 0 0;
+        width: 130px;
+      }
+    }
+  }
+  .modal-footer {
+    text-align: center;
+  }
+  .bookComment{
+    padding: 20px;
+    .comment_bord {
+      border-left: 5px solid @border-style-base;
+      border-bottom: 3px solid @border-style-base;
+      margin-bottom: 20px;
+      &>li{
+        border-bottom: @border-width-base dashed @border-color-base;
+        .clearFix();
+        .bookCommentLeft{
+          width: 80%;
+          .pull-left();
+          h4,p{
+            padding-left: 15px;
+            margin-top: 5px;
+          }
+          p{
+            min-height: 40px;
+          }
+        }
+        .bookCommentRight{
+          span{
+            display: inline-block;
+            .square(45px);
+            background-color: @primary-color;
+            color: @white;
+            line-height: 45px;
+            font-weight: bold;
+            .text-center();
+            margin: 10px 40px 0 0;
+            border:@border-width-base @border-style-base @primary-4;
+            border-radius: @border-radius-base;
+          }
+        }
+      }
+    }
+  }
+  .bookSum{
+    padding: 20px;
+  }
+  h3{
+    .ht-lineHt(40px);
+    border-bottom: @border-width-base @border-style-base @border-color-base;
+    margin-bottom: 10px;
+  }
+}

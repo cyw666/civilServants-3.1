@@ -1,0 +1,118 @@
+/**
+ * 课程详情
+ */
+@import "../styles/mixins";
+
+.courseDetails{
+  .table > tbody{
+    .border-base();
+  }
+  .table > tbody > tr > td{
+    padding-left: 25px;
+    border-top: none;
+    vertical-align:middle;
+  }
+  .starGroup span{
+    .pull-left();
+  }
+  .jdcontext {
+    p{
+      .ht-lineHt(27px);
+    }
+    .number{
+      color: @text-color-3;
+    }
+    .name{
+      margin-left: 45px;
+    }
+    .glyphicon-ok{
+      margin-right: 65px;
+    }
+  }
+
+  .cur_title {
+    a {
+      color: @primary-color;
+      .glyphicon {
+        position: relative;
+        top: 2px;
+      }
+      &:hover {
+        color: @primary-4;
+      }
+    }
+  }
+
+  tbody > tr > td.listtb1, tbody > tr > td.listtb3 {
+    padding-right: 25px;
+  }
+  .listtb1 {
+    width: 20%;
+    .text-center();
+  }
+  .listtb2 {
+    width: 40%;
+    .progress {
+      width: 150px;
+      margin: 0 auto;
+    }
+  }
+  .listtb3 {
+    width: 20%;
+    .text-center();
+  }
+  .listtb4 {
+    width: 20%;
+  }
+  .listtb5{
+    .bar {
+      .ht-lineHt(27px);
+    }
+  }
+  .panel-body{
+    padding-top: 0;
+  }
+  .panel-body .table tr, .panel-body .table th {
+    .text-center();
+  }
+  .panel-body .table th {
+    font-size: @font-size-base + 1;
+    color: @text-color;
+  }
+  .panel-body .table .userImg {
+    width: 7%;
+    .text-right();
+  }
+  .panel-body .table .user {
+    width: 60%;
+    color: @text-color-2;
+  }
+  .panel-body .table .comment {
+    width: 60%;
+    color: @text-color;
+    padding-bottom: 25px;
+  }
+
+  .panel-body .table .time {
+    width: 20%;
+    color: @text-color-3;
+  }
+  .panel-body .table > tbody + tbody{
+    border:none;
+    .border-base();
+  }
+  .courseComment .panel {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+  .courseComment .panel-default > .panel-heading {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+}
+
+
+
+

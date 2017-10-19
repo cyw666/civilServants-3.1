@@ -1,0 +1,23 @@
+<!--个人排行(模块)-->
+<div class="studentsHourRanking">
+  <div common-header title-header="studentHourRanking.ViewBag.TitleNav" show-more=true link-url="'userRankingList'"></div>
+  <div class="tmBorder" dw-loading="studentsHourRanking">
+    <p class="rankTitle list">
+      <span class="list2">排行</span>
+      <span class="list3">姓名</span>
+      <span class="list2-5">学时</span>
+      <span class="list2-5">学次</span>
+    </p>
+    <ul class="rankingList list" ng-repeat="rankingData in studentHourRanking.ListData"  ng-class="{'rankListBg':$index%2!=0}">
+      <li class="list2">
+        <span ng-if="$index<3" ng-class="{'rankFirstBg':$index==0,'rankSecondBg':$index==1,'rankThirdBg':$index==2}"></span>
+        <span ng-if="$index>=3">{{$index+1}}</span>
+      </li>
+      <li class="list3">{{rankingData.UserName}}</li>
+      <li class="list2-5">{{rankingData.Credit}}</li>
+      <li class="list2-5">{{rankingData.LearnTime}}</li>
+    </ul>
+  </div>
+
+</div>
+

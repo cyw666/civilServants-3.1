@@ -1,0 +1,29 @@
+<!--实时数据-->
+<div class="realTimeData">
+  <div class="realTimeList" dw-loading="realTimeList">
+    <ul>
+      <li>
+        <div class="labelName"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>注册人数</span></div>
+        <p class="count">{{realTimeData.Model.UsersCount}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <div class="labelName"><i class="fa fa-globe" aria-hidden="true"></i><span>在线人数</span></div>
+        <p class="count">{{realTimeData.Model.OnlineUsersCount}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <div class="labelName"><i class="fa fa-file-o" aria-hidden="true"></i><span>课件数量</span></div>
+        <p class="count">{{realTimeData.Model.CourseCount}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li class="lastLi">
+        <div class="labelName"><i class="fa fa-users" aria-hidden="true"></i><span>访问次数</span></div>
+        <p class="count">{{realTimeData.Model.UserVisitCount}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

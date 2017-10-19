@@ -1,0 +1,32 @@
+<div class="classifySearch">
+  <div class="container_24">
+    <form class="form-inline">
+      <div class="form-group">
+        <select class="form-control" ng-init="selectedName = classify[0].type" ng-model="selectedName"
+                ng-options="x.type as x.name for x in classify" ng-change="judgement(selectedName)">
+        </select>
+      </div>
+      <div class="form-group">
+        <select ng-show="showCourseTypeName" class="form-control" ng-init="courseTypeName = courseType[0].type"
+                ng-model="courseTypeName"
+                ng-options="x.type as x.name for x in courseType">
+        </select>
+      </div>
+      <div class="form-group">
+        <input my-placeholder ng-model="searchTitle" type="text"
+               class="form-control searchText"
+               placeholder="请输入要搜索的关键字">
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="searchGlobal()">搜索</button>
+      <p class="tody">欢迎来到海南省干部在线学习中心，今天是{{tody}}</p>
+    </form>
+  </div>
+</div>
+<style>
+  .classifySearch .form-group .searchText{
+    width: 300px;
+  }
+  .classifySearch .tody{
+    display: inline-block;
+  }
+</style>

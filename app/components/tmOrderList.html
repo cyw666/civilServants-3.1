@@ -1,0 +1,100 @@
+<!--我的订单-->
+<div class="orderList">
+  <div common-header title-header="'我的订单'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <div class="cartList" dw-loading="orderList">
+      <ul>
+        <div class="title clearfix">
+          <span class="list1">订单商品</span>
+          <span class="list2">单价</span>
+          <span class="list2">数量</span>
+          <span class="list2">实付款</span>
+          <span class="list3">交易状态</span>
+          <span class="list3">交易操作</span>
+        </div>
+        <li class="content clearfix" ng-repeat="orderList in orderListData.ListData">
+          <table class="table table-bordered">
+            <thead>
+            <tr class="info" style="text-align: left">
+              <td colspan="6">
+                <span>{{orderList.CreateTime | dateFilter | date:'yyyy-MM-dd'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span>订单号：{{orderList.Id}}</span>
+                <a ng-if="orderList.Status!='HasPay'" ng-click="delOrder(orderList.Id)" class="pull-right del">
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+              </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="list in orderList.OrderDetail">
+              <td class="list1"><a ui-sref="courseDetails({Id:list.ProductId})" target="_blank"  title="{{list.ProductName}}">{{list.ProductName}}</a></td>
+              <td class="list2">￥{{list.Price.toFixed(2)}}</td>
+              <td class="list2">{{list.Count}}</td>
+              <td ng-if="$index==0" class="list2" rowspan="2">￥{{orderList.TotalPrice.toFixed(2)}}</td>
+              <td ng-if="$index==0" class="list3" rowspan="2">
+                <div>
+                  <p ng-if="orderList.Status=='NoPay'">等待付款</p>
+                  <p ng-if="orderList.Status=='HasPay'">交易成功</p>
+                  <p ng-if="orderList.Status=='Close'">交易关闭</p>
+                  <div><a ui-sref="orderdetaillist({orderId:orderList.Id})" target="_blank">订单详情</a></div>
+                </div>
+              </td>
+              <td ng-if="$index==0" class="list3" rowspan="2">
+                <div>
+                  <p ng-if="orderList.Status=='NoPay'"><a ui-sref="orderdetaillist({orderId:orderList.Id})" class="btn btn-primary">立即付款</a></p>
+                  <p ng-if="orderList.Status=='NoPay'"><a ng-click="cancelOrder(orderList.Id)">取消订单</a></p>
+                  <p ng-if="orderList.Status=='HasPay'">交易成功</p>
+                  <p ng-if="orderList.Status=='Close'"><a ng-click="restoreOrder(orderList.Id)" class="btn btn-primary">再次购买</a></p>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
+    </div>
+    <div tm-pagation conf="paginationConf"></div>
+  </div>
+</div>
+
+
+<style>
+  .orderList {
+    text-align: center;
+  }
+  .orderList .cartList .title {
+    font-weight: bold;
+    background: #EDF3FC;
+    color: #666;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0 0 0;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+  }
+  .orderList .cartList span{
+    float: left;
+  }
+  .orderList .cartList .list1{
+    width: 30%;
+  }
+  .orderList .cartList .list2{
+    width: 10%;
+  }
+  .orderList .cartList .list3{
+    width: 20%;
+  }
+  .orderList .cartList .table{
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  .orderList .cartList .table>tbody>tr>td{
+    vertical-align: middle;
+  }
+  .orderList .cartList .table .del{
+    position: relative;
+    top:2px;
+    width: 20px;
+  }
+</style>
+

@@ -1,0 +1,85 @@
+<!--注册-->
+<div class="register">
+  <h3>注册</h3>
+  <form class="form-signup" name="myForm" novalidate>
+    <div class="form-group">
+      <label class="required" for="exampleInputUser">用户名：</label>
+      <input ng-blur="verifyAccount()" ng-change="verifyAccount()" ng-model="register.account"
+             type="text" class="form-control" my-placeholder id="exampleInputUser" placeholder="请输入用户名">
+      <span class="error" ng-show="accountError">用户名不能为空！</span>
+    </div>
+    <div class="form-group">
+      <label class="required" for="exampleInputPassword1">登录密码：</label>
+      <input ng-blur="verifyPassword()" ng-change="verifyPassword()" ng-model="register.password"
+             type="password" autocomplete="off" class="form-control" my-placeholder id="exampleInputPassword1" placeholder="请输入登录密码">
+      <span class="error" ng-show="passwordError">登录密码不能为空！</span>
+    </div>
+    <div class="form-group">
+      <label class="required"for="exampleInputPassword2">确认密码：</label>
+      <input ng-blur="verifyConfirm()" ng-change="verifyConfirm()" ng-model="confirmPassword"
+             type="password" autocomplete="off" class="form-control" my-placeholder id="exampleInputPassword2" placeholder="请输入确认密码">
+      <span class="error" ng-show="confirmError">确认密码不能为空！</span>
+      <span class="error" ng-show="confirmError2">两次密码输入不一致！</span>
+    </div>
+    <div class="form-group">
+      <label class="required" for="exampleInputName">姓名：</label>
+      <input ng-blur="verifyName()" ng-change="verifyName()" ng-model="register.name"
+             type="text" class="form-control" my-placeholder id="exampleInputName" placeholder="请输入姓名">
+      <span class="error" ng-show="nameError">姓名不能为空！</span>
+    </div>
+    <div class="form-group" style="position: relative">
+      <label class="required">单位：</label>
+      <span my-tree class="myTree" ng-model="register.groupid"></span>
+      <span class="error" ng-show="groupidError">单位不能为空！</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputCard">身份证号：</label>
+      <input ng-blur="verifyIdCard()" ng-change="verifyIdCard()" ng-model="register.idcard"
+             type="text" class="form-control" my-placeholder id="exampleInputCard" placeholder="请输入身份证号">
+      <span class="error" ng-show="idcardError">身份证号不能为空！</span>
+      <span class="error" ng-show="idcardError2">身份证格式有误！</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail">电子邮箱：</label>
+      <input ng-blur="verifyEmail()" ng-change="verifyEmail()" ng-model="register.email"
+             type="text" class="form-control" my-placeholder id="exampleInputEmail" placeholder="例：example@email.com">
+      <span class="error" ng-show="emailError">电子邮箱不能为空！</span>
+      <span class="error" ng-show="emailError2">邮箱格式有误！</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPhone">手机号码：</label>
+      <input ng-blur="verifyMobile()" ng-change="verifyMobile()" ng-model="register.mobile"
+             type="text" class="form-control" my-placeholder id="exampleInputPhone" placeholder="请输入手机号码">
+      <span class="error" ng-show="mobileError">手机号码不能为空！</span>
+      <span class="error" ng-show="mobileError2">手机号码格式有误！</span>
+    </div>
+    <!--<div class="form-group">
+      <label for="verificationCode">验证码：</label>
+      <input ng-blur="verifySmgCode()" ng-change="verifySmgCode()" ng-model="register.smgcode"
+             type="text" class="form-control verificationCode" my-placeholder id="verificationCode" placeholder="请输入验证码">
+      <span verification-code mobile="register.mobile"></span>
+      <span class="error" ng-show="smgcodeError">验证码不能为空！</span>
+    </div>-->
+
+    <button ng-click="clickRegister()" type="submit" class="registerBtn btn btn-primary">注册</button>
+
+  </form>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" class="myModalLabel">干部教育网络学院注册服务协议</h4>
+        </div>
+        <div class="modal-body">
+          <p style="margin-bottom: 20px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">尊敬的用户：</span></span></p><p style="text-indent: 43px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">欢迎使用干部教育网络学院，在您注册为本网站用户前，请您一定仔细阅读《干部教育网络学院注册服务协议》（以下简称</span>“本协议”）。本协议为您与泸州市人力资源和社会保障局达成的网站及网络服务等内容的使用协议，一旦您点击“同意”按钮，即视为您同意并遵守本协议的全部条款，本协议即对您和**市人力资源和社会保障局都具有法律约束力。如您不同意本协议内容，请不要注册为本网站用户。您同意本协议并按照本网站的注册程序完成注册后，方可成为本网站用户，方可使用本网站产品和服务。</span></p><p><span style=";font-family:仿宋;font-size:21px">&nbsp;</span></p><p style="margin-bottom: 20px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">一、用户承诺</span></span></p><p style="margin-left: 11px;text-indent: 43px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">您同意并承诺做到以下几点：</span></span></p><p style="margin-left: 11px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;<span style="font-family:仿宋">（一）不发表任何与法律、法规及公序良俗相违背的内容，包括但不限于</span></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;1、反对宪法所确定的基本原则的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;2、危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;3、损害国家荣誉和利益的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;4、煽动民族仇恨、民族歧视，破坏民族团结的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;5、破坏国家宗教政策，宣扬邪教和封建迷信的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;6、散布谣言，扰乱社会秩序，破坏社会稳定的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;7、散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;8、侮辱或者诽谤他人，侵害他人合法权益的；</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;9、含有法律、行政法规禁止的其他内容的。</span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（二）承诺发表的内容中不含有任何侵害他人姓名权、肖像权、隐私权、著作权或其他合法权益的内容，不上传任何广告或促销信息，或任何带有贬损或损害性特征的内容，不粘贴或传播带有病毒的信息，不利用软件或网络系统漏洞破坏干扰本网站网络服务，否则本网站有权删除相关内容且由此产生的法律责任及相关费用（包括但不限于软硬件费用、维修费用、诉讼或仲裁费用、向相关权利人赔偿的费用、给本网站造成的损失等等）全部由您个人承担，本网站不承担任何法律责任。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（三）您同意本网站可以永久性地对您发布的内容进行审核、整理、修改、复制、传播；您同意本网站删除您发表的、可能侵害他人姓名权、肖像权、隐私权、著作权或其他合法权益的内容以及其他有害或违规内容，且您保证不重复发表上述内容；您有义务证明您发表的内容没有侵犯任何第三方的任何合法权益。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（四）尊重本网站及网络产品的著作权及其他合法权益，仅以个人学习目的使用本网站，并保证不用于任何调查、广告或其他商业目的，不用于任何非法目的。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（五）您违背上述承诺之一的，均为严重违约行为，为防止损害扩大，本网站有权自行采取救济行为，包括但不限于删除您的账户信息、禁止您继续使用本网站及网络产品、停止提供服务等。</span></span></p><p><span style=";font-family:仿宋;font-size:21px">&nbsp;</span></p><p style="margin-bottom: 20px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">二、用户的权利和义务</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（一）用户注册时需提供详尽、准确的个人资料并及时更新，以便在统计学时学长是能准确关联到您以及您的个人信息，作为年终考评相关依据。您注册后应牢记您的账号和密码，您有权随时查询、更改或更新注册信息。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（二）您注册后可在课程中心模块选择您要学习的课程。此课程仅限于在线浏览权，课程的著作权及其他合法权益仍归原权利人享有。除本网站特别标明或书面授权许可外，您无权下载、复制、刻录、录屏、传播、发表、出售、出租、编译、反编译网站的任何内容或演绎衍生出其他作品。否则，本网站有权封存相关用户</span>ID并追究相关法律责任。</span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（三）本网站及其任何组成部分，包括但不限于网站页面设计、编排方式、技术程序、软件、资源、网络产品、产品或服务名称、文字、视音频、图片、电子书、实验、</span>Logo、商标、标识、著作权等均由本网站所有，均受到著作权法、商标法及其他法律法规的保护。除本网站特别标明或书面授权许可外，任何媒体、网站或个人未经本网站正式书面授权，不得转载、链接、转贴、修改、复制、下载、出售、演绎、反向编译或以其他方式复制、发布或发表上述内容，不得将之用于任何营利或非营利目的，不得以个人学习为名实施任何侵害本网站权益的行为；已经本网站书面授权的媒体、网站或个人在使用时必须注明“视频/图片/文字来源：干部教育网络学院”，且不得擅自允许他人继续转载或复制，不得出售或用于商业目的。违反上述规定或有其他侵权行为的，本网站权利人保留追究侵权人法律责任的权利。</span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（四）如您发现本网站其他用户有侵犯您姓名权、肖像权、隐私权、著作权或其他合法权益现象的，请及时与本网站联系并附加相关权利证明文件，以便本网站及时作出处理，维护您的合法权益。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（五）本网站本着严谨负责的态度对网络产品质量精益求精，但不保证无任何错误或瑕疵，如您同意注册为本网站用户，即视为同意并接受上述观点。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（六）本网站严格对用户个人隐私的保护和保密，但您也有义务保证密码和帐号的安全，您应对利用该帐号和密码所进行的活动承担相应法律责任。如您发现帐号遭到未授权的使用或发生其他任何安全问题，应立即修改帐号密码并妥善保管。一个账户只能在一台电脑上唯一性登录，不可由多用户同时登录。账号注册后一年内未登录的，本网站有权删除该账号。</span></span></p><p><span style=";font-family:仿宋;font-size:21px">&nbsp;</span></p><p style="margin-bottom: 20px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">三、免责声明</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（一）由于计算机设备的多样性和复杂性，本网站不保证所提供的视频在每一个</span>Windows系统上运行时不出现任何问题，不担保可以和任何程序同时使用、运行而不发生冲突。如出现上述现象，用户应立即检测相关设备及程序，防止造成任何损失。</span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（二）因地震、台风、洪水、火灾、战争、政府禁令以及其他不可抗力、用户自身疏忽管理等原因，致使影响网站、网络产品及服务使用的，本网站不承担任何法律责任。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（三）对于本网站所提供的学习内容，我们力求精益求精，但由于能力有限及理解力的不同，可能会存在纰漏之处。如果您使用本网站，表明您己经对我们工作主体部分的认可和宽容我们工作中可能存在的纰漏。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（四）本网站承诺保护注册用户的隐私，但经您授权披露或您自动泄露个人信息而导致自身隐私泄露或账户被窃取的，以及因公安、行政、司法等部门执行公务而必须公布您的信息的，本网站不承担任何法律责任。</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">（五）为方便您使用，本网站会提供一些第三方网站或资源的链接，除另有声明外，这些链接仅为提供便利，本网站无法对第三方网站服务进行控制，请您浏览时慎重选择。</span></span></p><p><span style=";font-family:仿宋;font-size:21px">&nbsp;</span></p><p style="margin-bottom: 20px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">四、法律适用及管辖</span></span></p><p style="text-indent: 43px;line-height: 20px"><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><span style="font-family:仿宋">本协议的订立、执行、解释及争议的解决均适用中华人民共和国法律。</span></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;</span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px"><br></span><span style=";font-family:仿宋;color:rgb(51,51,51);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:仿宋">再次郑重提示：如果您不接受本协议，请不要点击</span>“同意”按钮；一旦您点击“同意”按钮并完成注册的，即视为您同意并遵守本协议所包含的全部条款。</span></p><p><br></p>
+        </div>
+        <div class="modal-footer" style="text-align: center;">
+          <button type="button" style="width: 88px" class="btn btn-default btn-lg" data-dismiss="modal" ng-click="noAgree()">不同意</button>
+          <button style="width: 88px" type="button" class="btn btn-primary btn-lg" data-dismiss="modal">同意</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<!--完成课程排行列表（more）-->
+<div class="rankingDetail">
+  <div common-header title-header="rankCourseFinish.ViewBag.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">{{rankCourseFinish.ViewBag.TitleNav}}</li>
+    </ol>
+    <div class="myTab" dw-loading="rankCourseClick">
+      <div class="tab-content">
+        <div class="tab-panel perlist">
+          <div class="title_bar">
+            <span class="list3">排名</span>
+            <span class="list3">姓名</span>
+            <span class="list3">完成课程数</span>
+          </div>
+          <div class="list" ng-repeat="rankCourseFinishList in rankCourseFinish.ListData">
+            <span class="list3">{{(paginationConf.currentPage-1)*paginationConf.itemsPerPage+$index+1}}</span>
+            <span class="list3" title="{{rankCourseFinishList.Name}}">{{rankCourseFinishList.Name}}</span>
+            <span class="list3">{{rankCourseFinishList.Total}}</span>
+          </div>
+        </div>
+      </div>
+      <div tm-pagation conf="paginationConf"></div>
+    </div>
+  </div>
+</div>

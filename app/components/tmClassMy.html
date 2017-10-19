@@ -1,0 +1,16 @@
+<!--班级展示模块-->
+<div class="classMy mar_top_20">
+  <div common-header title-header="classMyData.TitleNav" show-more=true link-url="classUrl"></div>
+  <div class="tmBorder">
+    <div class="myClass" dw-loading="classMy">
+      <div class="list listTitle">
+        <span class="list5">班级名称</span>
+        <span class="list5">学员人数</span>
+      </div>
+      <div class="list" title="{{classList.Name}}" ng-repeat="classList in classMyData.ListData">
+        <span class="list5"><a ui-sref="classDetail({Id:classList.Id})">{{classList.Name}}</a></span>
+        <span class="list5">{{classList.CurrentUser}}</span>
+      </div>
+    </div>
+  </div>
+</div>

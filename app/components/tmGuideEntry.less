@@ -1,0 +1,30 @@
+/**
+ * 友情链接(短模块)
+ */
+@import "../styles/mixins";
+.guideEntry {
+  a {
+    display: inline-block;
+    width: 110px;
+  }
+  .guideContent{
+    margin-top: 20px;
+    height: 233px;
+    border:1px solid @border-color-split;
+    .text-center();
+    ul {
+      margin-top: 15px;
+      li{
+        width: 109px;
+        .pull-left();
+      }
+    }
+    .professionals {
+      display: inline-block;
+      p{
+        padding: 12px 0;
+      }
+    }
+  }
+}
+

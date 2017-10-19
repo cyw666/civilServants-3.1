@@ -1,0 +1,37 @@
+/**
+ * 我的风采
+ */
+@import "../styles/mixins";
+
+.studentStyleDetail {
+  .article-detail {
+    padding: 0 5px;
+    .article-detail-title-bar {
+      border-bottom: 1px solid @border-color-base;
+      .text-center();
+      .article-detail-title {
+        font-size: 22px;
+        font-weight: bold;
+        white-space: nowrap;
+        word-spacing: 0px;
+      }
+      .article-detail-info {
+        color: @text-color-3;
+        line-height: 25px;
+        span {
+          margin: 0 15px;
+        }
+        a {
+          margin: 0 5px;
+          color: @text-color-3;
+          &:hover {
+            color: @text-color-2;
+          }
+        }
+      }
+    }
+    .article-detail-content {
+      min-height: 500px;
+    }
+  }
+}

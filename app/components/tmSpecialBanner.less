@@ -1,0 +1,17 @@
+/**
+ * 专题培训banner
+ */
+@import "../styles/mixins";
+
+.specialBanner {
+  background: url("../images/zt-banner.png") no-repeat center;
+  background-size: 100% 310px;
+  .specialBannerText {
+    .wh(1334px, 310px);
+    .text-center();
+    margin: 0 auto;
+    img {
+      .wh(100%, 310px);
+    }
+  }
+}

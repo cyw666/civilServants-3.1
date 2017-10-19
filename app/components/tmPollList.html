@@ -1,0 +1,39 @@
+<!--问卷调查列表-->
+<div class="pollList">
+  <div common-header title-header="pollListData.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">{{pollListData.TitleNav}}</li>
+    </ol>
+    <form class="form-inline formSearch">
+      <div class="form-group">
+        <input ng-model="searchTitle" type="text" class="form-control"
+               my-placeholder
+               placeholder="请输入要搜索的问卷">
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="getClassList({'title':searchTitle})">搜索</button>
+    </form>
+    <div class="mar_top_20">
+      <div class="myTab" dw-loading="pollList">
+        <div class="tab-content">
+          <div class="tab-panel perlist">
+            <div class="title_bar">
+              <span class="list4">问卷名称</span>
+              <span class="list4">参加</span>
+              <!--<span class="list3">详情</span>-->
+            </div>
+            <div class="list" ng-repeat="pollList in pollListData.Model.UnfinishModel">
+              <span class="list4 ellipsis" title="{{pollList.Name}}"><a ng-click="havTest(pollList.Id)">{{pollList.Name}}</a></span>
+              <span class="list4"><a ng-click="havTest(pollList.Id)">参加</a></span>
+              <!--<span class="list3"><a ui-sref="pollreview({parameter1:pollList.Id,parameter2:0})" target="_blank">查看详情</a></span>-->
+            </div>
+          </div>
+        </div>
+        <div tm-pagation conf="paginationConf"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,69 @@
+<!--购物车-->
+<div class="shoppingCart">
+  <div common-header title-header="'购物车'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <div class="myTab">
+      <div class="tab-content" dw-loading="shoppingCart">
+        <div class="tab-panel perlist">
+          <div class="title_bar">
+            <span class="list3">商品名称</span>
+            <span class="list1-5">商品类别</span>
+            <span class="list1-5">数量</span>
+            <span class="list1">单价</span>
+            <span class="list1">总价</span>
+            <span class="list1">操作</span>
+          </div>
+          <div class="list" ng-repeat="list in shoppingCartData.ListData">
+              <span class="list3 ellipsis"><a ui-sref="courseDetails({Id:list.ProductId})" target="_blank">{{list.ProductName}}</a></span>
+              <span class="list1-5">{{list.ProductType=='Course'?'课程':'图书'}}</span>
+              <span class="list1-5"><input type="text" disabled ng-value="list.Count"></span>
+              <span class="list1">￥{{list.Price.toFixed(2)}}</span>
+              <span class="list1">￥{{list.TotalPrice.toFixed(2)}}</span>
+              <span class="list1"><a ng-click="delCourseFromCart(list.ProductId)" class="btn btn-default">删除</a></span>
+          </div>
+        </div>
+        <div class="shooingCartFooter clearfix">
+          <p class="pull-left">
+            <a ui-sref="courseCenterBuy" class="btn btn-primary">继续选课</a>
+            <a ui-sref="personalCenter" class="btn btn-primary">返回学习中心</a>
+          </p>
+          <p class="pull-right mar_right_20">
+            <span> 总价：￥{{shoppingCartData.TotalPrice.toFixed(2)}}</span>
+            <a ng-click="addOrder()" class="btn btn-primary">下单</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .myTab .perlist .list1-5 input{
+    width: 50%;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+  }
+  .shoppingCart .myTab .perlist span a.btn {
+    padding: 2px 12px;
+    background-color: #e6e6e6;
+    color: #666;
+  }
+  .shoppingCart .myTab .perlist span a.btn:hover {
+    color: #333;
+  }
+  .shooingCartFooter {
+    text-align: left;
+    margin: 20px 0 10px 10px;
+  }
+  .shooingCartFooter span{
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .shooingCartFooter .pull-right .btn-primary {
+    width: 80px;
+  }
+</style>
+
+

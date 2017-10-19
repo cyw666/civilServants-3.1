@@ -1,0 +1,47 @@
+<div class="news mar_top_15">
+    <div class="com-header com-header-{{$parent.classStyle}}" style="margin-left: 0px">
+        <h4 class="pull-left">{{myNewsData.CategoryName}}</h4>
+    </div>
+    <div class="news-body" dw-loading="tmnewswithoutphoto">
+        <p ng-show="!myNewsData.ListData.length" class="result">暂无数据</p>
+        <ul>
+            <li title="{{Data.Name}}" ng-repeat="Data in myNewsData.ListData">
+                <a ui-sref="articleDetail({ID:Data.Id})" class="clearfix" target="_blank">
+                    <h5 class="pull-left"><span class="dian"></span>{{Data.Name}}</h5>
+                    <p class="newsTime pull-right">{{Data.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<style>
+  .news{
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+    .news .news-body p{
+        font-size: 15px;
+    }
+    .news-body li{
+        margin: 5px 10px;
+    }
+  .news .news-body h5{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    padding-left: 10px;
+    line-height: 30px;
+    max-width:600px;
+    min-width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+  }
+  .news .news-body a:hover h5{
+    color: #62a3db;
+  }
+</style>

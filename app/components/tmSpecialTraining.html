@@ -1,0 +1,17 @@
+<!--专题培训(首页)-->
+<div class="specialTraining" dw-loading="specialTraining">
+  <div common-header title-header="'专题学习'" show-more=true link-url="'speciallearning'"></div>
+  <ul class="specialContent">
+    <li ng-repeat="list in studySpecialData.ListData">
+      <p>
+        <a ui-sref="{{list.Url}}" target="_blank">
+          <img class="specialImg" ng-src="{{studySpecialData.ImagePath+'/'+list.Icon}}" err-Src="images/notFound.jpeg" alt="">
+        </a>
+      </p>
+      <p class="title" title="{{list.SeriesName}}">
+        <a ng-href="{{list.Url}}" target="_blank">{{list.SeriesName}}</a>
+      </p>
+    </li>
+    <p ng-show="showNoSpecialClass" class="result">暂无专题学习</p>
+  </ul>
+</div>

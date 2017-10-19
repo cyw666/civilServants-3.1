@@ -1,0 +1,28 @@
+<!--全局搜索结果-->
+<div class="tmSearchResult">
+  <div common-header title-header="'搜索结果'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li class="active">搜索结果</li>
+    </ol>
+    <p ng-show="!paginationConf.totalItems" class="result">暂无数据</p>
+    <div ng-show="paginationConf.totalItems" class="mar_top_15 searchContent" dw-loading="tmsearchresult">
+      <ul>
+        <li class="news" ng-repeat="newsData in newsData">
+          <a ng-if="newsData.Type=='Article'" ui-sref="articleDetail({ID:newsData.Id})" target="_blank">
+            [文章：]{{newsData.Name}}
+          </a>
+          <a ng-if="newsData.Type=='Notice'" ui-sref="noticeDetail({ID:newsData.Id})" target="_blank">
+            [通知：]{{newsData.Name}}
+          </a>
+          <a ng-if="newsData.Type=='Course'" ui-sref="courseDetails({Id:newsData.Id})" target="_blank">
+            [课程：]{{newsData.Name}}
+          </a>
+        </li>
+      </ul>
+      <div tm-pagation conf="paginationConf"></div>
+    </div>
+  </div>
+</div>

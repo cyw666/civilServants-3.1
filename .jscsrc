@@ -1,0 +1,4 @@
+{
+  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "requireCapitalizedConstructors": true
+}

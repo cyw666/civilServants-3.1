@@ -1,0 +1,37 @@
+<div class="news mar_top_15 clearfix">
+    <div id="newsTitle" ng-class="{'政策法规':'com-header com-header-green',
+    '公告通知':'com-header com-header-cyan'}[title]" style="margin-left: 0px">
+        <h4 class="pull-left">{{title}}</h4>
+        <a  ui-sref="newsinfo({ID:myNewsData.ID})" class='pull-right' target="_blank">更多&nbsp;&nbsp;+</a>
+    </div>
+    <div class="news-body" dw-loading="tmpolicyandnotify">
+        <ul>
+            <li title="{{Data.Name}}" ng-repeat="Data in myNewsData.data">
+                <a ui-sref="articleDetail({ID:Data.Id})" class="clearfix" target="_blank">
+                    <h5 class="pull-left"><span class="dian"></span>{{Data.Name}}</h5>
+                    <p class="newsTime pull-right">{{Data.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<style>
+  .news{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .news .com-header a.pull-right{
+        line-height: 40px;
+        color: #fff;
+        font-size: 12px;
+        padding-right: 10px;
+
+    }
+    .news .com-header a.pull-right:hover{
+        text-decoration: none;
+    }
+  .news .newsTime{
+    padding-right: 8px;
+  }
+</style>

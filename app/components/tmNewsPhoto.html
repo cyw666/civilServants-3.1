@@ -1,0 +1,78 @@
+<div id="newsPhoto" class="news mar_top_15">
+    <div class="com-header com-header-blue" style="margin-left: 0px">
+        <h4 class="pull-left">图片新闻</h4>
+        <a ui-sref="newsinfo({ID:newsData.photoNews.ID})" class="pull-right" target="_blank">更多&nbsp;&nbsp;+</a>
+    </div>
+    <div class="news-body" dw-loading="tmnewsphoto">
+        <div class="grid_8 pull-left">
+            <img class="news_img" ng-src="{{ImgSrc}}" err-src="images/notFound.jpeg">
+        </div>
+        <div class="grid_15">
+            <ul>
+                <li title="{{photoNewsData.Name}}"  ng-repeat="photoNewsData in newsData.photoNews.data">
+                    <a ui-sref="articleDetail({ID:photoNewsData.Id})" class="clearfix" target="_blank">
+                        <h5 class="pull-left"><span class="dian"></span>{{photoNewsData.Name}}</h5>
+                        <p class="newsTime pull-right">{{photoNewsData.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<style>
+  #newsPhoto{
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+  }
+  #newsPhoto .newsTime{
+    padding-right: 0;
+  }
+
+    .news_img{
+        padding: 10px 0 10px 10px;
+        width: 350px;
+        height: 240px;
+    }
+    .news .news-body {
+        min-height: 250px;
+        font-size: 15px;
+    }
+    .news .news-body .grid_15{
+        margin-left: 16px;
+    }
+    .news .news-body li{
+        height: 35px;
+    }
+    .news .news-body li>a{
+        display: block;
+    }
+    .news .news-body h5{
+        font-size: 15px;
+        font-weight: 500;
+        color: #333;
+        line-height: 30px;
+        max-width:600px;
+        min-width: 400px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    
+    }
+  .news .news-body a:hover h5{
+    color: #62a3db;
+  }
+    .news .news-body li>p{
+        font-size: 15px;
+        color: #7f7f7f;
+        line-height: 23px;
+        margin-bottom: 7px;
+        overflow: hidden;
+    }
+    .news span.dian{
+        display: inline-block;
+        margin: 5px 10px;
+        vertical-align: middle;
+    }
+
+</style>

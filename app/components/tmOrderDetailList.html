@@ -1,0 +1,128 @@
+<!--订单详细-->
+<div class="orderDetailList">
+  <div common-header title-header="'订单详细'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <h3 class="shoppingTitle"><span class="verticalLine"></span>订单详细</h3>
+    <div class="cartList" dw-loading="orderDetailList">
+      <ul>
+        <div class="title clearfix">
+          <span class="list1">商品名称</span>
+          <span class="list2">类型</span>
+          <span class="list2">数量</span>
+          <span class="list2">单价</span>
+          <span class="list2">总价</span>
+          <span class="list3">状态</span>
+        </div>
+        <li class="content clearfix" ng-repeat="list in orderDetailListData.ListData">
+          <span class="list1"><a ui-sref="courseDetails({Id:list.Id})" target="_blank"  title="{{list.ProductName}}">{{list.ProductName}}</a></span>
+          <span class="list2">{{list.ProductType=='Course'?'课程':'图书'}}</span>
+          <span class="list2">{{list.Count}}</span>
+          <span class="list2">￥{{list.Price.toFixed(2)}}</span>
+          <span class="list2">￥{{list.TotalPrice.toFixed(2)}}</span>
+
+          <span ng-if="orderDetailListData.OrderStatus=='NoPay'" class="list3">等待付款</span>
+          <span ng-if="orderDetailListData.OrderStatus=='HasBuy'" class="list3">交易成功</span>
+          <span ng-if="orderDetailListData.OrderStatus=='Close'" class="list3">交易关闭</span>
+        </li>
+      </ul>
+      <div class="bottom clearfix"  ng-if="orderDetailListData.OrderStatus=='NoPay'">
+        <p class="bottomInfo">
+          状态:等待付款
+        </p>
+        <ul>
+          <li>
+            <input id="ctl09_rblPayType_0" type="radio" ng-model="payType" name="payType" value="1">
+            <label for="ctl09_rblPayType_0">在线支付： 本网与第三方支付平台合作提供在线支付功能，您可以放心的支付各种款项。 </label>
+          </li>
+          <li>
+            <input id="ctl09_rblPayType_1" type="radio" ng-model="payType" name="payType" value="2">
+            <label for="ctl09_rblPayType_1">现金面付： 您可以直接前往收费点，当面支付现金，立即开通课程。</label>
+          </li>
+        </ul>
+        <span>总价：¥{{orderDetailListData.TotalPrice.toFixed(2)}}</span>
+        <a ng-click="goPayConfirm(payType)" class="btn btn-primary">去支付</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .orderDetailList {
+    text-align: center;
+  }
+  .orderDetailList .content span{
+    height: 48px;
+  }
+  .orderDetailList .cartList .title {
+    font-weight: bold;
+    background: #EDF3FC;
+    color: #666;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0 0 0;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+  }
+  .orderDetailList .title span {
+    height: 40px;
+  }
+  .orderDetailList .cartList span{
+    float: left;
+  }
+  .orderDetailList .cartList .list1{
+    width: 40%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .orderDetailList .cartList .list2{
+    width: 10%;
+  }
+  .orderDetailList .cartList .list3{
+    width: 20%;
+  }
+  .orderDetailList .cartList .content {
+    border-bottom: 1px dotted #80b2ff;
+    border-top: 1px dotted #80b2ff;
+    height: 48px;
+    line-height: 48px;
+    margin: 10px 0;
+    background-color: #f2f7ff;
+  }
+  .orderDetailList .bottom{
+    text-align: left;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f2f7ff;
+  }
+  .orderDetailList .bottomInfo {
+    font-size: 18px;
+    display: inline-block;
+    line-height: 2.6;
+    font-weight: bold;
+    letter-spacing: normal;
+    color: #db1011;
+  }
+  .orderDetailList .bottom li{
+    height:25px;
+    line-height: 25px;
+  }
+  .orderDetailList .bottom li label{
+    color: #545454;
+    font-weight: normal;
+  }
+  .orderDetailList .bottom>span{
+    margin: 20px 0 40px 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .orderDetailList .bottom .btn {
+    float: right;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 7px 28px;
+    margin-top: 20px;
+  }
+</style>
+

@@ -1,0 +1,138 @@
+/**
+ * 视频播放
+ */
+@import "../styles/mixins";
+#playBg {
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  .wh(100%, 100%);
+  background-color: black;
+  z-index: 1002;
+  .opacity(0.4);
+}
+.playPage {
+  height: 100%;
+  .clearFix();
+
+  .playMp4 {
+    position: relative;
+    .wh(99%, 100%);
+    .pull-left();
+  }
+  .toggleSideSec {
+    background: url("../images/1.jpg");
+    .wh(12px, 83px);
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 250px;
+    position: absolute;
+    z-index: 1000;
+    right: 0;
+  }
+  .play {
+    display: none;
+    position: relative;
+    .wh(22%, 100%);
+    .pull-right();
+    .side_section {
+      background: @footer-background;
+      height: 100%;
+      z-index: 1001;
+      .class_info {
+        background: @footer-background;
+        min-height: 100px;
+        padding: 14px 10px;
+        .info {
+          width: 80%;
+          color: @text-color-2;
+          font-size: @font-size-sm;
+          line-height: 20px;
+          .overhide {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: left;
+          }
+        }
+      }
+    }
+    .notes {
+      clear: both;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 10px;
+    }
+
+    .wrapper {
+      height: 30px;
+    }
+
+    .form-group input {
+      width: 95%;
+    }
+    .form-group textarea {
+      width: 95%;
+    }
+    form button.btn {
+      margin-right: 5%;
+    }
+
+    .BrowseScore {
+      padding: 5px 0;
+      .list2 {
+        width: 150px;
+        .progress {
+          margin-top: 0;
+        }
+      }
+    }
+    .myTab .nav li {
+      background-color: @footer-background;
+    }
+
+    .myTab .nav {
+      margin-left: 10px;
+    }
+
+    .myTab ul.nav-tabs {
+      background-color: @footer-background;
+    }
+    .myTab .tab-content {
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .myTab .notes li {
+      padding: 5px 0;
+      text-align: left;
+    }
+
+    .myTab .notes li a {
+      padding: 1px 12px;
+    }
+
+    .myTab ul.nav-tabs > li a {
+      border: 2px solid #d3d3d3;
+      background-color: #e6e6e6;
+      color: @text-color-2;
+      border-bottom-color: transparent;
+    }
+
+    .myTab ul.nav-tabs > li a:hover {
+      color: @text-color;
+      border: 2px solid @border-color-base;
+      border-bottom-color: transparent;
+    }
+
+    .myTab ul.nav-tabs > li.active a {
+      color: @text-color;
+      background-color: @white;
+      border: 2px solid @border-color-base;
+      border-bottom-color: transparent;
+      text-align: center;
+    }
+  }
+}
+
+

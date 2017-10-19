@@ -1,0 +1,337 @@
+/**
+ * mixins
+ */
+/*Color函数*/
+//lighten(@color, 10%);     //比@color 浅10%
+//darken(@color, 10%);      //比@color 深10% 它增加了元素中颜色的亮度
+
+//saturate(@color, 10%);    // 比@color饱和度高10%
+//desaturate(@color, 10%);  // 比@color饱和度高10%
+
+//fadein(@color, 10%);      // 比@color透明度减少10%
+//fadeout(@color, 10%);     // 比@color透明度增加10%
+//fade(@color, 50%);        // 设置@color的颜色的透明度
+
+//spin(@color, 10);         // 它用于旋转所选元素的颜色的角度。
+
+//mix(@color1, @color2);    // 混合 @color1 and @color2
+
+//tint(@color1,50%);        //它将颜色与白色混合，同时减少颜色的比例。
+//shade(@color1,50%);        //它将颜色与黑色混合，因为您减少了颜色的比例。
+/*调色板*/
+@blue-1: tint(@blue-3, 93%);
+@blue-2: tint(@blue-3, 80%);
+@blue-3: #108ee9;
+@blue-4: tint(@blue-3, 20%); //active、hover color
+@blue-5: shade(@blue-3, 5%);
+
+@purple-1: tint(@purple-3, 93%);
+@purple-2: tint(@purple-3, 80%);
+@purple-3: #7265e6;
+@purple-4: tint(@purple-3, 20%);
+@purple-5: shade(@purple-3, 5%);
+
+@cyan-1: tint(@cyan-3, 93%);
+@cyan-2: tint(@cyan-3, 80%);
+@cyan-3: #00a2ae;
+@cyan-4: tint(@cyan-3, 20%);
+@cyan-5: shade(@cyan-3, 5%);
+
+@green-1: tint(@green-3, 93%);
+@green-2: tint(@green-3, 80%);
+@green-3: #00a854;
+@green-4: tint(@green-3, 20%);
+@green-5: shade(@green-3, 5%);
+
+@pink-1: tint(@pink-3, 93%);
+@pink-2: tint(@pink-3, 80%);
+@pink-3: #f5317f;
+@pink-4: tint(@pink-3, 20%);
+@pink-5: shade(@pink-3, 5%);
+
+@red-1: tint(@red-3, 93%);
+@red-2: tint(@red-3, 80%);
+@red-3: #db1011;
+@red-4: tint(@red-3, 20%);
+@red-5: shade(@red-3, 5%);
+
+@orange-1: tint(@orange-3, 93%);
+@orange-2: tint(@orange-3, 80%);
+@orange-3: #f56a00;
+@orange-4: tint(@orange-3, 20%);
+@orange-5: shade(@orange-3, 5%);
+
+@yellow-1: tint(@yellow-3, 93%);
+@yellow-2: tint(@yellow-3, 80%);
+@yellow-3: #ffbf00;
+@yellow-4: tint(@yellow-3, 20%);
+@yellow-5: shade(@yellow-3, 5%);
+
+@white: #fff;
+@black: #000;
+@gray-333: #333;
+@gray-aaa: #aaa;
+@gray-ccc: #ccc;
+@gray-ddd: #ddd;
+@gray-eee: #eee;
+@gray-f3: #f3f3f3;
+@gray-f4: #f4f4f4;
+@gray-f7: #f7f7f7;
+@gray-f8: #f8f8f8;
+@gray-f9: #f9f9f9;
+/*颜色*/
+@primary-color: @red-3;
+@info-color: @blue-3;
+@success-color: @green-3;
+@error-color: @red-4;
+@highlight-color: @red-3;
+@warning-color: @yellow-3;
+@normal-color: #d9d9d9;
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
+@primary-1: tint(@primary-color, 93%);
+@primary-2: tint(@primary-color, 80%);
+@primary-3: @primary-color;
+@primary-4: tint(@primary-color, 20%);
+@primary-5: shade(@primary-color, 5%);
+
+// Background color for `<body>`
+@body-background: @white;
+@component-background: @white;
+@font-family: "Microsoft Yahei", SimHei, "Helvetica Neue", "PingFangHK-Light", "Heiti SC", "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Micro Hei", "Droid Sans", "Roboto", Helvetica, Tahoma, Arial, "sans-serif";
+@code-family: Consolas, Menlo, Courier, monospace;
+@footer-background: #ebebeb; //footer background
+@heading-color: fade(#000, 85%); //标题颜色1
+@text-color: #333;
+@text-color-2: #666;
+@text-color-3: #999;
+
+@font-size-base: 14px; //基准字体大小
+@font-size-sm: @font-size-base - 2px; //小字体
+@font-size-lg: @font-size-base + 2px; //大字体
+@border-radius-base: 4px; //边框圆角
+@border-radius-sm: 2px; //边框圆角小
+@line-height-base: 1.5; //行高
+// list items or table cells.
+@tab-header-bg: @gray-f7;
+@item-header-bg: #edf3fc;
+@item-active-bg: @primary-1;
+@item-hover-bg: @primary-1;
+
+// LINK
+@link-color: @text-color;
+@link-hover-color: @primary-4;
+@link-active-color: @primary-5;
+@link-hover-decoration: none;
+
+// Border color
+@border-color-base: #d9d9d9; // base border outline a component
+@border-color-split: #e9e9e9; // split border inside a component
+@border-width-base: 1px; // width of the border for a component
+@border-style-base: solid; // style of a components border
+
+// Outline
+@outline-blur-size: 0;
+@outline-width: 2px;
+@outline-color: @primary-color;
+// 灰色背景
+@background-color-base: #f8f8f8;
+@background-color-active: #eee;
+
+// Disabled states
+@disabled-color: fade(#000, 35%);
+@disabled-bg: @background-color-base;
+@disabled-color-dark: fade(#000, 45%);
+
+@input-hover-border-color: @primary-color;
+@input-placeholder-color: @text-color-3;
+
+/*背景*/
+@big-banner: '/images/banner.png';
+@big-banner-text: '/images/bannerText.png';
+@logo: data-uri('../images/logo.png');
+@flag: data-uri('../images/redFlag.png');
+@class-garden-bg: '/images/classGardenbg.png';
+@class-logo-bg: data-uri('../images/classLogoBg.png');
+@common-header-icon: data-uri('../images/headerLeftIcon.png');
+@common-header-more: data-uri('../images/more.png');
+@common-arrow-right: data-uri('../images/arrowRight.png');
+/*排行前三背景*/
+@rank-first-bg:data-uri('../images/rankOne.png');
+@rank-second-bg:data-uri('../images/rankTwo.png');
+@rank-third-bg:data-uri('../images/rankThree.png');
+// 边框圆角
+.border-radius (@radius: @border-radius-base) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+}
+
+.wh (@width,@height) {
+  width: @width;
+  height: @height;
+}
+
+.ht-lineHt (@height) {
+  height: @height;
+  line-height: @height;
+}
+
+.square(@size) {
+  .wh(@size; @size);
+}
+
+//圆角
+.border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+  border-top-left-radius: @radius;
+}
+
+.border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+  border-top-right-radius: @radius;
+}
+
+.border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+
+.border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+  border-top-left-radius: @radius;
+}
+
+.opacity(@opacity:1) {
+  @opacityPercentage: @opacity * 100;
+  filter: ~"alpha(opacity = (@{opacityPercentage}))";;
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  opacity: @opacity;
+}
+
+// 左浮动
+.pull-left() {
+  float: left !important;
+}
+
+// 右浮动
+.pull-right() {
+  float: right !important;
+}
+
+// 清除浮动
+.clearFix() {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+  }
+}
+
+.input-focus(@color: @outline-color) {
+  border-color: tint(@color, 20%);
+  outline: 0;
+  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
+}
+
+.input-hover(@color: @input-hover-border-color) {
+  border-color: tint(@color, 20%);
+}
+
+//过渡
+.transition(@pro:all;@dur:0.3s;@fn:ease-in;@delay:0s) {
+  -webkit-transition-property: @pro;
+  -moz-transition-property: @pro;
+  -o-transition-property: @pro;
+  transition-property: @pro;
+
+  -webkit-transition-duration: @dur;
+  -moz-transition-duration: @dur;
+  -o-transition-duration: @dur;
+  transition-duration: @dur;
+
+  -webkit-transition-timing-function: @fn;
+  -moz-transition-timing-function: @fn;
+  -o-transition-timing-function: @fn;
+  transition-timing-function: @fn;
+
+  -webkit-transition-delay: @delay;
+  -moz-transition-delay: @delay;
+  -o-transition-delay: @delay;
+  transition-delay: @delay;
+}
+
+// 文字居中
+.text-center() {
+  text-align: center;
+}
+
+// 文字居左
+.text-left() {
+  text-align: left;
+}
+
+// 文字居右
+.text-right() {
+  text-align: right;
+}
+
+//base边框
+.border-base() {
+  border: @border-width-base @border-style-base @border-color-base;
+}
+
+//边框阴影
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+// Placeholder text
+.placeholder(@color: @input-placeholder-color) {
+  // Firefox
+  &::-moz-placeholder {
+    color: @color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+
+/*超出显示...*/
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*两端对齐*/
+.justify() {
+  text-align: justify;
+  -ms-text-justify: inter-ideograph;
+  text-justify: inter-ideograph;
+}
+
+/*圆点*/
+.dian(@size:4px,@color:@primary-color) {
+  display: inline-block;
+  .square(@size);
+  .border-radius(50%);
+  background-color: @color;
+  vertical-align: middle;
+}

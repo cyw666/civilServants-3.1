@@ -1,0 +1,160 @@
+<!--班级详情-->
+<div class="classDetail">
+  <div common-header title-header="'班级详情'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="trainingClass">培训班</a></li>
+      <li class="active">班级详情</li>
+    </ol>
+    <div class="classDes" dw-loading="classDetail">
+      <div class="title">{{classDetailData.Model.Name}}</div>
+      <div class="publish">
+        <span>我要发表：</span>
+        <a ui-sref="classTopicAdd({Id:Id})" target="_blank">
+          <img src="images/btn_article_ht.png"/>
+        </a>
+        <a ui-sref="classPaperAdd({Id:Id})" target="_blank">
+          <img src="images/btn_article_lw.png"/>
+        </a>
+        <a ui-sref="photoAlbumAdd({Id:Id})" target="_blank">
+          <img src="images/btn_article_xc.png"/>
+        </a>
+        <a href="" target="_blank" ng-show="classDetailData.Model.PollId.length>1">
+          <img src="images/btn_class_wj.png"/>
+        </a>
+        <a href="" target="_blank" ng-show="classDetailData.Model.PollId.length==1">
+          <img src="images/btn_class_wj.png"/>
+        </a>
+      </div>
+    </div>
+    <div class="borderTopBold">
+      <div class="commonTitle">班级简介</div>
+      <div class="tab-contentinfo contentclassinfo">
+        {{classDetailData.Model.Description}}
+      </div>
+    </div>
+    <div class="myTab">
+      <ul class="nav nav-tabs" ng-init="vm.activeTab=1">
+        <li ng-class="{active: vm.activeTab == 1}"><a href="javascript:;" ng-click="vm.activeTab = 1">班级公告</a></li>
+        <li ng-class="{active: vm.activeTab == 2}"><a href="javascript:;" ng-click="vm.activeTab = 2">必修课程</a></li>
+        <li ng-class="{active: vm.activeTab == 3}"><a href="javascript:;" ng-click="vm.activeTab = 3">选修课程</a></li>
+        <li ng-class="{active: vm.activeTab == 4}"><a href="javascript:;" ng-click="vm.activeTab = 4">班级考试</a></li>
+        <li ng-class="{active: vm.activeTab == 5}"><a href="javascript:;" ng-click="vm.activeTab = 5">班级话题</a></li>
+        <li ng-class="{active: vm.activeTab == 6}"><a href="javascript:;" ng-click="vm.activeTab = 6">班级论文</a></li>
+        <li ng-class="{active: vm.activeTab == 7}"><a href="javascript:;" ng-click="vm.activeTab = 7">班级相册</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 1">
+          <div class="title_bar">
+            <span class="list4">公告</span>
+            <span class="list2">时间</span>
+            <span class="list2">作者</span>
+          </div>
+          <div class="list" ng-repeat="list in classDetailData.Model.ClassNoticeList">
+              <div class="list4 ellipsis ">
+                <a ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
+              </div>
+              <div class="list2">{{list.CreatedDate | dateFilter | date:'yyyy-MM-dd'}}</div>
+              <div class="list2">{{list.Author}}</div>
+          </div>
+        </div>
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 2">
+          <div class="title_bar">
+            <span class="list4">课程名称</span>
+            <span class="list2">进度</span>
+            <span class="list2">播放</span>
+          </div>
+          <div class="list" ng-repeat="list in classDetailData.Model.ClassRequiredCourseList">
+              <div class="list4 ellipsis" ng-show="!list.Name">暂无名称</div>
+              <div class="list4 ellipsis" ng-show="list.Name">{{list.Name}}</div>
+              <div class="list2">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{list.BrowseScore}}" aria-valuemin="0" aria-valuemax="100" ng-style="{'width':list.BrowseScore+'%'};">
+                    {{list.BrowseScore.toFixed(1)}}%
+                  </div>
+                </div>
+              </div>
+              <div class="list2"><a ui-sref="play({Id:list.Id})" target="_blank">点击进入</a></div>
+          </div>
+        </div>
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 3">
+          <div class="title_bar">
+            <span class="list4">课程名称</span>
+            <span class="list2">进度</span>
+            <span class="list2">播放</span>
+          </div>
+          <div class="list" ng-repeat="list in classDetailData.Model.ClassElectiveCourseList">
+              <div class="list4 ellipsis" ng-show="!list.Name">暂无名称</div>
+              <div class="list4 ellipsis" ng-show="list.Name">{{list.Name}}</div>
+              <div class="list2">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{list.BrowseScore}}" aria-valuemin="0" aria-valuemax="100" ng-style="{'width':list.BrowseScore+'%'};">
+                    {{list.BrowseScore.toFixed(1)}}%
+                  </div>
+                </div>
+              </div>
+              <div class="list2"><a ui-sref="play({Id:list.Id})" target="_blank">点击进入</a></div>
+          </div>
+        </div>
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 4">
+          <div class="title_bar">
+            <span class="list4">考试名称</span>
+            <span class="list2">考试学时</span>
+            <span class="list2">最高分</span>
+            <span class="list2">参加测试</span>
+          </div>
+          <div class="list" ng-repeat="list in classDetailData.Model.ClassExamList">
+              <div class="list4 ellipsis">{{list.Name}}</div>
+              <div class="list2">{{list.Credit}}</div>
+              <div class="list2">{{list.TotalScore}}</div>
+              <div class="list2"><a ng-click="havTest(list.Id)" target="_blank">参加测试</a></div>
+          </div>
+        </div>
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 5">
+          <div class="title_bar">
+            <span class="list4">话题</span>
+            <span class="list2">话题分类</span>
+            <span class="list2">时间</span>
+            <span class="list2">作者</span>
+          </div>
+          <div class="list" ng-repeat="list in classDetailData.Model.ClassTopicList">
+              <div class="list4 ellipsis">
+                <a ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
+              </div>
+              <div class="list2">{{list.Type}}</div>
+              <div class="list2">{{list.CreatedDate |dateFilter |date:'yyyy-MM-dd' }}</div>
+              <div class="list2">{{list.Author}}</div>
+          </div>
+
+        </div>
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 6">
+          <div class="title_bar">
+            <span class="list4">论文标题</span>
+            <span class="list2">作者</span>
+            <span class="list2">创建时间</span>
+          </div>
+          <div class="list" ng-repeat="list in classDetailData.Model.ClassPaperList">
+              <div class="list4 ellipsis">
+                <a ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
+              </div>
+              <div class="list2">{{list.Author}}</div>
+              <div class="list2">{{list.CreatedDate | dateFilter | date:'yyyy-MM-dd'}}</div>
+          </div>
+        </div>
+        <div class="tab-panel perlist" ng-show="vm.activeTab == 7">
+          <ul class="clearfix">
+            <li class="list3 photo" ng-repeat="list in classDetailData.Model.ClassPhotoList">
+              <a ui-sref="photoPreview({AlbumId:list.Id,TrainingId:classDetailData.TrainingId})" target="_blank">
+                <img ng-src="{{ImgPath+'/'+list.Img}}" err-src="images/notFound.jpeg">
+                <p class="text-center">{{list.Name}}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,121 @@
+<div class="playPage">
+  <div id="playBg"></div>
+  <div tm-drag options="options" drag-ready="dragReady"></div>
+  <!--视频播放-->
+  <div tm-play-mp4 class="playMp4" ng-if="showPlayMp4"></div>
+  <div tm-play-jy class="playMp4" ng-if="showPlayJy"></div>
+  <div tm-play-scorm class="playMp4" ng-if="showPlayScorm"></div>
+  <div tm-play-single class="playMp4" ng-if="showPlaySingle"></div>
+  <div tm-play-pdf class="playMp4" ng-if="showPlayPdf"></div>
+  <!--笔记评论-->
+  <div class='toggleSideSec'></div>
+  <div class="play">
+    <div class="side_section">
+      <div class="class_info">
+        <div class="info">
+          <div class="overhide" style="font-size: 14px;color: #323232;line-height: 28px;font-weight: normal;"
+               title="{{resultCourseDetail.Name}}">{{resultCourseDetail.Name}}
+          </div>
+          <div style="float:left">教师：{{resultCourseDetail.Teacher}}</div>
+          <div style="float:right">时长：{{resultCourseDetail.Duration}}</div>
+          <div style="clear:both"><span><a href="#"></a></span></div>
+        </div>
+        <span class="star" style="background-position-x: -{{resultCourseDetail.StudentGrade*2*121}}px;"></span><span>{{resultCourseDetail.StudentGrade}}</span>
+        <div class="BrowseScore clearfix">
+          <span class="pull-left">课程进度：</span>
+          <span class="list2 pull-left">
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped" role="progressbar"
+                     aria-valuenow="{{resultCourseDetail.BrowseScore}}" aria-valuemin="0" aria-valuemax="100"
+                     ng-style="{'width':resultCourseDetail.BrowseScore+'%'};">
+                  {{resultCourseDetail.BrowseScore.toFixed(1)}}%
+                </div>
+              </div>
+            </span>
+        </div>
+        <hr style="margin-top:3px;"/>
+        <div style="color:#656565;margin-top:4px; font-size: 12px; word-spacing: 4px; text-align: justify;">
+          课程描述：{{resultCourseDetail.Description}}
+        </div>
+      </div>
+      <!--标签页-->
+      <div class="myTab" dw-loading="playComment">
+        <ul class="nav nav-tabs" ng-init="vm.activeTab=1">
+          <li ng-class="{active: vm.activeTab == 1}"><a href="javascript:;"
+                                                        ng-click="vm.activeTab = 1;searchMyCenterCourse({'examType':'UnFinish','title':searchTitle})"><span
+            class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;笔记</a></li>
+          <li ng-class="{active: vm.activeTab == 2}"><a href="javascript:;"
+                                                        ng-click="vm.activeTab = 2;searchMyCenterCourse({'examType':'Finish','title':searchTitle})"><span
+            class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;评论</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-panel perlist" ng-show="vm.activeTab == 1">
+            <div class="pad_left_10">
+              <div class="slide-content">
+                <form class="clearfix">
+                  <div class="form-group">
+                    <input ng-model="noteName" type="text" class="form-control"
+                           my-placeholder
+                           placeholder="标题">
+                  </div>
+                  <div class="form-group">
+                      <textarea ng-model="noteContent" class="form-control" rows="4"
+                                my-placeholder
+                                placeholder="请输入笔记内容...">
+
+                      </textarea>
+                  </div>
+                  <button ng-click="editNote({Name:noteName,Content:noteContent,CourseId:Id})" type="submit"
+                          class="btn btn-default pull-right">保存
+                  </button>
+                </form>
+                <div style="overflow: auto; height: 300px; visibility: visible;">
+                  <ul class="notes" ng-repeat="courseNoteList in resultCourseNote">
+                    <li class="title">
+                      <span>标题:{{courseNoteList.Name}}</span>
+                      <span class="time" style="color:#999;font-size: 12px;float: right">{{courseNoteList.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</span>
+                    </li>
+                    <li class="content">
+                      <span>{{courseNoteList.Content}}</span>
+                      <a ng-click="delNote(courseNoteList.Id)" class="btn btn-primary pull-right">删除</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel perlist" ng-show="vm.activeTab == 2">
+            <div class="pad_left_10">
+              <div class="wrapper">
+                <div tm-star-box ng-model="drLevel"></div>
+              </div>
+            </div>
+            <form class="clearfix pad_left_10">
+              <div class="form-group">
+                    <textarea ng-model="comment" class="form-control" rows="4"
+                              my-placeholder
+                              placeholder="请输入评论内容...">
+                    </textarea>
+              </div>
+              <button ng-click="editComment({rate:drLevel,content:comment,mainId:Id})" type="submit"
+                      class="btn btn-default pull-right">保存
+              </button>
+            </form>
+            <div style="overflow: auto; height: 300px; visibility: visible;">
+              <ul class="notes" ng-repeat="commentList in resultComment.ListData">
+                <li class="title">
+                  <span>用户:{{commentList.UserName}}</span>
+                  <span class="time" style="color:#999;font-size: 12px;float: right">{{commentList.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</span>
+                </li>
+                <li class="content">
+                  <span>{{commentList.Comment}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

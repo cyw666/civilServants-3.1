@@ -1,0 +1,84 @@
+<!--标签页 排行（首页）-->
+<div class="rankingTab mar_left_20 mar_top_20">
+  <div class="com-header">
+    <p class="title">
+      <span class="text">排行榜</span>
+    </p>
+    <a class="more" href="#/rankingList/{{vm3.more}}" target="_blank"></a>
+  </div>
+  <!--<div common-header title="'排行榜'" show-more=true link-url="vm3.more"></div>-->
+  <div class="rankTab">
+    <ul class="nav nav-tabs" ng-init="vm3.activeTab=1;vm3.more = 'rankgroup'">
+      <li ng-class="{active: vm3.activeTab == 1}"><a ng-click="vm3.activeTab = 1;vm3.more = 'rankgroup'">单位</a></li>
+      <li ng-class="{active: vm3.activeTab == 2}"><a ng-click="vm3.activeTab = 2;vm3.more = 'userRankingList'">个人</a>
+      </li>
+      <li ng-class="{active: vm3.activeTab == 3}"><a ng-click="vm3.activeTab = 3;vm3.more = 'rankcourseclick'">课程</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-panel perlist" ng-show="vm3.activeTab == 1">
+        <!--单位排行-->
+        <div class="govermentRanking" dw-loading="rankingList">
+          <p class="title">
+            <span class="rank1">排行</span>
+            <span class="rank2">单位名称</span>
+            <span class="rank3">平均学时</span>
+          </p>
+          <ul class="rankingList clearfix" ng-repeat="rankingData in govermentRanking.ListData"
+              ng-class="{'rankListBg':$index%2!=0}">
+            <li class="list1">
+              <span ng-if="$index<3"
+                    ng-class="{'rankFirstBg':$index==0,'rankSecondBg':$index==1,'rankThirdBg':$index==2}"></span>
+              <span ng-if="$index>=3">{{$index+1}}</span>
+            </li>
+            <li class="list2" title="{{rankingData.DepartmentName}}">{{rankingData.DepartmentName}}</li>
+            <li class="list3">{{rankingData.Average}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel perlist" ng-show="vm3.activeTab == 2">
+        <!--个人排行-->
+        <div class="govermentRanking">
+          <p class="title">
+            <span class="rank1">排行</span>
+            <span class="rank2">姓名</span>
+            <span class="rank3">学时</span>
+          </p>
+          <ul class="rankingList clearfix" ng-repeat="rankingData in userRankingData.ListData"
+              ng-class="{'rankListBg':$index%2!=0}">
+            <li class="list1">
+              <span ng-if="$index<3"
+                    ng-class="{'rankFirstBg':$index==0,'rankSecondBg':$index==1,'rankThirdBg':$index==2}"></span>
+              <span ng-if="$index>=3">{{$index+1}}</span>
+            </li>
+            <li class="list2" title="{{rankingData.UserName}}">{{rankingData.UserName}}</li>
+            <li class="list3">{{rankingData.Credit}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel perlist" ng-show="vm3.activeTab == 3">
+        <!--课程点击排行-->
+        <div class="govermentRanking">
+          <p class="title">
+            <span class="rank1">排行</span>
+            <span class="rank2">课程名称</span>
+            <span class="rank3">点击数</span>
+          </p>
+          <ul class="rankingList clearfix" ng-repeat="rankingData in courseRankingData.ListData"
+              ng-class="{'rankListBg':$index%2!=0}">
+            <li class="list1">
+              <span ng-if="$index<3"
+                    ng-class="{'rankFirstBg':$index==0,'rankSecondBg':$index==1,'rankThirdBg':$index==2}"></span>
+              <span ng-if="$index>=3">{{$index+1}}</span>
+            </li>
+            <li class="list2" title="{{rankingData.Name}}">
+              <a target="_blank" ui-sref="courseDetails({Id:rankingData.Id})">{{rankingData.Name}}</a>
+            </li>
+            <li class="list3">{{rankingData.Total}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

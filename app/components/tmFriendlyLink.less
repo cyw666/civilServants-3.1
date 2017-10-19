@@ -1,0 +1,36 @@
+/**
+ * 友情链接(短模块)
+ */
+@import "../styles/mixins";
+.friendlyLinkShort {
+  height: 215px;
+  padding-left: 20px;
+  h4{
+    .text-center();
+    .ht-lineHt(40px);
+    background-color: @gray-f7;
+    margin-right: 10px;
+  }
+  ul{
+    li{
+      .pull-left();
+      .wh(180px,28px);
+      background-color: @gray-f7;
+      margin: 5px 5px 0 0;
+      padding: 0 5px;
+      a{
+        line-height: 28px;
+        .text-left();
+        .clearFix();
+        .linkName{
+          .pull-left();
+          width: 145px;
+          .ellipsis();
+        }
+        .linkArrow{
+          .pull-right();
+        }
+      }
+    }
+  }
+}

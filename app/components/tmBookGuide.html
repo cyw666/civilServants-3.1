@@ -1,0 +1,23 @@
+<!--电子书引导模块(首页)-->
+<div class="bookGuide">
+  <div common-header title-header="'电子书'" show-more=true link-url="'library'"></div>
+
+  <ul class="bookList" dw-loading="bookList">
+    <li class="pull-left" ng-repeat="list in booksData.ListData">
+      <p class="pull-left">
+        <a ui-sref="bookdetail({Id:list.Id})" target="_blank">
+          <img ng-src="{{imgPath+'/'+list.Icon}}" err-src="images/notFound.jpeg" alt="{{list.Name}}">
+        </a>
+      </p>
+      <div class="content pull-left">
+        <h4 class="title">
+          <a ui-sref="bookdetail({Id:list.Id})" target="_blank">{{list.Name | wordLimit:17}}</a>
+        </h4>
+        <p class="desc">简介：{{list.Content|delHtmlTag | wordLimit:23}}</p>
+        <p class="author">作者：{{list.Author}}</p>
+        <p class="clickCount">点击数：{{list.ClickCount}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+

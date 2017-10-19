@@ -1,0 +1,52 @@
+<!--header-->
+<div class="tmHeader">
+  <div class="header">
+    <div class="headerContent container_24">
+      <p class="grid_15">欢迎来到干部教育网络学院 ！</p>
+      <p class="grid_9 pad_left_10">
+        <a ng-click="addFavorite()">收藏本站</a> |
+        <a ui-sref="messageList">在线留言</a> |
+        <a ng-click="setHome($event.target)">设为首页</a> |
+        <a ui-sref="articleDetail({ID:'31'})">联系我们</a>
+        <span class="phone"><i class="glyphicon glyphicon-phone-alt" aria-hidden="true"></i>0571-28990788</span>
+      </p>
+    </div>
+  </div>
+  <div class="container_24 headerSearch">
+    <ul class="clearfix">
+      <li class="grid_8">
+        <a class="logoImg" ui-sref="main">
+        </a>
+        <div class="pull-left logoText mar_left_15">
+          <h3>干部教育网络学院</h3>
+          <p>CADRE EDUCATION NETWORK COLLEGE</p>
+        </div>
+      </li>
+      <li class="grid_9 searchInput">
+        <div class="input-group">
+          <input ng-model="searchNewsField" type="text" class="form-control" my-placeholder placeholder="请输入搜索内容...">
+          <i class="searchBg fa fa-search fa-2x" aria-hidden="true"></i>
+          <div class="input-group-btn">
+            <button class="btn" ng-click="findNews()">搜索</button>
+          </div>
+        </div>
+      </li>
+      <li class="grid_7 clearfix">
+        <p class="flag pull-left">
+          <!--<img class="redFlag" src="../images/redFlag.png" alt="">-->
+        </p>
+        <p class="pull-left Img appImg">
+          <img class="smAppImg" src="../images/appImg.png" alt=""> <br>
+          <span>下载手机APP</span>
+          <img class="bigAppImg" src="../images/appImg.png"/>
+        </p>
+        <p class="pull-left Img weiXinImg">
+          <img class="smWeixinImg" src="../images/weiXinImg.jpg" alt=""> <br>
+          <span>关注公众号</span>
+          <img class="bigWeiXinImg" src="../images/weiXinImg.jpg"/>
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+

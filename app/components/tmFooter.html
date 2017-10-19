@@ -1,0 +1,35 @@
+<!--@*footer*@-->
+<div class="footer mar_top_20">
+  <div class="container_24">
+    <div common-header title-header="'友情链接'" show-more=false link-url="''"></div>
+    <div class="imgLink">
+      <ul class="clearfix">
+        <li class="pull-left"><a href="http://www.hngbwlxy.gov.cn" target="_blank"><img src="../images/linkLogo1.png" alt=""></a></li>
+        <li class="pull-left"><a href="http://www.hngbjy.com/" target="_blank"><img src="../images/linkLogo4.png" alt=""></a></li>
+        <li class="pull-left"><a href="http://www.yngbzx.cn/" target="_blank"><img src="../images/linkLogo8.png" alt=""></a></li>
+        <li class="pull-left"><a href="http://www.hngbzx.com/" target="_blank"><img src="../images/linkLogo2.png" alt=""></a></li>
+        <li class="pull-left"><a href="http://gjwlxy.ljxfw.gov.cn/Default.aspx" target="_blank"><img src="../images/linkLogo9.png" alt=""></a></li>
+        <li class="pull-left last"><a href="http://cqgj.12371.gov.cn/" target="_blank"><img src="../images/linkLogo7.png" alt=""></a></li>
+      </ul>
+    </div>
+    <div class="friendlyLink" dw-loading="friendlyLink">
+      <div class="dropup" ng-repeat="friendlyLink in firenlyLinkData" ng-class="{'mar_left_14':$index>0}">
+        <button class="btn btn-default dropdown-toggle" type="button" id="friendlyLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          -&#45;&#45;{{friendlyLink.Name}}-&#45;&#45;
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="friendlyLink">
+          <li ng-repeat="link in friendlyLink.Nodes"><a href="{{link.Url}}" target="_blank">{{link.Name}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footerBg">
+    <div class="container_24">
+      <p>主办单位：杭州精英在线教育科技股份有限公司  &nbsp;&nbsp;&nbsp;承办单位：杭州精英在线教育科技股份有限公司 &nbsp;&nbsp;&nbsp; 联系电话：0571-28990788
+        &nbsp;&nbsp;&nbsp</p>
+      <p>Copyright © 2010-2017 All rights reserved. 浙ICP备06005845号</p>
+      <p>建议使用：1024*768分辨率，16位以上颜色，IE8.0以上版本浏览器和中文大字符集web4</p>
+    </div>
+  </div>
+</div>

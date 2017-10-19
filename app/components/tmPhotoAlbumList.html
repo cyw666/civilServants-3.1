@@ -1,0 +1,75 @@
+<!--班级相册-->
+<div class="tmPhotoAlbumList">
+  <div common-header title-header="Data.TitleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="trainingClass">培训班</a></li>
+      <li><a ui-sref="classDetail({Id:Id})">{{Data.TrainingName}}</a></li>
+      <li class="active">{{Data.TitleNav}}</li>
+    </ol>
+    <div class="borderTopBold" dw-loading="photoAlbumList">
+      <h2 class="commonTitle">{{Data.TitleNav}}</h2>
+      <div class="text-center">
+        <a class="btn btn-primary" data-toggle="modal" data-target=".modal">+新增相册</a>
+      </div>
+      <div class="myTab mar_top_15">
+        <div class="tab-content clearfix">
+          <div class="tab-panel perlist">
+            <ul class="clearfix">
+              <li class="list3" ng-repeat="list in Data.ListData">
+                <a ui-sref="photoPreview({AlbumId:list.Id,TrainingId:Data.TrainingId})">
+                  <img ng-src="{{ImgSrc+'/'+list.Img}}" err-src="images/notFound.jpeg">
+                  <p class="text-center">{{list.Name}}</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div ng-transclude="pagation"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade notemodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center">添加相册</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <tbody>
+              <tr>
+                <td>相册标题：</td>
+                <td>
+                  <input class="form-control" type="text" ng-model="name">
+                </td>
+              </tr>
+              <tr>
+                <td>相册说明：</td>
+                <td>
+                  <textarea class="form-control" ng-model="description" cols="50" rows="5"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>相册封面：</td>
+                <td>
+                  <input type="file" name="ImageToUpload" id="ImageToUpload" multiple="multiple" onchange="fileSelected('ImageToUpload', 'ImageTraining', 1);"/>
+                  <div id="ImageMessage" style="display:none;padding: 10px"></div>
+                  <input type="hidden" id="hidValueImage" name="ImgUrl" ng-model="ImgUrl"/>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button ng-click="getPhotoAlbumAdd(Id)" type="button" class="btn btn-primary">提交</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

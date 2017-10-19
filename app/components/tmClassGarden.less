@@ -1,0 +1,52 @@
+/**
+ * 班级园地模块（首页）
+ */
+@import "../styles/mixins";
+
+.classGarden {
+  .borderNews {
+    min-height: 396px;
+    background: url("@{class-garden-bg}") no-repeat center;
+    .myTab ul.nav-tabs > li > a {
+      font-weight: 600;
+    }
+    .tab-content {
+      .border-base();
+      border-top: none;
+      border-bottom: none;
+      .perlist {
+        .title_bar {
+          background-color: @white;
+          border-bottom: @border-width-base @border-style-base @border-color-base;
+          font-size: @font-size-lg;
+          color: @text-color-2;
+          font-weight: normal;
+        }
+        .list {
+          border-bottom: @border-width-base @border-style-base @border-color-base;
+          & > div {
+            .ht-lineHt(48px);
+          }
+          .bookLog {
+            .text-left();
+            img {
+              margin: 0 20px;
+            }
+            .classLogoBg{
+              .wh(26px,48px);
+              display: inline-block;
+              margin: 0 20px;
+              background: @class-logo-bg no-repeat center;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+    a.btn {
+      width: 75px;
+      padding: 2px 0;
+    }
+  }
+}
+

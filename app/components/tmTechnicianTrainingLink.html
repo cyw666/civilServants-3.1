@@ -1,0 +1,57 @@
+<!--公务员培训-->
+<div class="technicianTrainingLink">
+  <div class="com-header com-header-cyan">
+    <h4 class="pull-left">专业技术人员培训</h4>
+    <a ui-sref="patpTrainingNews" class="pull-right" target="_blank">更多&nbsp;&nbsp;+</a>
+  </div>
+  <div class="civil-body" dw-loading="technicianTrainingLink">
+    <ul>
+      <li ng-repeat="linkData in technicianTrainingLink.ListData">
+        <a ui-sref="articleDetail({ID:linkData.Id})" title="{{linkData.Name}}" target="_blank"><span class="dian"></span><span class="content">{{linkData.Name}}</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .technicianTrainingLink .com-header a.pull-right{
+    line-height: 40px;
+    color: #fff;
+    font-size: 12px;
+    padding-right: 10px;
+  }
+  .technicianTrainingLink .com-header a.pull-right:hover{
+    text-decoration: none;
+  }
+  .technicianTrainingLink .civil-body {
+    height: 175px;
+    margin-left: 10px;
+  }
+  .technicianTrainingLink .civil-body li{
+    height: 35px;
+  }
+  .technicianTrainingLink .civil-body li a{
+    display: inline-block;
+    padding: 7px 5px;
+    font-size: 14px;
+    color: #484848;
+    max-width: 316px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .technicianTrainingLink .civil-body li a:hover{
+    color: #b4ca41;
+    text-decoration: none;
+  }
+  .technicianTrainingLink .civil-body li a .content{
+    margin-left: 10px;
+  }
+  .technicianTrainingLink .civil-body li a:hover .dian{
+    background-color: #b4ca41;
+  }
+  .dian{
+    vertical-align: middle;
+  }
+</style>
+
+

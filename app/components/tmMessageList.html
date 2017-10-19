@@ -1,0 +1,73 @@
+<!--留言板-->
+<div class="messageList">
+  <div common-header title-header="'留言板'" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ol class="breadcrumb">
+      <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+      <li><a ui-sref="main">首页</a></li>
+      <li><a ui-sref="personalCenter">个人中心</a></li>
+      <li class="active">{{messageListData.TitleNav}}</li>
+    </ol>
+    <div class="messageTitle">
+      <h4>{{messageListData.TitleNav}}</h4>
+      <a class="btn btn-primary" data-toggle="modal" data-target=".notemodal">添加留言</a>
+    </div>
+    <div class="myTab" dw-loading="studyPlan">
+      <div class="tab-content" dw-loading="messageList">
+        <div class="tab-panel perlist">
+          <div class="title_bar">
+            <span class="list1-5">序号</span>
+            <span class="list3-5">标题</span>
+            <span class="list1-5">分类</span>
+            <span class="list3-5">日期</span>
+          </div>
+          <div class="list" ng-repeat="messageList in messageListData.ListData">
+              <span class="list1-5">{{$index+1}}</span>
+              <span class="list3-5" title="{{messageList.Name}}"><a ui-sref="messageDetail({Id:messageList.Id})">{{messageList.Name}}</a></span>
+              <span class="list1-5" ng-if="messageList.Class=='Curricula'">课程建设</span>
+              <span class="list1-5" ng-if="messageList.Class=='Support'">支持服务</span>
+              <span class="list1-5" ng-if="messageList.Class=='Platform'">平台功能</span>
+              <span class="list3-5">{{messageList.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+          </div>
+          <div tm-pagation conf="paginationConf"></div>
+        </div>
+      </div>
+    </div>
+    <!--添加留言-->
+    <div class="modal fade notemodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">添加留言</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <tbody>
+              <tr>
+                <td>标题</td>
+                <td><input class="form-control" type="text" ng-model="messageName"></td>
+              </tr>
+              <tr>
+                <td>分类</td>
+                <td>
+                  <select  class="form-control" ng-model="messageClass" ng-options="x.value as x.name for x in allClass"></select>
+                </td>
+              </tr>
+              <tr>
+                <td>说明</td>
+                <td>
+                  <textarea class="form-control" ng-model="messageContent" cols="50" rows="5"></textarea>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="addMessage">
+              <a ng-click="addMessage({Name:messageName,Class:messageClass,Content:messageContent})" class="btn btn-primary">提交</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

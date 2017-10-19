@@ -1,0 +1,148 @@
+/**
+ * 首页登陆
+ */
+@import "../styles/mixins";
+/*登陆banner*/
+.loginBg {
+  position: relative;
+  background-size: 100% 430px;
+  height: 430px;
+}
+
+.bigBanner {
+  position: absolute;
+  top: 118px;
+  right: 34%;
+  width: 720px;
+  height: 150px;
+}
+.loginBg.bgLarge1{
+  background: url("@{big-banner}") no-repeat center;
+}
+.bigBanner.textBg1 {
+  background: url("@{big-banner-text}") no-repeat center;
+}
+.loginPositon {
+  position: absolute;
+  top: 0;
+  left: 70%;
+}
+
+/*登陆*/
+.login, .loginAfter {
+  padding: 20px;
+  border-radius: 5px;
+  .wh(280px,360px);
+  background-color: @component-background;
+  margin-top: 35px;
+}
+
+.login .title, .loginAfter .title {
+  .ht-lineHt(44px);
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid @primary-color;
+}
+.login{
+  .form-group {
+    margin: 25px 0 0 0;
+    position: relative;
+  }
+  .checkbox {
+    margin-bottom: 0;
+    margin-top: 13px;
+    label {
+      color: @text-color-2;
+    }
+    .forgetPassword {
+      a {
+        color: @text-color-2;
+        &:hover {
+          color: @primary-color;
+          text-decoration: underline;
+        }
+      }
+    }
+
+  }
+  .btn{
+    .wh(100%,34px);
+  }
+  .btn-primary {
+    margin-top: 23px;
+  }
+  .btn-default {
+    border-color: @primary-color;
+    margin-top: 23px;
+    color: @primary-color;
+  }
+  .error{
+    visibility: hidden;
+    position: absolute;
+    right: -85px;
+    top:0;
+    padding: 0 8px;
+    line-height: 34px;
+    color: @error-color;
+    opacity: 0;
+    .transition();
+    &.is-visible {
+      visibility: visible;
+      opacity: 1;
+      right: 0;
+      top:0;
+      .transition();
+    }
+  }
+}
+
+
+.loginAfter{
+  .loginAfter_ul {
+    li {
+      line-height: 45px;
+      .wh(100%, 45px);
+      margin: 0 auto;
+      border-bottom: 1px solid @border-color-base;
+      .hours {
+        display: inline-block;
+        width: 110px;
+      }
+      .item2 {
+        .pull-right();
+        a {
+          color: @text-color-3;
+          &:hover {
+            color: @text-color-2;
+          }
+        }
+      }
+      &.lastChild {
+        border-bottom: 0;
+        font-size: @font-size-sm;
+        a {
+          color: @text-color-2;
+          &:hover {
+            color: @text-color;
+          }
+        }
+        .item2 {
+          a {
+            color: @primary-color;
+            &:hover {
+              color: @text-color;
+            }
+          }
+        }
+      }
+    }
+    .exit {
+      .text-center();
+      border-bottom: 0;
+      .btn {
+        border-radius: 6px;
+        padding: 2px 25px;
+      }
+    }
+  }
+}

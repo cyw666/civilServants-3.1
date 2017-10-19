@@ -1,0 +1,33 @@
+/**
+ * 课程点击排行
+ */
+@import "../styles/mixins";
+
+.courseRankingList {
+  .text-center();
+  .rankTitle {
+    background-color: @background-color-base;
+    .clearFix();
+    li {
+      .ht-lineHt(44px);
+    }
+    span {
+      .ht-lineHt(48px);
+      .pull-left();
+    }
+  }
+  .rankingList {
+    .clearFix();
+    li {
+      .pull-left();
+    }
+    .list2{
+      span {
+        display: inline-block;
+        .wh(100%,23px);
+        line-height: 23px;
+        vertical-align: middle;
+      }
+    }
+  }
+}

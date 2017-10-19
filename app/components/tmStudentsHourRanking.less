@@ -1,0 +1,25 @@
+/**
+ * 个人排行(模块)
+ */
+@import "../styles/mixins";
+
+.studentsHourRanking {
+  text-align: center;
+  .rankTitle {
+    background-color: @background-color-base;
+    span {
+      .ht-lineHt(48px);
+      .pull-left();
+    }
+  }
+  .rankingList {
+    li {
+      .ht-lineHt(44px);
+      .pull-left();
+    }
+    span {
+      display: inline-block;
+      .wh(100%, 44px);
+    }
+  }
+}

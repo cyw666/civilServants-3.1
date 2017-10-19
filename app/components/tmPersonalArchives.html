@@ -1,0 +1,244 @@
+<!--个人学习档案-->
+<div class="container_24 mar_top_20 personalArchives">
+  <ol class="breadcrumb">
+    <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
+    <li><a ui-sref="main">首页</a></li>
+    <li class="active">{{Data.ViewBag.TitleNav}}</li>
+  </ol>
+  <div class="statisticsTitle">
+    <span>{{Data.ViewBag.TitleNav}}</span>
+  </div>
+  <div dw-loading="personalArchive">
+    <div class="statisticsBox">
+      <div class="statisticsBoxInner">
+        <p>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的&nbsp<span class="font-red">{{Data.Model.Name}}</span>&nbsp学员，截止至今，
+          您总选修&nbsp;<span class="font-red">{{Data.Model.ElectiveCount}}</span>&nbsp;门课程，
+          已学完&nbsp;<span class="font-red">{{Data.Model.FinishCount}}</span>&nbsp;门，
+          <span class="font-red">{{Data.Model.UnFinishCount}}</span>&nbsp;门未学完，
+          累计参加&nbsp;<span class="font-red">{{Data.Model.TestCount}}</span>&nbsp;次测试，
+          修满&nbsp;<span class="font-red">{{Data.Model.SumCredit}}</span>&nbsp;学时，
+          祝您学有所成！
+
+          固网获得学时：<span class="font-red">{{Data.Model.PcCredit}}</span>，
+          移动获得学时：<span class="font-red">{{Data.Model.MobileCredit}}</span>，
+          指定获得学时：<span class="font-red">{{Data.Model.AppointCredit}}</span>，
+          文章获得学时：<span class="font-red">{{Data.Model.ArticleCredit}}</span>，
+          考试获得学时：<span class="font-red">{{Data.Model.ExamCredit}}</span>，
+          评论获得学时：<span class="font-red">{{Data.Model.CommentCredit}}</span>，
+          培训获得学时：<span class="font-red">{{Data.Model.TrainingCredit}}</span>,
+          规定指定学时：<span class="font-red">{{Data.Model.RegulationsAppointCredit}}</span>，
+          规定文章学时：<span class="font-red">{{Data.Model.RegulationsArticleCredit}}</span>，
+          规定考试学时：<span class="font-red">{{Data.Model.RegulationsExamCredit}}</span>，
+          规定总学时：<span class="font-red">{{Data.Model.RegulationsSumCredit}}。</span>
+        </p>
+        <br />
+        <fieldset style="visibility: visible;">
+          <legend><strong>基本信息</strong></legend><br />
+          <div class="search">
+            <div class="datePicker">
+              <input class="form-control" type="text" ng-model="startDate" date-time-picker>
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </div>
+            <span class="zhi">至</span>
+            <div class="datePicker">
+              <input class="form-control" type="text" ng-model="endDate" date-time-picker>
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </div>
+            <button class="searchBtn btn btn-primary" ng-click="refresh({startDate:startDate,endDate:endDate})">时间查询</button>
+          </div>
+          <table style="width:96%;margin:10px auto 0 auto" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="25%" align="center" class="table1">
+                用户名
+              </td>
+              <td width="25%" align="center">
+                {{Data.Model.Name}}
+              </td>
+              <td width="25%" align="center" class="table1">
+                单位
+              </td>
+              <td align="center">
+                {{Data.Model.Department}}
+              </td>
+            </tr>
+          </table>
+          <br />
+        </fieldset>
+
+      </div>
+    </div>
+    <div class="statisticsBox">
+      <div class="statisticsBoxInner">
+        <fieldset>
+          <legend><strong>学习课程获得学时</strong></legend>
+          <br />
+          <table style="width:96%;margin:0 auto" border="0" align="center" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr class="table1">
+              <th align="center">选择课程数</th>
+              <th align="center">完成课程数</th>
+              <th align="center">获得总学时</th>
+              <th align="center">内容</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-show="Data.ViewBag.StudyCount">
+              <td align="center">{{Data.ViewBag.StudyCount}}</td>
+              <td>{{Data.ViewBag.StudyFinishCount}}</td>
+              <td>{{Data.ViewBag.StudyCreditSum}}</td>
+              <td><a class="courseDetails" ng-click="Show_table('one')">详细</a></td>
+            </tr>
+            <tr ng-show="!Data.ViewBag.StudyCount">
+              <td colspan="4">暂无数据</td>
+            </tr>
+            </tbody>
+          </table>
+          <br />
+          <table ng-show="table_show_one" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 96%; margin:0 auto">
+            <thead>
+            <tr class="table1">
+              <th align="center">课程名称</th>
+              <th align="center">开始时间</th>
+              <th align="center">完成时间</th>
+              <th align="center">学习状态</th>
+              <th align="center">学习进度</th>
+              <th align="center">获得学时</th>
+              <th align="center">来源</th>
+              <th align="center">评论学时</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="StudyCourse in Data.Model.StudyCourseModel">
+              <td width="40%" align="center">{{StudyCourse.CourseName}}</td>
+              <td>{{StudyCourse.StartDate | dateFilter | date:'yyyy-MM-dd'}}</td>
+              <td>{{StudyCourse.FinishDate | dateFilter | date:'yyyy-MM-dd'}}</td>
+              <td>{{StudyCourse.Status}}</td>
+              <td>{{StudyCourse.BrowseScore}}%</td>
+              <td>{{StudyCourse.Credit}}</td>
+              <td>{{StudyCourse.CreditSource}}</td>
+              <td>{{StudyCourse.CommentCredit}}</td>
+            </tr>
+            <tr>
+              <td colspan="9"><div tm-pagation conf="paginationConf[0]"></div></td>
+            </tr>
+            </tbody>
+          </table>
+
+        </fieldset>
+      </div>
+    </div>
+    <div class="statisticsBox">
+      <div class="statisticsBoxInner">
+        <fieldset>
+          <legend><strong>参加测试获得学时</strong></legend>
+          <br />
+          <table style="width: 96%;margin:0 auto" border="0" align="center" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr class="table1">
+              <th align="center">总成绩分</th>
+              <th align="center">平均成绩分</th>
+              <th align="center">总学时</th>
+              <th align="center">平均学时</th>
+              <th align="center">内容</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-show="Data.ViewBag.ExamFinishCount">
+              <td align="center">{{Data.ViewBag.ExamScoreSum}}</td>
+              <td>{{Data.ViewBag.ExamScoreAvg.toFixed(2)}}</td>
+              <td>{{Data.ViewBag.ExamCreditSum}}</td>
+              <td>{{Data.ViewBag.ExamCreditAvg.toFixed(2)}}</td>
+              <td><a class="courseDetails" ng-click="Show_table('two')">详细</a></td>
+            </tr>
+            <tr>
+              <td ng-show="!Data.ViewBag.ExamFinishCount" colspan="5">暂无数据</td>
+            </tr>
+            </tbody>
+          </table>
+          <br />
+          <table ng-show="table_show_two" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 96%; margin:0 auto">
+            <thead>
+            <tr class="table1">
+              <th align="center">序号</th>
+              <th align="center">测试名称</th>
+              <th align="center">测试成绩</th>
+              <th align="center">获得学时</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr ng-repeat="CourseTest in Data.Model.ExamCreditModel">
+              <td align="center">{{$index+1}}</td>
+              <td width="40%">{{CourseTest.ExamName}}</td>
+              <td>{{CourseTest.ExamSorce}}</td>
+              <td>{{CourseTest.Credit}}</td>
+            </tr>
+            <tr>
+              <td colspan="9" ><div tm-pagation conf="paginationConf[1]"></div></td>
+            </tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+      </div>
+    </div>
+    <div class="statisticsBox">
+      <div class="statisticsBoxInner">
+        <fieldset>
+          <legend><strong>培训获得学时</strong></legend>
+          <br />
+          <table style="width: 96%;margin:0 auto" border="0" align="center" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr class="table1">
+              <th align="center">选学培训项目数</th>
+              <th align="center">完成培训项目数</th>
+              <th align="center">获得总学时</th>
+              <th align="center">内容</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-show="Data.ViewBag.TrainingCount">
+              <td align="center">{{Data.ViewBag.TrainingCount}}</td>
+              <td>{{Data.ViewBag.TrainingFinishCount}}</td>
+              <td>{{Data.Model.TrainingCredit}}</td>
+              <td><a ng-click="Show_table('three')" class="courseDetails">详细</a></td>
+            </tr>
+            <tr ng-show="!Data.ViewBag.TrainingCount">
+              <td colspan="4">暂无数据</td>
+            </tr>
+            </tbody>
+          </table>
+          <br />
+          <table ng-show="table_show_three" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 96%; margin:0 auto">
+            <thead>
+            <tr class="table1">
+              <th align="center">姓名</th>
+              <th align="center">培训项目名称</th>
+              <th align="center">培训类别</th>
+              <th align="center">开始时间</th>
+              <th align="center">结束时间</th>
+              <th align="center">培训项目分</th>
+              <th align="center">获得学时</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="TrainCourse in Data.Model.TrainCreditModel">
+              <td align="center">{{TrainCourse.UserName}}</td>
+              <td width="40%">{{TrainCourse.TrainName}}</td>
+              <td>{{TrainCourse.TrainType}}</td>
+              <td>{{TrainCourse.StartDate | dateFilter | date:'yyyy-MM-dd'}}</td>
+              <td>{{TrainCourse.EndDate | dateFilter | date:'yyyy-MM-dd'}}</td>
+              <td>{{TrainCourse.Score}}</td>
+              <td>{{TrainCourse.Credit}}</td>
+            </tr>
+            <tr>
+              <td colspan="9"><div tm-pagation conf="paginationConf[2]"></div></td>
+            </tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+      </div>
+    </div>
+  </div>
+</div>

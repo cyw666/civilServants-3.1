@@ -1,0 +1,418 @@
+/*cssreset*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #62a3db;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* `XHTML, HTML4, HTML5 Reset
+----------------------------------------------------------------------------------------------------*/
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  /*
+    Override the default (display: inline) for
+    browsers that do not recognize HTML5 tags.
+
+    IE8 (and lower) requires a shiv:
+    http://ejohn.org/blog/html5-shiv
+  */
+  display: block;
+}
+
+b,
+strong {
+  /*
+    Makes browsers agree.
+    IE + Opera = font-weight: bold.
+    Gecko + WebKit = font-weight: bolder.
+  */
+  font-weight: bold;
+}
+
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  border:0px;
+  /*
+    For IE.
+    http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+  */
+  -ms-interpolation-mode: bicubic;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+  /*
+    For IE6 + IE7:
+
+    "display: list-item" keeps bullets from
+    disappearing if hasLayout is triggered.
+  */
+  display: list-item;
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th,
+td,
+caption {
+  font-weight: normal;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+sub,
+sup,
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+svg {
+  /*
+    For IE9. Without, occasionally draws shapes
+    outside the boundaries of <svg> rectangle.
+  */
+  overflow: hidden;
+}
+
+
+body {
+  font-family: "Microsoft YaHei","黑体","宋体";
+  font-size: 14px;
+}
+a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #62a3db;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*页面最外部容器*/
+.bigOuter {
+  width:1080px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+}
+.container_24 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1060px;
+}
+.pad_top_20 {
+  padding-top: 20px;
+}
+.topbg {
+  width: 100%;
+  height: 190px;
+  background: url(lz_bg.png) center no-repeat;
+}
+.breadcrumb {
+  background: #FFF;
+  margin-bottom: 0px;
+  padding: 11px 15px;
+  list-style: none;
+  border-radius: 4px;
+}
+.breadcrumb>li{
+  display: inline-block;
+}
+.breadcrumb .currentPosition {
+  color: #000;
+  padding-left: 25px;
+  background: url(link.gif) 0 2px no-repeat;
+}
+.breadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}
+
+.article-detail-container{
+  padding: 0 5px;
+}
+.article-detail-title-bar{
+  border-bottom: 1px solid #D4D5D7;
+}
+.article-detail-title{
+  font-family: "宋体",Serif;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 35px;
+  white-space: nowrap;
+  word-spacing: 0px;
+  text-align: center;
+}
+.article-detail-info{
+  font-family: "宋体",Serif;
+  font-size: 12px;
+  line-height: 35px;
+  color: #999;
+  text-align: center;
+}
+.article-detail-info span{
+  display: inline;
+  margin: 0 15px;
+}
+.article-detail .article-detail-info a{
+  text-decoration: none;
+  font-size: 14px;
+  color: #999;
+  line-height: 35px;
+}
+.article-detail .article-detail-info a:hover{
+  text-decoration: none;
+  color: #999;
+  line-height: 35px;
+}
+.article-detail-content{
+  min-height: 500px;
+}
+#setFont{
+  word-wrap: break-word;
+}
+
+.footer {
+  width: 1080px;
+  margin: 34px auto 0;
+  position: relative;
+  left: -10px;
+}
+.footer .footerBg {
+  height: 50px;
+  background-color: #afafaf;
+}
+.footer .footerBg p{
+  line-height: 50px;
+  font-size: 16px;
+  color: #ededed;
+  margin-left: 44px;
+}
+.footerBottom {
+  height: 140px;
+  background-color: #eee;
+}
+.footerBottom .bottomLeft {
+  padding-left: 44px;
+  width: 460px;
+  float: left;
+}
+.footerBottom .bottomLeft h4 {
+  font-size: 14px;
+  color: #454545;
+  font-weight: normal;
+}
+.footerBottom .bottomLeft h4.one{
+  padding-top: 10px;
+}
+.footerBottom .bottomLeft h4.two{
+  margin-top: 10px;
+}
+.footerBottom .bottomLeft p {
+  margin-top: 10px;
+  color: #8f8f8f;
+  font-size: 12px;
+}
+
+.footerBottom p.pull-left {
+  color: #8f8f8f;
+  height: 140px;
+  line-height: 140px;
+  font-size: 12px;
+  float: left;
+}
+.footerBottom .bottomTight {
+  width: 500px;
+  margin-top: 28px;
+  margin-left: 10px;
+  font-size: 12px;
+  float: right;
+}
+.footerBottom .bottomTight li {
+  text-align: left;
+  float: left;
+  width: 162px;
+  height: 27px;
+  margin: 0 3px 3px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+.footerBottom .bottomTight li a {
+  display: inline-block;
+  line-height: 27px;
+  text-align: left;
+  padding-left: 10px;
+  height: 27px;
+  color: #454545;
+  font-size: 12px;
+}
+.footerBottom .bottomTight li a:hover {
+  color: #62a3db;
+}
+.footerBottom .bottomTight li a span.array {
+  float: left;
+  padding-right: 6px;
+}
+
+.footer ul li a span.link{
+  float: left;
+  width: 137px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
