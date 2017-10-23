@@ -1,0 +1,17 @@
+<!--案例指导(首页)-->
+<div class="caseGuideArticle" dw-loading="specialTraining">
+  <div common-header title-header="caseGuideData.CategoryName" show-more=true link-url="caseGuideUrl"></div>
+  <ul class="specialContent">
+    <li ng-repeat="list in caseGuideData.ListData">
+      <p>
+        <a ui-sref="{{list.Url}}" target="_blank">
+          <img class="specialImg" ng-src="{{caseGuideData.Path+'/'+list.Img}}" err-Src="images/notFound.jpeg" alt="">
+        </a>
+      </p>
+      <p class="title" title="{{list.Name}}">
+        <a ui-sref="articleDetail({ID:list.Id})" target="_blank">{{list.Name}}</a>
+      </p>
+    </li>
+    <p ng-show="!caseGuideData" class="result">暂无案例指导</p>
+  </ul>
+</div>

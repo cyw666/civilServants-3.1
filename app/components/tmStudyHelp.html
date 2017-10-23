@@ -1,0 +1,60 @@
+<!--学术论坛 法律人生 （首页）-->
+<div class="studyHelp">
+  <div class="myTab" dw-loading="classGarden">
+    <ul class="nav nav-tabs" ng-init="vm6.activeTab=0">
+      <li class="commonHeaderBg"></li>
+      <li ng-class="{active: vm6.activeTab == 0}">
+        <a ng-click="vm6.activeTab = 0">学习帮助</a>
+      </li>
+      <li ng-class="{active: vm6.activeTab == 1}">
+        <a ng-click="vm6.activeTab = 1">必装软件</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-panel perlist" ng-show="vm6.activeTab == 0">
+        <ul>
+          <li>
+            <a target="_blank" ui-sref="articleDetail({ID:'128'})">
+              <img src="../images/studyHelp1.png" alt="">
+              <span>学习流程</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" ui-sref="articleDetail({ID:'129'})">
+              <img src="../images/studyHelp2.png" alt="">
+              <span>学分介绍</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" ui-sref="articleDetail({ID:'130'})">
+              <img src="../images/studyHelp3.png" alt="">
+              <span>操作指南</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" ui-sref="articleDetail({ID:'131'})">
+              <img src="../images/studyHelp4.png" alt="">
+              <span>常见问题</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-panel perlist" ng-show="vm6.activeTab == 1">
+        <div>
+          <p class="softwareList">
+            <a target="_blank" href="http://windows.microsoft.com/zh-cn/windows/download-windows-media-player">
+              <img src="../images/media-player.jpg" alt="">
+              <span>视频播放器</span>
+            </a>
+          </p>
+          <p  class="softwareList">
+            <a target="_blank" href="http://get.adobe.com/cn/flashplayer/">
+              <img src="../images/flash_play.jpg" alt="">
+              <span>flash动画插件</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

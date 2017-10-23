@@ -1,0 +1,25 @@
+/**
+ * 案例指导(首页)
+ */
+@import "../styles/mixins";
+
+.caseGuideArticle {
+  margin-left: 20px;
+  margin-top: 25px;
+  .specialContent {
+    margin-top: 20px;
+    height: 447px;
+    li {
+      margin-top: 6px;
+      .title {
+        .ht-lineHt(30px);
+        padding: 0 10px;
+        font-size: @font-size-lg;
+        .ellipsis();
+      }
+      .specialImg {
+        .wh(330px, 115px);
+      }
+    }
+  }
+}

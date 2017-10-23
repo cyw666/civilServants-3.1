@@ -1,4 +1,4 @@
-# civilServants-3.0
+# civilServants-3.1 基准分平台
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.

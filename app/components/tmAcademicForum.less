@@ -1,0 +1,52 @@
+/**
+ * <!--学术论坛 法律人生 （首页）-->
+ */
+@import "../styles/mixins";
+.academicForum{
+  margin-left: 20px;
+  .myTab ul.nav-tabs {
+    background-color: @white;
+  }
+  .myTab ul.nav-tabs > li > a {
+    font-weight: 600;
+    font-size: 18px;
+    color: @text-color;
+    border-bottom: 4px solid transparent;
+    padding: 12px 10px;
+    &:hover{
+      background: @white;
+      color: @primary-color;
+    }
+  }
+  .myTab ul.nav-tabs > li.active > a {
+    border: 1px solid transparent;
+    border-bottom: 4px solid @primary-color;
+  }
+  .commonHeaderBg{
+    background: @common-header-icon no-repeat center;
+    .wh(80px,50px);
+  }
+  .tab-content{
+    border: 1px solid @primary-color;
+    li{
+      .clearFix();
+      text-align: left;
+    }
+    .arrow{
+      .pull-left();
+      margin: 0 5px 0 15px;
+      .wh(11px,29px);
+      display: inline-block;
+      vertical-align: middle;
+      background: @common-arrow-right no-repeat center;
+    }
+    .articleName{
+      .pull-left();
+      .ellipsis();
+      width: 80%;
+      display: inline-block;
+      line-height: 29px;
+    }
+  }
+
+}

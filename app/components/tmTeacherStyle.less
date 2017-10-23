@@ -1,0 +1,50 @@
+/**
+ * 教师风采 （首页）
+ */
+@import "../styles/mixins";
+.teacherStyle{
+  .tab-content{
+    .border-base();
+    border-top: none;
+    height: 200px;
+    li{
+      .clearFix();
+      text-align: left;
+    }
+    .arrow{
+      .pull-left();
+      margin: 0 5px 0 15px;
+      .wh(11px,29px);
+      display: inline-block;
+      vertical-align: middle;
+      background: @common-arrow-right no-repeat center;
+    }
+    .articleName{
+      .pull-left();
+      .ellipsis();
+      width: 80%;
+      display: inline-block;
+      line-height: 29px;
+    }
+    .teacherDesc{
+      .pull-left();
+      width: 50%;
+      padding: 28px 0 0 0;
+      .contentLeft{
+        .pull-left();
+        img{
+          .wh(115px,162px);
+        }
+      }
+      .contentRight{
+        .pull-left();
+        width: 300px;
+        padding: 10px;
+        .text-left();
+        text-indent: 2em;
+        line-height: 1.5em;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,45 @@
+/**
+ * <!--学术论坛 法律人生 （首页）-->
+ */
+@import "../styles/mixins";
+.studyHelp{
+  margin-left: 20px;
+  .myTab ul.nav-tabs {
+    background-color: @white;
+  }
+  .myTab ul.nav-tabs > li > a {
+    font-weight: 600;
+    font-size: 18px;
+    color: @text-color;
+    border-bottom: 4px solid transparent;
+    padding: 12px 10px;
+    &:hover{
+      background: @white;
+      color: @primary-color;
+    }
+  }
+  .myTab ul.nav-tabs > li.active > a {
+    border: 1px solid transparent;
+    border-bottom: 4px solid @primary-color;
+  }
+  .tab-content{
+    border: 1px solid @primary-color;
+    ul{
+      .clearFix();
+      padding: 22px 32px 5px 32px;
+      li{
+        .pull-left();
+        width: 50%;
+        line-height: 35px;
+        .text-left();
+        padding-bottom: 19px;
+      }
+    }
+    .softwareList{
+      padding: 15px 10px;
+      .text-left();
+    }
+
+  }
+
+}

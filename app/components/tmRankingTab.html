@@ -6,14 +6,11 @@
     </p>
     <a class="more" href="#/rankingList/{{vm3.more}}" target="_blank"></a>
   </div>
-  <!--<div common-header title="'排行榜'" show-more=true link-url="vm3.more"></div>-->
   <div class="rankTab">
     <ul class="nav nav-tabs" ng-init="vm3.activeTab=1;vm3.more = 'rankgroup'">
-      <li ng-class="{active: vm3.activeTab == 1}"><a ng-click="vm3.activeTab = 1;vm3.more = 'rankgroup'">单位</a></li>
-      <li ng-class="{active: vm3.activeTab == 2}"><a ng-click="vm3.activeTab = 2;vm3.more = 'userRankingList'">个人</a>
-      </li>
-      <li ng-class="{active: vm3.activeTab == 3}"><a ng-click="vm3.activeTab = 3;vm3.more = 'rankcourseclick'">课程</a>
-      </li>
+      <li ng-class="{active: vm3.activeTab == 1}"><a ng-click="vm3.activeTab = 1;vm3.more = 'rankgroup'">中层法院</a></li>
+      <li ng-class="{active: vm3.activeTab == 3}"><a ng-click="vm3.activeTab = 3;vm3.more = 'rankcourseclick'">基层法院</a></li>
+      <li ng-class="{active: vm3.activeTab == 2}"><a ng-click="vm3.activeTab = 2;vm3.more = 'userRankingList'">个人学习</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-panel perlist" ng-show="vm3.activeTab == 1">

@@ -1,0 +1,44 @@
+
+<!--教师风采 （首页）-->
+<div class="teacherStyle">
+  <div class="com-header">
+    <p class="title">
+      <span class="text">教师风采</span>
+    </p>
+    <a class="more" href="#/news/article?categoryCode={{teacherStyleUrl}}" target="_blank"></a>
+  </div>
+  <div class="myTab" dw-loading="classGarden">
+    <ul class="nav nav-tabs">
+      <li ng-class="{active: vm5.activeTab == 0}">
+        <a ng-click="vm5.activeTab = 0;changeTeacherStyleUrl();">教师风采</a>
+      </li>
+      <li ng-class="{active: vm5.activeTab == 1}">
+        <a ng-click="vm5.activeTab = 1;changeTeacherStyleUrl();">导师寄语</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-panel perlist clearfix" ng-show="vm5.activeTab == 0">
+        <div class="teacherDesc" ng-repeat="list in teacherStyleData.ListData">
+          <div class="contentLeft">
+            <a ui-sref="articleDetail({ID:list.Id})" target="_blank">
+              <img ng-src="{{teacherStyleData.Path+'/'+list.Img}}" alt="" err-src="images/teacherImg.png">
+            </a>
+          </div>
+          <div class="contentRight">
+            <p>{{list.Description | wordLimit:130}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel perlist" ng-show="vm5.activeTab == 1">
+        <ul>
+          <li ng-repeat="list in teacherMessageData.ListData">
+            <span class="arrow"></span>
+            <span class="articleName" title="list.Name">
+              <a ui-sref="articleDetail({ID:list.Id})" target="_blank">{{list.Name}}</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

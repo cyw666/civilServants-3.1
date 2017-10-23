@@ -1,0 +1,31 @@
+/**
+ * 培训新闻（首页）
+ */
+@import "../styles/mixins";
+
+.tmTrainingArticle{
+  margin-left: 20px;
+  ul{
+    border: 1px solid @primary-color;
+    height: 95px;
+    padding: 4px 0;
+  }
+  li{
+   .clearFix();
+  }
+  .arrow{
+    .pull-left();
+    margin: 0 5px 0 15px;
+    .wh(11px,29px);
+    display: inline-block;
+    vertical-align: middle;
+    background: @common-arrow-right no-repeat center;
+  }
+  .articleName{
+    .pull-left();
+    .ellipsis();
+    width: 80%;
+    display: inline-block;
+    line-height: 29px;
+  }
+}

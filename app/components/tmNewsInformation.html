@@ -4,15 +4,15 @@
     <div class="myTab">
       <ul class="nav nav-tabs" ng-init="vm.activeTab=0">
         <li ng-class="{active: vm.activeTab == 0}" >
-          <a ng-click="vm.activeTab = 0;getNewsContent('newsInformation')">新闻资讯</a>
+          <a ng-click="vm.activeTab = 0;getNewsList({rows: 6, CategoryCode: 'trainingNews'})">培训动态</a>
         </li>
         <li ng-class="{active: vm.activeTab == 1}" >
-          <a ng-click="vm.activeTab = 1;getNewsContent('cadreEducationNews')">干教资讯</a>
+          <a ng-click="vm.activeTab = 1;getNewsList({rows: 6, CategoryCode: 'newsInformation'})">新闻资讯</a>
         </li>
-        <li ng-class="{active: vm.activeTab == 2}" >
+        <!--<li ng-class="{active: vm.activeTab == 2}" >
           <a ng-click="vm.activeTab = 2;getNewsContent('newsHot')">时政热点</a>
-        </li>
-        <a class="more" ui-sref="article" target="_blank"></a>
+        </li>-->
+        <a class="more" href="#/news/article?categoryCode={{articleListUrl}}" target="_blank"></a>
       </ul>
       <div class="tab-content" dw-loading="articleList">
         <div class="tab-panel perlist">
@@ -36,5 +36,4 @@
     </div>
     <div tm-real-time-data></div>
   </div>
-
 </div>

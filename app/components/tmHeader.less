@@ -17,7 +17,7 @@
         }
       }
       .phone {
-        color: @primary-color;
+        color: @red-3;
         .glyphicon{
           margin: 0 12px;
         }
@@ -38,20 +38,18 @@
             font-size: 35px;
             font-weight: 600;
             margin-top: 25px;
-            color: #444548;
-            .text-center();
+            color: @primary-color;
           }
           p {
-            font-size: @font-size-lg;
             line-height: 30px;
-            .text-center();
+            color: @primary-color;
+            font-size: 15px;
           }
         }
       }
       .searchInput {
         height: 100px;
         vertical-align: middle;
-        padding-left: 24px;
         .input-group {
           margin-top: 30px;
           .form-control {
@@ -66,8 +64,6 @@
             display: block;
             .btn {
               padding: 11px 16px;
-              background-color: #444548;
-              color: @white;
             }
           }
           .searchBg{
@@ -81,8 +77,8 @@
       }
       .flag {
         .pull-left();
-        margin: 30px 0 0 15px;
-        .wh(82px,60px);
+        margin: 0 0 0 15px;
+        .wh(82px,100px);
         background: @flag no-repeat left;
       }
       .Img {

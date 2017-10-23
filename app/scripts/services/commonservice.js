@@ -24,7 +24,7 @@ angular.module('luZhouApp')
         warnType: 1, //1 为alert型; 2 为confirm型; 3 为系统alert型
         Title: "消息",
         Message: "错误",
-        theme: "red" //"red","blue","green","yellow"可以在generateCSS的themes添加对象
+        theme: "theme1" //"red","blue","green","yellow"可以在generateCSS的themes添加对象
       };
       var generate = {
         HTML: function (option) {
@@ -44,7 +44,7 @@ angular.module('luZhouApp')
           this.CSS(option);
         },
         CSS: function (option) {
-          var themes = {"red": "#db1011", "blue": "#99CCFF", "green": "#8bb166", "yellow": "#FFFF66"};
+          var themes = {"theme1": "#6fa301", "blue": "#99CCFF", "green": "#8bb166", "yellow": "#FFFF66"};
           var themeColor = themes[option.theme];
           for (var color in themes) {
             if (color == option.theme) {

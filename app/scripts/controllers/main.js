@@ -15,6 +15,9 @@ angular.module('luZhouApp')
     $scope.vm = {};
     $scope.vm2 = {};
     $scope.vm3 = {};
+    $scope.vm4 = {};
+    $scope.vm5 = {activeTab:0};
+    $scope.vm6 = {};
     $scope.showNoClass = false;
     $scope.showNoCourse = false;
     $scope.showNoSpecialClass = false;
@@ -293,16 +296,61 @@ angular.module('luZhouApp')
     $scope.getRecommendCourse();
     
     //新闻资讯
-    $scope.getNewsContent = function (categoryCode) {
+    $scope.getNewsList = function (options) {
       $loading.start('articleList');
       commonService.getData(ALL_PORT.ArticleList.url, 'POST',
-        $.extend({}, ALL_PORT.ArticleList.data, {rows: 6, CategoryCode: categoryCode}))
+        $.extend({}, ALL_PORT.ArticleList.data, options))
         .then(function (response) {
           $loading.finish('articleList');
-          $scope.articleListData = response.Data;
-          $scope.articleTop = response.Data.ListData[0];
+          if(options.CategoryCode == "trainingArticle"){
+            $scope.trainingArticleData = response.Data;
+          }else if(options.CategoryCode == "caseGuide"){
+            $scope.caseGuideData = response.Data;
+          }else if(options.CategoryCode == "trainingNews" || options.CategoryCode == "newsInformation"){
+            $scope.articleListData = response.Data;
+            $scope.articleTop = response.Data.ListData[0];
+            $scope.articleListUrl = options.CategoryCode;
+          }else if(options.CategoryCode == "morningArticle" || options.CategoryCode == "sentToCourt"){
+            $scope.morningArticleData = response.Data;
+            $scope.morningArticleUrl = options.CategoryCode;
+          }else if(options.CategoryCode == "academicForum"){
+            $scope.academicForumData = response.Data;
+          }else if(options.CategoryCode == "lawLife"){
+            $scope.lawLifeData = response.Data;
+          }else if(options.CategoryCode == "teacherStyle"){
+            $scope.teacherStyleData = response.Data;
+          }else if(options.CategoryCode == "teacherMessage"){
+            $scope.teacherMessageData = response.Data;
+          }
+          else {
+            
+          }
         });
     };
-    $scope.getNewsContent('newsInformation');
-    
+    //培训动态
+    $scope.getNewsList({rows: 6, CategoryCode: 'trainingNews'});
+    //巡回培训面面观
+    $scope.getNewsList({rows: 3, CategoryCode: 'trainingArticle'});
+    $scope.trainingArticleUrl = "article({categoryCode:'trainingArticle'})";
+    //案例指导
+    $scope.getNewsList({rows: 3, CategoryCode: 'caseGuide'});
+    $scope.caseGuideUrl = "article({categoryCode:'caseGuide'})";
+    //早晨太阳
+    $scope.getNewsList({rows: 6, CategoryCode: 'morningArticle'});
+    //学术论坛
+    $scope.getNewsList({rows: 4, CategoryCode: 'academicForum'});
+    //法律人生
+    $scope.getNewsList({rows: 4, CategoryCode: 'lawLife'});
+    //教师风采
+    $scope.getNewsList({rows: 2, CategoryCode: 'teacherStyle'});
+    //导师寄语
+    $scope.getNewsList({rows: 6, CategoryCode: 'teacherMessage'});
+    $scope.changeTeacherStyleUrl = function () {
+      if($scope.vm5.activeTab == 0){
+        $scope.teacherStyleUrl = "teacherStyle";
+      }else {
+        $scope.teacherStyleUrl = "teacherMessage";
+      }
+    }
+    $scope.changeTeacherStyleUrl();
   });

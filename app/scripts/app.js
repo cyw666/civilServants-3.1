@@ -33,14 +33,14 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
-        data: {title: "干部教育网络学院-基准3.0"}
+        data: {title: "浙江法院在线培训网"}
       })
       .state('main2', {
         url: '',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
-        data: {title: "干部教育网络学院-基准3.0"}
+        data: {title: "浙江法院在线培训网"}
       })
       .state('courseCenter', {
         url: '/courseCenter?channelId&title&searchType',
@@ -1071,7 +1071,7 @@ angular
       if (!!$state.current.data) {
         $rootScope.pageTitle = $state.current.data.title;
       } else {
-        $rootScope.pageTitle = '干部教育网络学院';
+        $rootScope.pageTitle = '浙江法院在线培训网';
       }
     });
     

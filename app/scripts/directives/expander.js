@@ -25,6 +25,8 @@ angular.module('luZhouApp')
           scope.params = {channelId:scope.channelId,title: '',sort: 'Sort',order: 'desc',courseType: 'All',teacher: '',page: 1}
         }else if(scope.name === 'book'){
           scope.params ={categoryId:scope.channelId,ptitle:scope.ptitle,title: '',page: 1}
+        }else if(scope.name === 'article'){
+          scope.params ={categoryId:scope.channelId,search:'',page: 1,CategoryCode:''}
         }
         scope.toggle = function toggle() {
           scope.showMe = !scope.showMe;

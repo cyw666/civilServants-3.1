@@ -1,0 +1,39 @@
+/**
+ * 导航电梯
+ */
+@import "../styles/mixins";
+.nav-elevator{
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  z-index: 9999;
+  width: 45px;
+  text-align: center;
+  //margin-top: -100px;
+  a{
+    .pull-left();
+    .square(45px);
+    background-color: #ececec;
+    margin-top: 5px;
+    color: #747474;
+    .transition();
+    &:hover{
+      color: @white;
+      background-color: @primary-color;
+    }
+    &.backToTop{
+      display: none;
+    }
+  }
+  .fa{
+    font-size: 30px;
+    position: relative;
+    top:8px;
+  }
+  .weChartAppImg{
+    display: none;
+    position: absolute;
+    top:-185px;
+    left: -180px;
+  }
+}

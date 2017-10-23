@@ -1,0 +1,12 @@
+<!--培训新闻（首页）-->
+<div class="tmTrainingArticle">
+  <div common-header title-header="trainingArticleData.CategoryName" show-more=true link-url="trainingArticleUrl"></div>
+  <ul>
+    <li ng-repeat="list in trainingArticleData.ListData">
+      <span class="arrow"></span>
+      <span class="articleName" title="list.Name">
+        <a ui-sref="articleDetail({ID:list.Id})" target="_blank">{{list.Name}}</a>
+      </span>
+    </li>
+  </ul>
+</div>
