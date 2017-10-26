@@ -2,31 +2,7 @@
 <div class="courseClassify" dw-loading="courseClassify">
   <div common-header title-header="'课程分类'" show-more=false link-url="''"></div>
   <div class="tmBorder">
-    <p class="panels" ng-click="searchCourse({channelId:'',title: '',sort: 'Sort',order: 'desc',courseType: 'All',teacher: '',page: 1})">
-      全部课程
-    </p>
-    <div ng-repeat="courseList in courseClassify.ListData" ng-if="courseList.Nodes.length>0" expander
-         expander-title="courseList.Name"
-         title-click="searchCourse"
-         channel-id="courseList.Id"
-         name="'course'">
-      <p class="panels" ng-repeat="node in courseList.Nodes" ng-if="node.Nodes.length==0"
-         ng-click="searchCourse({channelId:node.Id,title: '',sort: 'Sort',order: 'desc',courseType: 'All',teacher: '',page: 1})">
-        {{node.Name}}</p>
-      <div ng-repeat="node in courseList.Nodes" ng-if="node.Nodes.length>0" expander
-           expander-title="node.Name"
-           title-click="searchCourse"
-           channel-id="node.Id"
-           name="'course'">
-        <p class="panels" ng-repeat="node2 in node.Nodes"
-           ng-click="searchCourse({channelId:node2.Id,title: '',sort: 'Sort',order: 'desc',courseType: 'All',teacher: '',page: 1})">
-          {{node2.Name}}</p>
-      </div>
-    </div>
-    <p class="panels" ng-repeat="courseList in courseClassify.ListData" ng-if="courseList.Nodes.length==0"
-       ng-click="searchCourse({channelId:courseList.Id,title: '',sort: 'Sort',order: 'desc',courseType: 'All',teacher: '',page: 1})">
-      {{courseList.Name}}
-    </p>
+    <div expander classify-data="courseClassify" search="searchCourse" name="'course'"></div>
   </div>
 </div>
 

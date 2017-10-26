@@ -14,45 +14,41 @@
       </li>
     </ol>
     <form class="form-inline formSearch">
-      <select class="form-control" ng-init="selectedName = selectText[0]" ng-model="selectedName"
-              ng-options="x.name for x in selectText" ng-change="judgement(selectedName.id)">
+      <select class="form-control" ng-init="selectedName = selectText[0].id" ng-model="selectedName"
+              ng-options="x.id as x.name for x in selectText" ng-change="judgement()">
       </select>
+      <select ng-show="showInput2" class="form-control" ng-init="selectedType = videoType[0].id" ng-model="selectedType"
+              ng-options="x.id as x.name for x in videoType"></select>
       <div class="form-group">
-        <input ng-show="showInput1" my-placeholder ng-model="searchTitle1" type="text" class="form-control"
-               placeholder="请输入要搜索的课程">
-        <div ng-show="showInput2">
-          <select class="form-control" ng-init="searchTitle2 = videoType[0]" ng-model="searchTitle2"
-                  ng-options="x.name for x in videoType" ng-change="judgement(selectedName.id)"></select>
-          <input my-placeholder ng-model="searchTitle22" type="text" class="form-control searchType"
-                 placeholder="请输入要搜索的课程">
-        </div>
-        <input ng-show="showInput3" my-placeholder ng-model="searchTitle3" type="text" class="form-control"
-               placeholder="请输入主讲人">
+        <input ng-show="showInput1" my-placeholder ng-model="searchTitle" type="text" class="form-control"
+               placeholder="请输入搜索课程">
+        <input ng-show="showInput2" my-placeholder ng-model="searchTitle" type="text" class="form-control"
+               placeholder="请输入搜索课程">
+        <input ng-show="showInput3" my-placeholder ng-model="searchTeacher" type="text" class="form-control"
+               placeholder="请输入搜索教师">
+        <button type="submit" class="btn btn-primary searchBtn" ng-click="searchCourse({page: 1,sort: 'Sort',order: 'desc',flag:'all'})">搜索</button>
       </div>
-      <button type="submit" class="btn btn-primary" ng-click="judgement(selectedName.id)">搜索</button>
     </form>
     <div class="courseList  mar_top_15 clearfix" dw-loading="courseSupermarket">
       <div class="sortCourse clearfix">
         <div class="clearfix">
           <a class="recommendCourse pull-left" ng-click="getRecommendCourse()">
-            <img src="../images/recomend.png" alt="智能推荐">
+            <img src="../images/recomend.png" alt="智能推荐"/>
           </a>
           <div class="tag">
-            <span><img src="images/sfp.png"><a
-              ng-click="judgement(selectedName.id,'ThreeScreenCourse')">精品三分屏</a></span>
-            <span><img src="images/dsp.png"><a ng-click="judgement(selectedName.id,'SingleCourse')">单视频课件</a></span>
-            <span><img src="images/dh.png"><a ng-click="judgement(selectedName.id,'AnimationCourse')">动画类课件</a></span>
+            <span><a ng-click="searchCourse({courseType:'ThreeScreenCourse',title:'',teacher:'',flag:'all'})"><img src="../images/sfp.png"/> 精品三分屏</a></span>
+            <span><a ng-click="searchCourse({courseType:'SingleCourse',title:'',teacher:'',flag:'all'})"><img src="../images/dsp.png"/> 单视频课件</a></span>
+            <span><a ng-click="searchCourse({courseType:'AnimationCourse',title:'',teacher:'',flag:'all'})"><img src="../images/dh.png"/> 动画类课件</a></span>
+            <span><a ng-click="searchCourse({courseType:'All',flag:true})"><img src="../images/biXue.png"/> 必修课件</a></span>
+            <span><a ng-click="searchCourse({courseType:'All',flag:false})"><img src="../images/xuanXiu.png"/> 选修课件</a></span>
           </div>
         </div>
         <div class="title_bar">
-          <span><a ng-click="judgement(selectedName.id,null,'Name','order')">课程名称<span id="asc_Name">▼</span></a></span>
-          <span><a ng-click="judgement(selectedName.id,null,'CommentCount','order')">评论<span
-            id="asc_CommentCount">▼</span></a></span>
-          <span><a ng-click="judgement(selectedName.id,null,'Credit','order')">学时<span
-            id="asc_Credit">▼</span></a></span>
-          <span><a ng-click="judgement(selectedName.id,null,'ClickCount','order')">点击量<span id="asc_ClickCount">▼</span></a></span>
-          <span><a ng-click="judgement(selectedName.id,null,'CreateDate','order')">上线时间<span
-            id="asc_CreateDate">▼</span></a></span>
+          <span><a ng-click="searchCourse({sort: 'Name'},true)">课程名称<span class="arrow">▼</span></a></span>
+          <span><a ng-click="searchCourse({sort: 'CommentCount'},true)">评论<span class="arrow">▼</span></a></span>
+          <span><a ng-click="searchCourse({sort: 'Credit'},true)">学时<span class="arrow">▼</span></a></span>
+          <span><a ng-click="searchCourse({sort: 'ClickCount'},true)">点击量<span class="arrow">▼</span></a></span>
+          <span><a ng-click="searchCourse({sort: 'CreateDate'},true)">上线时间<span class="arrow">▼</span></a></span>
         </div>
       </div>
 
@@ -68,8 +64,12 @@
             </div>
             <div class="block3 pull-left">
               <div class="line line1">
-                <span class="CourseName"><a ui-sref="courseDetails({Id:courseList.Id})" target="_blank"
-                                            title="{{courseList.Name}}">{{courseList.Name}}</a></span>
+                <a class="CourseName" ui-sref="courseDetails({Id:courseList.Id})" target="_blank"
+                   title="{{courseList.Name}}">
+                  <span class="pull-left">{{courseList.Name}} </span>
+                  <span class="pull-left"
+                        ng-class="{'biXiu':courseList.RequiredFlag,'xuanXiu':!courseList.RequiredFlag}"></span>
+                </a>
               </div>
               <div class="line line3">
                 <span style="width:72px;">学时：{{courseList.Credit}}</span>
@@ -83,10 +83,9 @@
               </span>
                 <span>
                 <span>选课状态：</span>
-                <span style="color:red">{{courseList.Learning>=0?"已选课":"未选课"}}</span>
+                <span class="highlight">{{courseList.Learning>=0?"已选课":"未选课"}}</span>
               </span>
               </div>
-
             </div>
             <div class="block4 pull-right">
               <span class="onlineDate">上线日期：{{courseList.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</span>

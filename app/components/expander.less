@@ -1,40 +1,8 @@
 /**
- * 折叠面板
+ * 分类 tree
  */
 @import "../styles/mixins";
 
-.panels {
-  padding: 9px 28px;
-  cursor: pointer;
-  .transition();
-  &:hover {
-    background-color: @item-hover-bg;
-    color: @link-hover-color;
-  }
+.expander{
+  padding: 5px;
 }
-
-.expander {
-  & > .title {
-    padding: 4px 10px;
-    cursor: pointer;
-    .transition();
-    &:hover {
-      background-color: @item-hover-bg;
-    }
-    a {
-      display: inline-block;
-      width: 80%;
-      line-height: 30px;
-    }
-  }
-  .body {
-    height: auto;
-    .panels {
-      padding: 9px 33px;
-    }
-    .title{
-      padding: 4px 10px 4px 15px;
-    }
-  }
-}
-

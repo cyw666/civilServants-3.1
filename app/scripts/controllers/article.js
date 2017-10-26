@@ -45,5 +45,12 @@ angular.module('luZhouApp')
       };
       $scope.refreshList(pageOptions);
     });
-
+  
+    //获取文章分类
+    commonService.getData(ALL_PORT.ArticleCategory.url, 'POST',
+      $.extend({}, ALL_PORT.ArticleCategory.data))
+      .then(function (response) {
+        $scope.categoryData = response.Data.ListData;
+      });
+    
   });

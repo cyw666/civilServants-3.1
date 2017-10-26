@@ -1,33 +1,8 @@
 <!--@*图书分类*@-->
-<div class="bookCategory"  dw-loading="bookCategory">
+<div class="bookCategory" dw-loading="bookCategory">
   <div common-header title-header="'电子书分类'" show-more=false link-url="''"></div>
-
   <div class="tmBorder">
-    <p class="panels" ng-click="searchCategory({categoryId:0,ptitle:'全部',title: '',page: 1})">
-      全部书籍
-    </p>
-    <div ng-repeat="courseList in bookCategory.DataList" ng-if="courseList.Nodes.length>0" expander
-         expander-title="courseList.Name"
-         title-click="searchCategory"
-         channel-id="courseList.Id"
-         name="'book'">
-      <p class="panels" ng-repeat="node in courseList.Nodes" ng-if="node.Nodes.length==0"
-         ng-click="searchCategory({categoryId:node.Id,ptitle:node.Name,title: '',page: 1})">
-        {{node.Name}}</p>
-      <div ng-repeat="node in courseList.Nodes" ng-if="node.Nodes.length>0" expander
-           expander-title="node.Name"
-           title-click="searchCategory"
-           channel-id="node.Id"
-           name="'book'">
-        <p class="panels" ng-repeat="node2 in node.Nodes"
-           ng-click="searchCategory({categoryId:node2.Id,ptitle:node2.Name,title: '',page: 1})">
-          {{node2.Name}}</p>
-      </div>
-    </div>
-    <p class="panels" ng-repeat="courseList in bookCategory.DataList" ng-if="courseList.Nodes.length==0"
-       ng-click="searchCategory({categoryId:courseList.Id,ptitle:courseList.Name,title: '',page: 1})">
-      {{courseList.Name}}
-    </p>
+    <div expander classify-data="bookCategory" search="searchCategory" name="'book'"></div>
   </div>
 </div>
 

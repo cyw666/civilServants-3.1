@@ -11,6 +11,7 @@ angular.module('luZhouApp')
     return {
       templateUrl: 'components/tmcourseclassify.html',
       restrict: 'EA',
-      link: function postLink(scope, element, attrs) {}
+      link: function postLink(scope, element, attrs) {
+      }
     };
   });

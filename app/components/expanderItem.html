@@ -1,0 +1,5 @@
+<span>{{list.Name}}</span>
+<ul ng-if="hasNodes(list)">
+  <li ng-repeat="list in list.Nodes" data-options="attributes:{treeId:{{list.Id}}}" ng-include="'/template/expanderItem.html'">
+  </li>
+</ul>

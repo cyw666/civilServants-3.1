@@ -5,8 +5,8 @@
 
 .courseSupermarket {
   .formSearch {
-    input.searchType {
-      width: 85%;
+    input.form-control{
+      width: 75%;
     }
   }
   .courseList {
@@ -61,8 +61,10 @@
             .text-left();
             width: 430px;
             margin-left: 15px;
-            .CourseName a {
+            .CourseName{
               font-size: @font-size-base + 1;
+              .clearFix();
+              line-height: 22px;
             }
             .line3, .line2 {
               line-height: 25px;

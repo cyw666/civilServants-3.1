@@ -11,26 +11,46 @@ angular.module('luZhouApp')
     return {
       templateUrl: 'components/expander.html',
       restrict: 'EA',
-      transclude: true,
       scope: {
-        title: '=expanderTitle',
-        titleClick: '=titleClick',
-        channelId: '=channelId',
-        name: '=name',
-        ptitle:'=ptitle'
+        classifyData: "=",
+        search: "=",
+        name: "=",
+        titleNav: '='
+      },
+      controller:function ($scope) {
+        $scope.hasNodes = function(item){
+          return !!item.children || !!item.children.length;
+        };
       },
       link: function (scope, element, attrs) {
-        scope.showMe = false;
-        if (scope.name === 'course') {
-          scope.params = {channelId:scope.channelId,title: '',sort: 'Sort',order: 'desc',courseType: 'All',teacher: '',page: 1}
-        }else if(scope.name === 'book'){
-          scope.params ={categoryId:scope.channelId,ptitle:scope.ptitle,title: '',page: 1}
-        }else if(scope.name === 'article'){
-          scope.params ={categoryId:scope.channelId,search:'',page: 1,CategoryCode:''}
-        }
-        scope.toggle = function toggle() {
-          scope.showMe = !scope.showMe;
-        }
+        scope.startTree = function (data) {
+          var id;
+          setTimeout(function () {
+            $("#category").tree({
+              data:data,
+              onSelect: function (node) {
+                if (id == node.id) return;
+                id = node.id;
+                if (scope.name == "course") {
+                  if (id == 0) {
+                    scope.search({channelId: '',flag:'all', title: '', sort: 'Sort', order: 'desc', courseType: 'All', teacher: '', page: 1});
+                  } else {
+                    scope.search({channelId: id,flag:'all', title: '', sort: 'Sort', order: 'desc', courseType: 'All', teacher: '', page: 1});
+                  }
+                } else if (scope.name === 'book') {
+                  scope.search({categoryId: id, ptitle: node.text, title: '', page: 1});
+                } else if (scope.name === 'article') {
+                  scope.search({categoryId: id, search: '', page: 1, CategoryCode: ''});
+                }else if (scope.name === 'class') {
+                  scope.search({categoryId: id,page: 1, title: "", type: "just"});
+                }
+              }
+            });
+          },0);
+        };
+        scope.$watch('classifyData',function(newVlaue){
+          scope.startTree(newVlaue);
+        })
       }
     };
   });

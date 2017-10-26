@@ -246,9 +246,9 @@ angular.module('luZhouApp')
     var params = {
       page: '1',
       rows: '8',
-      sort: 'Sort',
+      sort: 'sort',
       order: 'desc',
-      flag: 'All',
+      flag: 'all',
       courseType: 'All',
       wordLimt: '35',
       channelId: '',
@@ -257,12 +257,9 @@ angular.module('luZhouApp')
     $scope.courseCenterData = {};
     $scope.imageCourse = '';
     $scope.showNoCourse = false;
-    $scope.searchCourseList = function (id, Sort, flag, title) {
+    $scope.searchCourseList = function (options) {
       $loading.start('courseList');
-      params.channelId = id || 250;
-      params.Sort = Sort || 'Sort';
-      params.flag = flag || 'All';
-      params.title = title || '';
+      $.extend(params,options);
       commonService.getData(ALL_PORT.CourseList.url, 'POST', params)
         .then(function (response) {
           $loading.finish('courseList');
@@ -271,7 +268,6 @@ angular.module('luZhouApp')
           $scope.showNoCourse = response.Data.ListData.length == 0 ? true : false;
         });
     };
-    // $scope.searchCourseList();
     
     $scope.renderFinish = function () {
       $('.courseLink>.btn').on('click', function () {

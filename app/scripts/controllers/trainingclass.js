@@ -9,9 +9,6 @@
  */
 angular.module('luZhouApp')
   .controller('TrainingclassCtrl', function ($scope, $location,$state, $rootScope, $cookieStore, commonService, $timeout, $loading) {
-    $scope.showInput1 = true;
-    $scope.showInput2 = false;
-    $scope.showInput3 = false;
     //loading
     $loading.start('courseClassify');
     $loading.start('classMy');
@@ -23,11 +20,10 @@ angular.module('luZhouApp')
       $.extend({}, ALL_PORT.GetTrainingClassTypeList.data))
       .then(function (response) {
         $loading.finish('courseClassify');
-        $scope.courseClassify = response.Data;
+        var classClassify = [{id:0,text:"全部班级",children:null,state:"open",SunFlag: false}];
+        $scope.courseClassify = classClassify.concat(response.Data.ListData);
       });
     
-    //分页
-    $scope.paginationConf = $.extend({}, paginationConf, {itemsPerPage: 10});
 
     //我的班级
     $scope.classMyType = 'my';
@@ -55,6 +51,9 @@ angular.module('luZhouApp')
       });
 
     //培训班级列
+      //分页
+    $scope.paginationConf = $.extend({}, paginationConf, {itemsPerPage: 10});
+    
     $scope.params = ALL_PORT.GetClassList.data;
     $scope.getClassList = function (options) {
       $loading.start('trainingCenter');
@@ -77,7 +76,6 @@ angular.module('luZhouApp')
         });
     };
 
-    $scope.getClassList();
     $scope.JudgeStatus = commonService.JudgeStatus;
 
     //查看用户权限

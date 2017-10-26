@@ -24,7 +24,10 @@ angular.module('luZhouApp')
             $(this).children('span').html('▼');
           }
         });
-
+        //
+        $('.searchBtn').click(function () {
+          $('.title_bar .arrow').html('▼');
+        })
       }
     };
   });

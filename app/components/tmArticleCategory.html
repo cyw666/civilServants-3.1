@@ -1,38 +1,7 @@
 <!--文章分类-->
-<!--<div class="articleCategory">
-  <div common-header title-header="'文章分类'" show-more=false link-url="''"></div>
-  <div class="tmBorder">
-    <ul class="categoryGuide">
-      <li ng-repeat="list in categoryData.ListData" title="{{list.Name}}">
-        <a class="btn btn-primary" ng-click="refreshList({categoryId:list.Id,CategoryCode:'',search:''})">{{list.Name}}</a>
-      </li>
-    </ul>
-  </div>
-</div>-->
 <div class="articleCategory">
   <div common-header title-header="'文章分类'" show-more=false link-url="''"></div>
   <div class="tmBorder">
-    <div ng-repeat="list in categoryData.ListData" ng-if="list.Nodes.length>0" expander
-         expander-title="list.Name"
-         title-click="refreshList"
-         channel-id="list.Id"
-         name="'article'">
-      <p class="panels" ng-repeat="node in list.Nodes" ng-if="node.Nodes.length==0"
-         ng-click="refreshList({categoryId:node.Id,search:'',page: 1,CategoryCode:''})">
-        {{node.Name}}</p>
-      <div ng-repeat="node in list.Nodes" ng-if="node.Nodes.length>0" expander
-           expander-title="node.Name"
-           title-click="refreshList"
-           channel-id="node.Id"
-           name="'article'">
-        <p class="panels" ng-repeat="node2 in node.Nodes"
-           ng-click="refreshList({categoryId:node2.Id,search:'',page: 1,CategoryCode:''})">
-          {{node2.Name}}</p>
-      </div>
-    </div>
-    <p class="panels" ng-repeat="list in categoryData.ListData" ng-if="list.Nodes.length==0"
-       ng-click="refreshList({categoryId:list.Id,search:'',page: 1,CategoryCode:''})">
-      {{list.Name}}
-    </p>
+    <div expander classify-data="categoryData" search="refreshList" name="'article'"></div>
   </div>
 </div>

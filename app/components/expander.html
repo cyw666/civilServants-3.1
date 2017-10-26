@@ -1,9 +1,10 @@
-<!--折叠面板-->
-<div class="expander">
-  <div class="title">
-    <span  ng-click="toggle()" ng-hide="showMe" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    <span  ng-click="toggle()" ng-show="showMe" class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-    <a ng-click="titleClick(params)">{{title}}</a>
+<!--分类 tree-->
+<div class="categoryTree" dw-loading="categoryTree">
+  <div common-header title-header="titleNav" show-more=false link-url="''"></div>
+  <div class="tmBorder">
+    <ul class="expander" id="category">
+      <!--<li ng-repeat="list in classifyData" repeat-finish="startTree()" data-options="attributes:{treeId:{{list.Id}}}" ng-include="'/template/expanderItem.html'">
+      </li>-->
+    </ul>
   </div>
-  <div class="body" ng-hide="!showMe" ng-transclude></div>
 </div>

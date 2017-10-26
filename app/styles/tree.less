@@ -1,3 +1,5 @@
+
+@import "mixins";
 .tree {
   margin: 0;
   padding: 0;
@@ -12,7 +14,7 @@
   padding: 0;
 }
 .tree-node {
-  height: 18px;
+  .ht-lineHt(28px);
   white-space: nowrap;
   cursor: pointer;
 }
@@ -27,8 +29,8 @@
 .tree-indent {
   display: inline-block;
   width: 16px;
-  height: 18px;
-  vertical-align: top;
+  height: 22px;
+  vertical-align: middle;
   overflow: hidden;
 }
 .tree-expanded {
@@ -77,6 +79,7 @@
 }
 .tree-file {
   /*background: url('../images/tree_icons.png') no-repeat -240px 0;*/
+  width: 10px;
 }
 .tree-loading {
   background: url('../images/loading.gif') no-repeat center center;
@@ -97,8 +100,9 @@
   vertical-align: top;
   white-space: nowrap;
   padding: 0 2px;
-  height: 20px;
-  line-height: 20px;
+  .ht-lineHt(28px);
+  width: 80%;
+  //.ellipsis();
 }
 .tree-node-proxy {
   font-size: 14px;
@@ -150,12 +154,12 @@
   border-color: #95B8E7;
 }
 .tree-node-hover {
-  background: #eaf2ff;
-  color: #000000;
+  background-color: @item-hover-bg;
+  color: @primary-4;
 }
 .tree-node-selected {
-  /*background: #ffe48d;*/
-  color: #000000;
+  background-color: @item-hover-bg;
+  color: @primary-color;
 }
 .tree-node-hidden {
   display: none;

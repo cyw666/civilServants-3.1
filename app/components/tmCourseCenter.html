@@ -3,7 +3,8 @@
   <div common-header title-header="'课程中心'" show-more=true link-url="'courseCenter'"></div>
   <div class="btn-group courseLink" role="group">
     <a class="btn btn-primary active" ng-click="getRecommendCourse()">推荐课程</a>
-    <a class="btn btn-primary" ng-repeat="courseName in courselassification" ng-click="searchCourseList(courseName.Id)" repeat-finish="renderFinish()">{{courseName.Name}}</a>
+    <a class="btn btn-primary" ng-click="searchCourseList({sort:'CreateDate'})">最新课程</a>
+    <a class="btn btn-primary" ng-repeat="courseName in courselassification" ng-click="searchCourseList({channelId:courseName.id,sort:'sort'})" repeat-finish="renderFinish()">{{courseName.text}}</a>
   </div>
   <div class="courseList mar_top_20" dw-loading="courseList">
     <ul class="clearfix">
