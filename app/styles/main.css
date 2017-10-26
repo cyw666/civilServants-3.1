@@ -5418,6 +5418,7 @@ input:hover {
 .specialLearningCourse .courseList {
   margin-top: 15px;
   zoom: 1;
+  min-height: 235px;
 }
 .specialLearningCourse .courseList:before,
 .specialLearningCourse .courseList:after {
@@ -5471,10 +5472,11 @@ input:hover {
  * 专题学习新闻
  */
 .specialNews {
-  padding-left: 20px;
+  padding-right: 20px;
 }
 .specialNews .specialNewsContent {
   zoom: 1;
+  min-height: 190px;
 }
 .specialNews .specialNewsContent:before,
 .specialNews .specialNewsContent:after {
@@ -6341,7 +6343,7 @@ input:hover {
 .teacherStyle .tab-content .teacherDesc {
   float: left !important;
   width: 50%;
-  padding: 28px 0 0 0;
+  padding: 28px 0 0 10px;
 }
 .teacherStyle .tab-content .teacherDesc .contentLeft {
   float: left !important;
@@ -6352,7 +6354,7 @@ input:hover {
 }
 .teacherStyle .tab-content .teacherDesc .contentRight {
   float: left !important;
-  width: 300px;
+  width: 295px;
   padding: 10px;
   text-align: left;
   text-indent: 2em;

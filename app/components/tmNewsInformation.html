@@ -9,10 +9,7 @@
         <li ng-class="{active: vm.activeTab == 1}" >
           <a ng-click="vm.activeTab = 1;getNewsList({rows: 6, CategoryCode: 'newsInformation'})">新闻资讯</a>
         </li>
-        <!--<li ng-class="{active: vm.activeTab == 2}" >
-          <a ng-click="vm.activeTab = 2;getNewsContent('newsHot')">时政热点</a>
-        </li>-->
-        <a class="more" href="#/news/article?categoryCode={{articleListUrl}}" target="_blank"></a>
+        <a class="more" ui-sref="article({categoryCode:articleListUrl})" target="_blank"></a>
       </ul>
       <div class="tab-content" dw-loading="articleList">
         <div class="tab-panel perlist">
