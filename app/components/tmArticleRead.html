@@ -19,19 +19,18 @@
       <div class="tab-content">
         <div class="tab-panel perlist">
           <div class="title_bar">
-            <div class="list3-5">文章名称</div>
-            <div class="list2-5">时间</div>
+            <div class="list4">文章名称</div>
+            <div class="list2">时间</div>
             <div class="list2">作者</div>
             <div class="list2">点击量</div>
           </div>
           <div class="list" ng-repeat="list in morningArticleData.ListData">
-            <div class="list3-5 bookLog">
+            <div class="list4 bookLog">
               <span class="classLogoBg"></span>
               <a ui-sref="articleDetail({ID:list.Id})" target="_blank">{{list.Name}}</a>
             </div>
-            <div class="list2-5">{{list.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</div>
+            <div class="list2">{{list.CreateDate | dateFilter | date:'yyyy-MM-dd'}}</div>
             <div class="list2">{{list.Author || "无"}}</div>
-
             <div class="list2">{{list.ClickCount}}</div>
           </div>
         </div>

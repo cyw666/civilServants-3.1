@@ -11,7 +11,7 @@
       <ul class="clearfix">
         <li class="courseList pull-left" ng-repeat="list in studyStyleData.ListData">
           <a ui-sref="studentstyledetail({Id:list.Id})">
-            <img ng-src="{{studyStyleData.Path+'/'+list.Img}}" err-src="/images/noGoodStudent.png">
+            <img ng-src="{{list.Img}}" err-src="/images/noGoodStudent.png">
           </a>
           <p><a ui-sref="studentstyledetail({Id:list.Id})" class="name">{{list.Name}}</a></p>
           <p class="source">{{list.Source}}</p>

@@ -573,6 +573,13 @@ angular
         controller: 'ApplyinvoiceCtrl',
         controllerAs: 'applyInvoice'
       })
+      .state('printcertificate', {
+        url: '/Do/printcertificate',
+        data:{title:"打印证书"},
+        templateUrl: 'views/Do/printcertificate.html',
+        controller: 'PrintcertificateCtrl',
+        controllerAs: 'printCertificate'
+      })
     $urlRouterProvider.otherwise('/error');
     // $locationProvider.html5Mode(true);
     
@@ -976,6 +983,11 @@ angular
        templateUrl: 'views/error.html',
        controller: 'ErrorCtrl',
        controllerAs: 'error'
+     })
+     .when('/printCertificate', {
+       templateUrl: 'views/printcertificate.html',
+       controller: 'PrintcertificateCtrl',
+       controllerAs: 'printCertificate'
      })
      .otherwise({
      redirectTo: '/main'

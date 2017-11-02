@@ -3,34 +3,34 @@
   <ol class="breadcrumb">
     <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
     <li><a ui-sref="main">首页</a></li>
-    <li class="active">{{Data.ViewBag.TitleNav}}</li>
+    <li class="active">{{userInfoData.ViewBag.TitleNav}}</li>
   </ol>
   <div class="statisticsTitle">
-    <span>{{Data.ViewBag.TitleNav}}</span>
+    <span>{{userInfoData.ViewBag.TitleNav}}</span>
   </div>
   <div dw-loading="personalArchive">
     <div class="statisticsBox">
       <div class="statisticsBoxInner">
         <p>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的&nbsp<span class="font-red">{{Data.Model.Name}}</span>&nbsp学员，截止至今，
-          您总选修&nbsp;<span class="font-red">{{Data.Model.ElectiveCount}}</span>&nbsp;门课程，
-          已学完&nbsp;<span class="font-red">{{Data.Model.FinishCount}}</span>&nbsp;门，
-          <span class="font-red">{{Data.Model.UnFinishCount}}</span>&nbsp;门未学完，
-          累计参加&nbsp;<span class="font-red">{{Data.Model.TestCount}}</span>&nbsp;次测试，
-          修满&nbsp;<span class="font-red">{{Data.Model.SumCredit}}</span>&nbsp;学时，
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的&nbsp<span class="font-red">{{userInfoData.Model.Name}}</span>&nbsp学员，截止至今，
+          您总选修&nbsp;<span class="font-red">{{userInfoData.Model.ElectiveCount}}</span>&nbsp;门课程，
+          已学完&nbsp;<span class="font-red">{{userInfoData.Model.FinishCount}}</span>&nbsp;门，
+          <span class="font-red">{{userInfoData.Model.UnFinishCount}}</span>&nbsp;门未学完，
+          累计参加&nbsp;<span class="font-red">{{userInfoData.Model.TestCount}}</span>&nbsp;次测试，
+          修满&nbsp;<span class="font-red">{{userInfoData.Model.SumCredit}}</span>&nbsp;学时，
           祝您学有所成！
 
-          固网获得学时：<span class="font-red">{{Data.Model.PcCredit}}</span>，
-          移动获得学时：<span class="font-red">{{Data.Model.MobileCredit}}</span>，
-          指定获得学时：<span class="font-red">{{Data.Model.AppointCredit}}</span>，
-          文章获得学时：<span class="font-red">{{Data.Model.ArticleCredit}}</span>，
-          考试获得学时：<span class="font-red">{{Data.Model.ExamCredit}}</span>，
-          评论获得学时：<span class="font-red">{{Data.Model.CommentCredit}}</span>，
-          培训获得学时：<span class="font-red">{{Data.Model.TrainingCredit}}</span>,
-          规定指定学时：<span class="font-red">{{Data.Model.RegulationsAppointCredit}}</span>，
-          规定文章学时：<span class="font-red">{{Data.Model.RegulationsArticleCredit}}</span>，
-          规定考试学时：<span class="font-red">{{Data.Model.RegulationsExamCredit}}</span>，
-          规定总学时：<span class="font-red">{{Data.Model.RegulationsSumCredit}}。</span>
+          固网获得学时：<span class="font-red">{{userInfoData.Model.PcCredit}}</span>，
+          移动获得学时：<span class="font-red">{{userInfoData.Model.MobileCredit}}</span>，
+          指定获得学时：<span class="font-red">{{userInfoData.Model.AppointCredit}}</span>，
+          文章获得学时：<span class="font-red">{{userInfoData.Model.ArticleCredit}}</span>，
+          考试获得学时：<span class="font-red">{{userInfoData.Model.ExamCredit}}</span>，
+          评论获得学时：<span class="font-red">{{userInfoData.Model.CommentCredit}}</span>，
+          培训获得学时：<span class="font-red">{{userInfoData.Model.TrainingCredit}}</span>,
+          规定指定学时：<span class="font-red">{{userInfoData.Model.RegulationsAppointCredit}}</span>，
+          规定文章学时：<span class="font-red">{{userInfoData.Model.RegulationsArticleCredit}}</span>，
+          规定考试学时：<span class="font-red">{{userInfoData.Model.RegulationsExamCredit}}</span>，
+          规定总学时：<span class="font-red">{{userInfoData.Model.RegulationsSumCredit}}。</span>
         </p>
         <br />
         <fieldset style="visibility: visible;">
@@ -45,7 +45,7 @@
               <input class="form-control" type="text" ng-model="endDate" date-time-picker>
               <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
             </div>
-            <button class="searchBtn btn btn-primary" ng-click="refresh({startDate:startDate,endDate:endDate})">时间查询</button>
+            <button class="searchBtn btn btn-primary" ng-click="timeSearch({startDate:startDate,endDate:endDate})">时间查询</button>
           </div>
           <table style="width:96%;margin:10px auto 0 auto" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
@@ -53,13 +53,13 @@
                 用户名
               </td>
               <td width="25%" align="center">
-                {{Data.Model.Name}}
+                {{userInfoData.Model.Name}}
               </td>
               <td width="25%" align="center" class="table1">
                 单位
               </td>
               <td align="center">
-                {{Data.Model.Department}}
+                {{userInfoData.Model.Department}}
               </td>
             </tr>
           </table>
@@ -83,13 +83,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-show="Data.ViewBag.StudyCount">
-              <td align="center">{{Data.ViewBag.StudyCount}}</td>
-              <td>{{Data.ViewBag.StudyFinishCount}}</td>
-              <td>{{Data.ViewBag.StudyCreditSum}}</td>
+            <tr ng-show="studyData.ViewBag.StudyCount">
+              <td align="center">{{studyData.ViewBag.StudyCount}}</td>
+              <td>{{studyData.ViewBag.StudyFinishCount}}</td>
+              <td>{{studyData.ViewBag.StudyCreditSum}}</td>
               <td><a class="courseDetails" ng-click="Show_table('one')">详细</a></td>
             </tr>
-            <tr ng-show="!Data.ViewBag.StudyCount">
+            <tr ng-show="!studyData.ViewBag.StudyCount">
               <td colspan="4">暂无数据</td>
             </tr>
             </tbody>
@@ -109,7 +109,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="StudyCourse in Data.Model.StudyCourseModel">
+            <tr ng-repeat="StudyCourse in studyData.Model.StudyCourseModel">
               <td width="40%" align="center">{{StudyCourse.CourseName}}</td>
               <td>{{StudyCourse.StartDate | dateFilter | date:'yyyy-MM-dd'}}</td>
               <td>{{StudyCourse.FinishDate | dateFilter | date:'yyyy-MM-dd'}}</td>
@@ -144,15 +144,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-show="Data.ViewBag.ExamFinishCount">
-              <td align="center">{{Data.ViewBag.ExamScoreSum}}</td>
-              <td>{{Data.ViewBag.ExamScoreAvg.toFixed(2)}}</td>
-              <td>{{Data.ViewBag.ExamCreditSum}}</td>
-              <td>{{Data.ViewBag.ExamCreditAvg.toFixed(2)}}</td>
+            <tr ng-show="examData.ViewBag.ExamFinishCount">
+              <td align="center">{{examData.ViewBag.ExamScoreSum}}</td>
+              <td>{{examData.ViewBag.ExamScoreAvg.toFixed(2)}}</td>
+              <td>{{examData.ViewBag.ExamCreditSum}}</td>
+              <td>{{examData.ViewBag.ExamCreditAvg.toFixed(2)}}</td>
               <td><a class="courseDetails" ng-click="Show_table('two')">详细</a></td>
             </tr>
             <tr>
-              <td ng-show="!Data.ViewBag.ExamFinishCount" colspan="5">暂无数据</td>
+              <td ng-show="!examData.ViewBag.ExamFinishCount" colspan="5">暂无数据</td>
             </tr>
             </tbody>
           </table>
@@ -167,7 +167,7 @@
             </tr>
             </thead>
             <tbody >
-            <tr ng-repeat="CourseTest in Data.Model.ExamCreditModel">
+            <tr ng-repeat="CourseTest in examData.Model.ExamCreditModel">
               <td align="center">{{$index+1}}</td>
               <td width="40%">{{CourseTest.ExamName}}</td>
               <td>{{CourseTest.ExamSorce}}</td>
@@ -197,13 +197,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-show="Data.ViewBag.TrainingCount">
-              <td align="center">{{Data.ViewBag.TrainingCount}}</td>
-              <td>{{Data.ViewBag.TrainingFinishCount}}</td>
-              <td>{{Data.Model.TrainingCredit}}</td>
+            <tr ng-show="trainingData.ViewBag.TrainingCount">
+              <td align="center">{{trainingData.ViewBag.TrainingCount}}</td>
+              <td>{{trainingData.ViewBag.TrainingFinishCount}}</td>
+              <td>{{trainingData.Model.TrainingCredit}}</td>
               <td><a ng-click="Show_table('three')" class="courseDetails">详细</a></td>
             </tr>
-            <tr ng-show="!Data.ViewBag.TrainingCount">
+            <tr ng-show="!trainingData.ViewBag.TrainingCount">
               <td colspan="4">暂无数据</td>
             </tr>
             </tbody>
@@ -222,7 +222,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="TrainCourse in Data.Model.TrainCreditModel">
+            <tr ng-repeat="TrainCourse in trainingData.Model.TrainCreditModel">
               <td align="center">{{TrainCourse.UserName}}</td>
               <td width="40%">{{TrainCourse.TrainName}}</td>
               <td>{{TrainCourse.TrainType}}</td>
