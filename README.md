@@ -1,4 +1,4 @@
-# civilServants-3.1 基准分平台
+# civilServants-3.0
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.
@@ -88,6 +88,8 @@ Running `grunt test` will run the unit tests with karma.
 74. invoicelist.html (我的发票列表) invoicelist.js
 75. applyinvoice.html (申请发票) applyinvoice.js
 76. tryplay.html (试播) tryplay.js
+77. printcertificate.html (打印证书) printcertificate.js
+78. error.html (错误) error.js
 
 ## directives(组件指令) => components(组件)
 
@@ -196,7 +198,7 @@ Running `grunt test` will run the unit tests with karma.
 
 
 
-## directives(非组件指令)
+## directives(其它指令)
 
 1. errsrc.js （图片路径找不到替换error图片）
 2. repeatfinish.js （ng-repeat 渲染完成后执行的操作）
@@ -204,14 +206,18 @@ Running `grunt test` will run the unit tests with karma.
 4. myplaceholder.js (placeholder指令兼容ie8)
 5. verificationcode.js (发送验证码指令)
 6. mytree.js (树形 单位选择)
+7. expander.js (分类tree【文章分类，课程分类，班级分类，图书分类】)
+8. commonHeader.js (模版通用头部)
 
 ## filters
-1. datafilter.js (日期过滤) 用法：time| dateFilter | date:'yyyy-MM-dd'
-2. trusthtml.js (DOM字符串过滤) 用法: DOMStr| trustHtml
-3. timelimit.js (字符串数量过滤，超过显示...) 用法: string | timeLimit :"60"
+1. datafilter (日期过滤) 用法：time| dateFilter | date:'yyyy-MM-dd'
+2. wordLimit (字数限制，超过显示。。。) 用法: DOMStr| wordLimit :"20"
+3. trusthtml (字符串解析为html) 用法: DOMStr| trustHtml
+4. formatSeconds (秒转换为hh小时mm分ss秒) 用法: second | formatSeconds
+5. delHtmlTag (去掉所有的html标记) 用法: html | delHtmlTag
 
 ## services
-1. commonservice.js
+1. commonservice.js (通用的函数)
 
 ## styles
 1. 960_24_col.css （布局）

@@ -1,0 +1,71 @@
+<!--班级说说-->
+<div class="tmClassInteraction">
+  <p class="title"><i class="fa fa-pencil-square" aria-hidden="true"></i> 互动空间</p>
+  <form class="classForm">
+    <div class="form-group">
+      <textarea class="form-control" ng-change="inputChange()" ng-model="description" cols="50" rows="4" type="text"
+                my-placeholder placeholder="你正在干什么？"></textarea>
+    </div>
+    <div class="form-group text-right">
+      <!--<input class="upLoadFile" type="file" name="ImageToUpload" id="ImageToUpload"
+             multiple="multiple" onchange="fileSelected('ImageToUpload', 'ImageTraining', 1);">-->
+      <span class="textLimit">还能输入<span class="textNum" ng-style="{color:(textNum<0)&&'red'}">{{textNum}}</span>字</span>
+      <button type="submit" class="btn btn-primary" ng-click="addTrainingReply(description,Id,0)">发表</button>
+      <!--<div id="ImageMessage" style="display:none;padding: 10px;height: 34px"></div>
+      <input type="hidden" id="hidValueImage" name="ImgUrl"/>-->
+    </div>
+  </form>
+  <ul class="classInteractionList">
+    <li class="classInteractionItem" ng-repeat="list in trainingSayList">
+      <div class="outer">
+        <div class="top"><a class="name">{{list.UserName}}</a> 发表了说说：{{list.Content}}</div>
+        <div class="bottom">
+          <span>{{list.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</span> &nbsp;| &nbsp;
+          <span ng-if="list.Dflag"><a ng-click="delTrainingSay(list.Id)">删除</a> &nbsp;| &nbsp;</span>
+          <a ng-click="commentClick($event)">评论({{list.List.length}})</a>
+        </div>
+        <div class="comment">
+          <div class="commentList" ng-repeat="list2 in list.List" ng-style="{display:($index>=2)&&'none'}">
+            <p>
+              <a class="pull-left">{{list2.UserName}}：</a>
+              <span>{{list2.CreateDate | dateFilter | date:'yyyy-MM-dd HH:mm:ss'}}</span> &nbsp;| &nbsp;
+              <span ng-if="list2.Dflag"><a ng-click="delTrainingSay(list2.Id)">删除</a> &nbsp;| &nbsp;</span>
+              <a ng-click="replyClick($event)">回复</a>
+            </p>
+            <span class="ir-content"><span
+                class="replyUserName">@{{list2.ReplyUserName}}：</span>{{list2.Content}}</span>
+            <form class="replyForm">
+              <div class="form-group">
+                  <textarea class="form-control" ng-model="$parent.replyContent" cols="30" rows="2" type="text"
+                            my-placeholder
+                            placeholder="我也说一句..."></textarea>
+                <p class="text-right" style="margin-top: 10px;">
+                  <button type="submit" class="btn btn-primary"
+                          ng-click="addTrainingReply($parent.replyContent,list2.MainId,list2.Id)">发表
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+          <p class="foldUnfold" ng-show="list.List.length>2">
+            <span>剩余{{list.List.length-2}}条评论</span>
+            <a ng-click="foldUnfold($event)">点击查看</a>
+          </p>
+        </div>
+        <form class="commentForm">
+          <div class="form-group">
+              <textarea class="form-control" ng-model="$parent.descContent" cols="50" rows="4" type="text"
+                        my-placeholder
+                        placeholder="我也说一句..."></textarea>
+            <p class="text-right" style="margin-top: 10px;">
+              <button type="submit" class="btn btn-primary"
+                      ng-click="addTrainingReply($parent.descContent,list.Id,list.Id)">发表
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </li>
+  </ul>
+  <div tm-pagation conf="paginationConf"></div>
+</div>

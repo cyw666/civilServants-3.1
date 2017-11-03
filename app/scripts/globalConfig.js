@@ -1,7 +1,7 @@
 ﻿"user strict"
 //请求后台数据入口
-var API_URL = "/api";
-// var API_URL = "http://test11.jy365.net/api";
+// var API_URL = "/api";
+var API_URL = "http://test11.jy365.net/api";
 // var API_URL = "http://122.225.101.117:9090/api";
 // var API_URL = "http://192.168.1.25:9090/api2";
 var API_URL_ADMIN = API_URL + "/admin";
@@ -932,5 +932,20 @@ var ALL_PORT = {
   PayForInvoice: {
     url: API_URL + "/shop/PayForInvoice",
     data: {invoiceId: ''}
+  },
+  //添加班级说说
+  AddTrainingSay: {
+    url: API_URL + "/page/AddTrainingSay",
+    data: {mainId: 0, parentId: 0, content: ""}
+  },
+  //删除班级说说
+  DelTrainingSay: {
+    url: API_URL + "/page/DelTrainingSay",
+    data: {id: ''}
+  },
+  //获取班级说说列表
+  TrainingSayList: {
+    url: API_URL + "/page/TrainingSayList",
+    data: {mainId: "", sort: "sort", order: "desc", page: 1, rows: 5}
   },
 };

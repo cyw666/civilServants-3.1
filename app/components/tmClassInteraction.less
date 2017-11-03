@@ -1,0 +1,93 @@
+/**
+ * 班级说说
+ */
+@import "../styles/mixins";
+.tmClassInteraction{
+  .title{
+    background-color: @background-color-base;
+    border-top: 1px solid @border-color-base;
+    border-bottom: 1px solid @border-color-base;
+    color: @text-color;
+    font-size: @font-size-lg;
+    padding:10px 15px;
+  }
+  .classForm{
+    width: 80%;
+    margin: 20px auto;
+    input[type="file"]{
+      display: inline-block;
+    }
+    .textLimit{
+      color: @text-color-3;
+      .textNum{
+        font-size: 16px;
+        color: @orange-3;
+        font-weight: 700;
+      }
+      margin: 0 60px 0 207px;
+    }
+  }
+  .classInteractionList{
+    .classInteractionItem{
+      border-top: 1px solid @border-color-base;
+      line-height: 25px;
+      .outer{
+        padding: 10px 50px;
+      }
+      .top{
+      }
+      .name{
+        color: @primary-color;
+      }
+      .bottom{
+        text-align: right;
+        font-size: 12px;
+        padding: 0 10px;
+        a{
+          color: @primary-color;
+        }
+      }
+      .comment{
+        margin-left: 10%;
+        padding: 5px 0 0;
+        border-top: 1px solid @border-color-base;
+        .otherCommentList{
+          display: none;
+        }
+        .commentList{
+          background-color: @background-color-base;
+          border-bottom: 1px dotted @border-color-base;
+          padding: 2px 10px 12px;
+          line-height: 22px;
+          p{
+            font-size: @font-size-sm;
+            text-align: right;
+            a{
+              color: @primary-color;
+            }
+          }
+        }
+        .foldUnfold{
+          text-align: right;
+          span{
+            color: @text-color-3;
+          }
+          a{
+            color: @primary-color;
+          }
+        }
+        .replyForm{
+          display: none;
+        }
+      }
+      .replyUserName{
+        color: @primary-color;
+      }
+      .commentForm{
+        display: none;
+        margin-left: 10%;
+        margin-top: 20px;
+      }
+    }
+  }
+}

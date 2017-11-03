@@ -35,12 +35,13 @@
           </div>
           <div class="list" ng-repeat="justata in justListData.ListData">
             <span class="list3" title="{{justata.Name}}">{{justata.Name}}</span>
-            <span class="list1"><a ng-click="checkUserClass(justata.Id)">详情</a></span>
+            <!--<span class="list1"><a ng-click="checkUserClass(justata.Id)">详情</a></span>-->
+            <span class="list1"><a ng-click="seeArticleDetail(justata.Id)" data-toggle="modal" data-target=".classModal">详情</a></span>
             <span class="list1-5" ng-if="!justata.ApplyStatus">未报名</span>
             <span class="list1-5" ng-if="justata.ApplyStatus">{{JudgeStatus(justata.ApplyStatus)}}</span>
             <span class="list3">{{justata.StartTime | dateFilter | date:'yyyy-MM-dd'}}~{{justata.EndTime | dateFilter | date:'yyyy-MM-dd'}}</span>
             <span class="list1-5" ng-if="justata.ApplyStatus=='UnApprove'"><a class="btn btn-danger" disabled>审核未通过</a></span>
-            <span class="list1-5" ng-if="justata.ApplyStatus=='Normal'"><a class="btn btn-success" disabled>已报名</a></span>
+            <span class="list1-5" ng-if="justata.ApplyStatus=='Normal'"><a class="btn btn-success" ui-sref="classDetail({Id:justata.Id})">点击进入</a></span>
             <span class="list1-5" ng-if="justata.ApplyStatus=='UnAudit'"><a class="btn btn-default" ng-click="delClass(justata.Id,'just')">取消报名</a></span>
             <span class="list1-5" ng-if="!justata.ApplyStatus"><a class="btn btn-info" ng-click="addClass(justata.Id,'just')">点击报名</a></span>
           </div>
@@ -56,13 +57,14 @@
           </div>
           <div class="list" ng-repeat="immediatelyData in immediatelyListData.ListData">
             <span class="list3 cur_name" title="{{immediatelyData.Name}}">{{immediatelyData.Name}}</span>
-            <span class="list1"><a ng-click="checkUserClass(immediatelyData.Id)">详情</a></span>
+            <!--<span class="list1"><a ng-click="checkUserClass(immediatelyData.Id)">详情</a></span>-->
+            <span class="list1"><a ng-click="seeArticleDetail(immediatelyData.Id)" data-toggle="modal" data-target=".classModal">详情</a></span>
             <span class="list1-5" ng-if="!immediatelyData.ApplyStatus">未报名</span>
             <span class="list1-5" ng-if="immediatelyData.ApplyStatus">{{JudgeStatus(immediatelyData.ApplyStatus)}}</span>
             <span class="list3">{{immediatelyData.StartTime | dateFilter | date:'yyyy-MM-dd'}}~{{immediatelyData.EndTime | dateFilter | date:'yyyy-MM-dd'}}</span>
 
             <span class="list1-5" ng-if="immediatelyData.ApplyStatus=='UnApprove'"><a class="btn btn-danger" disabled>审核未通过</a></span>
-            <span class="list1-5" ng-if="immediatelyData.ApplyStatus=='Normal'"><a class="btn btn-success" disabled>已报名</a></span>
+            <span class="list1-5" ng-if="immediatelyData.ApplyStatus=='Normal'"><a class="btn btn-success" ui-sref="classDetail({Id:immediatelyData.Id})">点击进入</a></span>
             <span class="list1-5" ng-if="immediatelyData.ApplyStatus=='UnAudit'"><a class="btn btn-default" ng-click="delClass(immediatelyData.Id,'immediately')">取消报名</a></span>
             <span class="list1-5" ng-if="!immediatelyData.ApplyStatus"><a class="btn btn-info" ng-click="addClass(immediatelyData.Id,'immediately')">点击报名</a></span>
           </div>
@@ -77,11 +79,44 @@
           </div>
           <div class="list" ng-repeat="alreadyData in alreadyListData.ListData">
             <span class="list3" title="{{alreadyData.Name}}">{{alreadyData.Name}}</span>
-            <span class="list2"><a ng-click="checkUserClass(alreadyData.Id)">详情</a></span>
+            <!--<span class="list2"><a ng-click="checkUserClass(alreadyData.Id)">详情</a></span>-->
+            <span class="list2"><a ng-click="seeArticleDetail(alreadyData.Id)" data-toggle="modal" data-target=".classModal">详情</a></span>
             <span class="list2">已举办</span>
             <span class="list3">{{alreadyData.StartTime | dateFilter | date:'yyyy-MM-dd'}}~{{alreadyData.EndTime | dateFilter | date:'yyyy-MM-dd'}}</span>
           </div>
           <div ng-transclude="pagation"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 班级详情 -->
+  <div class="modal fade classModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">班级园地</h4>
+        </div>
+        <div class="modal-body">
+          <div class="classTip clearfix">
+            <i class="fa fa-hand-o-right pull-left" aria-hidden="true"></i>
+            <div class="pull-left">
+              <span class="tipTitle">友情提示：<br/></span>
+              <span class="tipContent">班级简介会有介绍学习班级内容的规则和标准哦 请学员仔细查看，祝您学习愉快！</span>
+            </div>
+          </div>
+          <div class="classContent">
+            <p>班级名称：{{classDetailData.Name}}</p>
+            <p>培训时间：{{classDetailData.StartDate | dateFilter | date:'yyyy-MM-dd'}}~{{classDetailData.EndDate | dateFilter | date:'yyyy-MM-dd'}}</p>
+            <p>报名时间：{{classDetailData.SignStart | dateFilter | date:'yyyy-MM-dd'}}~{{classDetailData.SignEnd | dateFilter | date:'yyyy-MM-dd'}}</p>
+            <p>举办单位：{{classDetailData.Organizers}}</p>
+            <p>结业方式：{{classDetailData.GraduateWay}}</p>
+            <p>班级简介：{{classDetailData.Description}}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
         </div>
       </div>
     </div>

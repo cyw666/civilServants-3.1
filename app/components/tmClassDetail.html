@@ -54,7 +54,7 @@
           </div>
           <div class="list" ng-repeat="list in classDetailData.Model.ClassNoticeList">
               <div class="list4 ellipsis ">
-                <a ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
+                <a title="{{list.Name}}" ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
               </div>
               <div class="list2">{{list.CreatedDate | dateFilter | date:'yyyy-MM-dd'}}</div>
               <div class="list2">{{list.Author}}</div>
@@ -68,7 +68,7 @@
           </div>
           <div class="list" ng-repeat="list in classDetailData.Model.ClassRequiredCourseList">
               <div class="list4 ellipsis" ng-show="!list.Name">暂无名称</div>
-              <div class="list4 ellipsis" ng-show="list.Name">{{list.Name}}</div>
+              <div class="list4 ellipsis" ng-show="list.Name" title="{{list.Name}}">{{list.Name}}</div>
               <div class="list2">
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{list.BrowseScore}}" aria-valuemin="0" aria-valuemax="100" ng-style="{'width':list.BrowseScore+'%'};">
@@ -87,7 +87,7 @@
           </div>
           <div class="list" ng-repeat="list in classDetailData.Model.ClassElectiveCourseList">
               <div class="list4 ellipsis" ng-show="!list.Name">暂无名称</div>
-              <div class="list4 ellipsis" ng-show="list.Name">{{list.Name}}</div>
+              <div class="list4 ellipsis" ng-show="list.Name" title="{{list.Name}}">{{list.Name}}</div>
               <div class="list2">
                 <div class="progress">
                   <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{list.BrowseScore}}" aria-valuemin="0" aria-valuemax="100" ng-style="{'width':list.BrowseScore+'%'};">
@@ -106,7 +106,7 @@
             <span class="list2">参加测试</span>
           </div>
           <div class="list" ng-repeat="list in classDetailData.Model.ClassExamList">
-              <div class="list4 ellipsis">{{list.Name}}</div>
+              <div class="list4 ellipsis" title="{{list.Name}}">{{list.Name}}</div>
               <div class="list2">{{list.Credit}}</div>
               <div class="list2">{{list.TotalScore}}</div>
               <div class="list2"><a ng-click="havTest(list.Id)" target="_blank">参加测试</a></div>
@@ -121,7 +121,7 @@
           </div>
           <div class="list" ng-repeat="list in classDetailData.Model.ClassTopicList">
               <div class="list4 ellipsis">
-                <a ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
+                <a title="{{list.Name}}" ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
               </div>
               <div class="list2">{{list.Type}}</div>
               <div class="list2">{{list.CreatedDate |dateFilter |date:'yyyy-MM-dd' }}</div>
@@ -137,7 +137,7 @@
           </div>
           <div class="list" ng-repeat="list in classDetailData.Model.ClassPaperList">
               <div class="list4 ellipsis">
-                <a ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
+                <a title="{{list.Name}}" ui-sref="classArticleDetail({Id:list.Id})" target="_blank">{{list.Name}}</a>
               </div>
               <div class="list2">{{list.Author}}</div>
               <div class="list2">{{list.CreatedDate | dateFilter | date:'yyyy-MM-dd'}}</div>
@@ -155,6 +155,7 @@
         </div>
       </div>
     </div>
+    <div tm-class-interaction></div>
   </div>
 </div>
 

@@ -49,7 +49,13 @@ angular.module('luZhouApp')
         $loading.finish('classMy');
         $scope.ClassRecentData = response.Data;
       });
-
+    //查看班级详情
+    $scope.seeArticleDetail = function (id) {
+      var classDetail = commonService.getData(ALL_PORT.ClassDetail.url, 'POST', $.extend({}, ALL_PORT.ClassDetail.data, {Id: id,more:false}));
+      classDetail.then(function (response) {
+        $scope.classDetailData = response.Data.Model;
+      });
+    }
     //培训班级列
       //分页
     $scope.paginationConf = $.extend({}, paginationConf, {itemsPerPage: 10});
