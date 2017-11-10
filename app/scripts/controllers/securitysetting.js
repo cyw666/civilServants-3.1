@@ -29,7 +29,6 @@ angular.module('luZhouApp')
     $scope.addQuestion = function () {
       var str = angular.toJson($scope.questionData);
       var json = JSON.parse(str);
-      debugger
       commonService.getData(ALL_PORT.AddPasswordQuestion.url, 'POST',
         $.extend({}, ALL_PORT.AddPasswordQuestion.data, {pwd: $scope.myPwd, questions: json}, token))
 

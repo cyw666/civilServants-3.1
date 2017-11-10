@@ -4,7 +4,7 @@
   <ul class="specialContent">
     <li ng-repeat="list in caseGuideData.ListData">
       <p>
-        <a ui-sref="{{list.Url}}" target="_blank">
+        <a ui-sref="articleDetail({ID:list.Id})" target="_blank">
           <img class="specialImg" ng-src="{{caseGuideData.Path+'/'+list.Img}}" err-Src="images/notFound.jpeg" alt="">
         </a>
       </p>

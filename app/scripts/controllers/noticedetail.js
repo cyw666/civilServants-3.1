@@ -37,7 +37,6 @@ angular.module('luZhouApp')
 
         //收藏
         $scope.favoriteAdd = function(options, token) {
-          debugger
             var params = $.extend({}, ALL_PORT.FavoriteAdd.data, options, token)
             commonService.getData(ALL_PORT.FavoriteAdd.url, 'POST',
                     params)

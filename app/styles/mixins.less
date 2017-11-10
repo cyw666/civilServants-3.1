@@ -208,7 +208,7 @@
 
 .opacity(@opacity:1) {
   @opacityPercentage: @opacity * 100;
-  filter: ~"alpha(opacity = (@{opacityPercentage}))";;
+  filter: ~"alpha(opacity = @{opacityPercentage})";;
   -moz-opacity: @opacity;
   -khtml-opacity: @opacity;
   opacity: @opacity;

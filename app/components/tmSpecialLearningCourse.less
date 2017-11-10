@@ -10,16 +10,18 @@
     min-height: 235px;
     li {
       .pull-left();
-      margin: 20px 26px 0 0;
+      width: 25%;
+      padding: 20px 26px 0 0;
       &.last {
-        margin-right: 0;
+        padding-right: 0;
       }
       img {
-        .wh(280px, 158px);
+        .wh(100%, 158px);
       }
       .courseName {
         margin-top: 10px;
-        width: 280px;
+        width: 100%;
+        .ellipsis();
         a {
           color: #003333;
           font-size: @font-size-lg;

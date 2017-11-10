@@ -99,35 +99,35 @@ angular
         data: {title: "专业技术人员培训新闻"}
       })
       .state('articleDetail', {
-        url: '/articleDetail/:ID',
+        url: '/articleDetail?ID',
         templateUrl: 'views/news/articledetail.html',
         controller: 'articleDetailCtrl',
         controllerAs: 'articleDetail',
         data: {title: "文章内容"}
       })
       .state('newsinfo', {
-        url: '/newsinfo/:ID',
+        url: '/newsinfo?ID',
         data: {title: "新闻信息"},
         templateUrl: 'views/news/newsinfo.html',
         controller: 'newsInfoCtrl',
         controllerAs: 'NewsInfo'
       })
       .state('noticeDetail', {
-        url: '/noticeDetail/:ID',
+        url: '/noticeDetail?ID',
         data: {title: "通知内容"},
         templateUrl: 'views/news/articledetail.html',
         controller: 'noticeDetailCtrl',
         controllerAs: 'noticeDetail'
       })
       .state('search', {
-        url: '/search/:text',
+        url: '/search?text',
         data: {title: "搜索结果"},
         templateUrl: 'views/news/searchresult.html',
         controller: 'searchResultCtrl',
         controllerAs: 'searchResult'
       })
       .state('courseDetails', {
-        url: '/courseCenter/courseDetails/:Id',
+        url: '/courseCenter/courseDetails?Id',
         data: {title: "课程详情"},
         templateUrl: 'views/courseCenter/coursedetails.html',
         controller: 'CoursedetailsCtrl',
@@ -190,98 +190,98 @@ angular
         controllerAs: 'changeUserInfo'
       })
       .state('classDetail', {
-        url: '/trainingClass/classDetail/:Id',
+        url: '/trainingClass/classDetail?Id',
         data: {title: "班级详情"},
         templateUrl: 'views/trainingClass/classdetail.html',
         controller: 'classDetailCtrl',
         controllerAs: 'classDetail'
       })
       .state('classPlan', {
-        url: '/trainingClass/classPlan/:Id',
+        url: '/trainingClass/classPlan?Id',
         data: {title: "教学计划"},
         templateUrl: 'views/trainingClass/classplan.html',
         controller: 'classPlanCtrl',
         controllerAs: 'classPlan'
       })
       .state('classStudent', {
-        url: '/trainingClass/classStudent/:Id',
+        url: '/trainingClass/classStudent?Id',
         data: {title: "同学名录"},
         templateUrl: 'views/trainingClass/classstudent.html',
         controller: 'classStudentCtrl',
         controllerAs: 'classStudent'
       })
       .state('classPaperList', {
-        url: '/trainingClass/classPaperList/:Id',
+        url: '/trainingClass/classPaperList?Id',
         data: {title: "班级论文"},
         templateUrl: 'views/trainingClass/classpaperlist.html',
         controller: 'classPaperListCtrl',
         controllerAs: 'classPaperList'
       })
       .state('photoAlbumList', {
-        url: '/trainingClass/photoAlbumList/:Id',
+        url: '/trainingClass/photoAlbumList?Id',
         data: {title: "班级相册"},
         templateUrl: 'views/trainingClass/photoalbumlist.html',
         controller: 'photoAlbumListCtrl',
         controllerAs: 'photoAlbumList'
       })
       .state('classTopicList', {
-        url: '/trainingClass/classTopicList/:Id',
+        url: '/trainingClass/classTopicList?Id',
         data: {title: "班级话题"},
         templateUrl: 'views/trainingClass/classtopiclist.html',
         controller: 'classTopicListCtrl',
         controllerAs: 'classTopicList'
       })
       .state('classCourse', {
-        url: '/trainingClass/classCourse/:Id/:Type',
+        url: '/trainingClass/classCourse?Id&Type',
         data: {title: "班级课程"},
         templateUrl: 'views/trainingClass/classcourse.html',
         controller: 'classCourseCtrl',
         controllerAs: 'classCourse'
       })
       .state('classNotice', {
-        url: '/trainingClass/classNotice/:Id',
+        url: '/trainingClass/classNotice?Id',
         data: {title: "班级公告"},
         templateUrl: 'views/trainingClass/classnotice.html',
         controller: 'classNoticeCtrl',
         controllerAs: 'classNotice'
       })
       .state('classExam', {
-        url: '/trainingClass/classExam/:Id',
+        url: '/trainingClass/classExam?Id',
         data: {title: "班级考试"},
         templateUrl: 'views/trainingClass/classexam.html',
         controller: 'classExamCtrl',
         controllerAs: 'classExam'
       })
       .state('classArticleDetail', {
-        url: '/trainingClass/classArticleDetail/:Id',
+        url: '/trainingClass/classArticleDetail?Id',
         data: {title: "班级文章内容"},
         templateUrl: 'views/trainingClass/classarticledetail.html',
         controller: 'classArticleDetailCtrl',
         controllerAs: 'classArticleDetail'
       })
       .state('classTopicAdd', {
-        url: '/trainingClass/classTopicAdd/:Id',
+        url: '/trainingClass/classTopicAdd?Id',
         data: {title: "添加话题"},
         templateUrl: 'views/trainingClass/classtopicadd.html',
         controller: 'classTopicAddCtrl',
         controllerAs: 'classTopicAdd'
       })
       .state('classPaperAdd', {
-        url: '/trainingClass/classPaperAdd/:Id',
+        url: '/trainingClass/classPaperAdd?Id',
         data: {title: "添加论文"},
         templateUrl: 'views/trainingClass/classpaperadd.html',
         controller: 'classPaperAddCtrl',
         controllerAs: 'classPaperAdd'
       })
       .state('photoAlbumAdd', {
-        url: '/trainingClass/photoAlbumAdd/:Id',
+        url: '/trainingClass/photoAlbumAdd?Id',
         data: {title: "添加相册"},
         templateUrl: 'views/trainingClass/photoalbumadd.html',
         controller: 'photoAlbumAddCtrl',
         controllerAs: 'photoAlbumAdd'
       })
       .state('photoPreview', {
-        url: '/trainingClass/photoPreview/:AlbumId/:TrainingId',
+        url: '/trainingClass/photoPreview?AlbumId&TrainingId',
         data: {title: "班级照片"},
         templateUrl: 'views/trainingClass/photopreview.html',
         controller: 'photoPreviewCtrl',
@@ -295,14 +295,14 @@ angular
         controllerAs: 'messageList'
       })
       .state('messageDetail', {
-        url: '/personalCenter/messageList/messageDetail/:Id',
+        url: '/personalCenter/messageList/messageDetail?Id',
         data: {title: "留言板详情"},
         templateUrl: 'views/personalCenter/messagedetail.html',
         controller: 'MessagedetailCtrl',
         controllerAs: 'messageDetail'
       })
       .state('exam', {
-        url: '/exam/exam/:Id',
+        url: '/exam/exam?Id',
         data: {title: "考试"},
         templateUrl: 'views/exam/exam.html',
         controller: 'ExamCtrl',
@@ -316,28 +316,28 @@ angular
         controllerAs: 'personaLearningArchives'
       })
       .state('examDetailList', {
-        url: '/exam/examDetailList/:Id',
+        url: '/exam/examDetailList?Id',
         data: {title: "考试记录列表"},
         templateUrl: 'views/exam/examdetaillist.html',
         controller: 'ExamdetaillistCtrl',
         controllerAs: 'examDetailList'
       })
       .state('examReview', {
-        url: '/exam/examReview/:examId/:recordId',
+        url: '/exam/examReview?examId&recordId',
         data: {title: "考试详情"},
         templateUrl: 'views/exam/examreview.html',
         controller: 'ExamreviewCtrl',
         controllerAs: 'examReview'
       })
       .state('play', {
-        url: '/play/play/:Id',
+        url: '/play/play?Id',
         data: {title: "课程播放"},
         templateUrl: 'views/play/play.html',
         controller: 'PlayCtrl',
         controllerAs: 'play'
       })
       .state('tryplay', {
-        url: '/play/tryplay/:Id',
+        url: '/play/tryplay?Id',
         data: {title: "课程试看"},
         templateUrl: 'views/play/tryplay.html',
         controller: 'TryplayCtrl',
@@ -358,7 +358,7 @@ angular
         controllerAs: 'userRankingList'
       })
       .state('userLogin', {
-        url: '/userLogin/:name/:params',
+        url: '/userLogin?name&params',
         data: {title: "登录"},
         templateUrl: 'views/Do/login.html',
         controller: 'LoginCtrl',
@@ -428,14 +428,14 @@ angular
         controllerAs: 'pollList'
       })
       .state('poll', {
-        url: '/exam/poll/:Id',
+        url: '/exam/poll?Id',
         data: {title: "投票"},
         templateUrl: 'views/exam/poll.html',
         controller: 'PollCtrl',
         controllerAs: 'poll'
       })
       .state('pollreview', {
-        url: '/exam/pollreview/:parameter1/:parameter2',
+        url: '/exam/pollreview?parameter1&parameter2',
         data: {title: "投票结果"},
         templateUrl: 'views/exam/pollreview.html',
         controller: 'PollreviewCtrl',

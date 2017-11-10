@@ -60,16 +60,14 @@
                      value={{courseList.Id}}>
             </div>
             <div class="block2 pull-left" title="{{courseList.Name}}">
-              <img ng-src="{{courseSupermarketData.ImageCourse+'/'+courseList.Img}}" err-src="images/notCourse.png">
+              <img ng-src="{{courseSupermarketData.ImageCourse+courseList.Img}}" err-src="images/notCourse.png">
             </div>
             <div class="block3 pull-left">
               <div class="line line1">
-                <a class="CourseName" ui-sref="courseDetails({Id:courseList.Id})" target="_blank"
-                   title="{{courseList.Name}}">
-                  <span class="pull-left">{{courseList.Name}} </span>
-                  <span class="pull-left"
-                        ng-class="{'biXiu':courseList.RequiredFlag,'xuanXiu':!courseList.RequiredFlag}"></span>
+                <a class="CourseName pull-left" ui-sref="courseDetails({Id:courseList.Id})" target="_blank" title="{{courseList.Name}}">
+                  {{courseList.Name}}
                 </a>
+                <span class="pull-right" ng-class="{'biXiu':courseList.RequiredFlag,'xuanXiu':!courseList.RequiredFlag}"></span>
               </div>
               <div class="line line3">
                 <span style="width:72px;">学时：{{courseList.Credit}}</span>

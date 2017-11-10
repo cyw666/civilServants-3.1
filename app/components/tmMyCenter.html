@@ -1,11 +1,11 @@
 <!--个人中心-->
 <div class="myCenter">
-  <div common-header title-header="'个人空间'" show-more=false link-url="''"></div>
+  <div common-header title-header="'个人中心'" show-more=false link-url="''"></div>
   <div class=" tmBorder">
     <ol class="breadcrumb">
       <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
       <li><a ui-sref="main">首页</a></li>
-      <li class="active">个人空间</li>
+      <li class="active">个人中心</li>
     </ol>
     <form class="form-inline formSearch">
       <select class="form-control" ng-init="selectedName = courseStatus[0]" ng-model="selectedName"
@@ -17,7 +17,7 @@
                placeholder="请输入要搜索的课程">
       </div>
       <button type="submit" class="btn btn-primary"
-              ng-click="searchMyCenterCourse({'courseType':selectedName.id,'title':searchTitle})">搜索
+              ng-click="searchMyCenterCourse({page:1,courseType:selectedName.id,title:searchTitle})">搜索
       </button>
     </form>
     <div class="myTab">

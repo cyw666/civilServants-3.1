@@ -10,13 +10,13 @@
     background: @background-color-base;
     &.btn-group > .btn {
       color: @text-color-2;
-      width: 169px;
+      width: 20%;
       .ht-lineHt(44px);
       background: @background-color-base;
       padding: 0;
       border-color: @background-color-base;
       font-size: @font-size-lg+2;
-      .transition(all, 0.3s ease);
+      .transition(all, 0.3s);
       &:hover {
         color: @white;
         background-color: @primary-4;
@@ -35,10 +35,10 @@
       .clearFix();
       li {
         .pull-left();
-        margin-left: 10px;
+        padding-left: 10px;
         min-height: 200px;
-        width: 200px;
-        margin-bottom: 10px;
+        width: 25%;
+        padding-bottom: 10px;
         position: relative;
         .desc {
           p {
@@ -69,7 +69,7 @@
             position: absolute;
             top: 3px;
             left: 5px;
-            .glyphicon{
+            .glyphicon {
               color: @red-3;
             }
           }
@@ -79,7 +79,7 @@
           }
         }
         a img {
-          .wh(200px, 127px);
+          .wh(100%, 127px);
         }
       }
     }

@@ -1,20 +1,10 @@
 /*
-  960 Grid System ~ Core CSS.
-  Learn more ~ http://960.gs/
-
-  Licensed under GPL and MIT.
+  页面布局
 */
-
-/*
-  Forces backgrounds to span full width,
-  even if there is horizontal scrolling.
-  Increase this if your layout is wider.
-
-  Note: IE6 works fine without this fix.
-*/
-
+@bodyWidth:1200px;
+@colWidth:@bodyWidth/24;
 body {
-  min-width: 1200px;
+  min-width: @bodyWidth;
 }
 
 /* `Container
@@ -23,7 +13,7 @@ body {
 .container_24 {
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
+  width: @bodyWidth;
 }
 
 /* `Grid >> Global
@@ -103,488 +93,488 @@ body {
 ----------------------------------------------------------------------------------------------------*/
 
 .container_24 .grid_1 {
-  width: 50px;
+  width: @colWidth;
 }
 
 .container_24 .grid_2 {
-  width: 100px;
+  width: @colWidth*2;
 }
 
 .container_24 .grid_3 {
-  width: 150px;
+  width: @colWidth*3;
 }
 
 .container_24 .grid_4 {
-  width: 200px;
+  width: @colWidth*4;
 }
 
 .container_24 .grid_5 {
-  width: 250px;
+  width: @colWidth*5;
 }
 
 .container_24 .grid_6 {
-  width:300px;
+  width:@colWidth*6;
 }
 
 .container_24 .grid_7 {
-  width: 350px;
+  width: @colWidth*7;
 }
 .container_24 .grid_7_2 {
-  width: 375px;
+  width: (@colWidth*7+@colWidth*8)/2;
 }
 
 .container_24 .grid_8 {
-  width: 400px;
+  width: @colWidth*8;
 }
 .container_24 .grid_8_2 {
-  width: 425px;
+  width: (@colWidth*8+@colWidth*9)/2;
 }
 
 .container_24 .grid_9 {
-  width: 450px;
+  width: @colWidth*9;
 }
 
 .container_24 .grid_10 {
-  width: 500px;
+  width: @colWidth*10;
 }
 
 .container_24 .grid_11 {
-  width: 550px;
+  width: @colWidth*11
 }
 
 .container_24 .grid_12 {
-  width: 600px;
+  width: @colWidth*12;
 }
 
 .container_24 .grid_13 {
-  width: 650px;
+  width: @colWidth*13;
 }
 
 .container_24 .grid_14 {
-  width: 700px;
+  width: @colWidth*14;
 }
 
 .container_24 .grid_15 {
-  width: 750px;
+  width: @colWidth*15;
 }
 
 .container_24 .grid_16 {
-  width: 800px;
+  width: @colWidth*16;
 }
 .container_24 .grid_16_2 {
-  width: 825px;
+  width: (@colWidth*16+@colWidth*17)/2;
 }
 
 .container_24 .grid_17 {
-  width: 850px;
+  width: @colWidth*17;
 }
 
 .container_24 .grid_18 {
-  width: 900px;
+  width: @colWidth*18;
 }
 
 .container_24 .grid_19 {
-  width: 950px;
+  width: @colWidth*19;
 }
 
 .container_24 .grid_20 {
-  width: 1000px;
+  width: @colWidth*20;
 }
 
 .container_24 .grid_21 {
-  width: 1050px;
+  width: @colWidth*21;
 }
 
 .container_24 .grid_22 {
-  width: 1100px;
+  width: @colWidth*22;
 }
 
 .container_24 .grid_23 {
-  width: 1150px;
+  width: @colWidth*23;
 }
 
 .container_24 .grid_24 {
-  width: 1200px;
+  width: @colWidth*24;
 }
 
 /* `Prefix Extra Space >> 24 Columns
 ----------------------------------------------------------------------------------------------------*/
 
 .container_24 .prefix_1 {
-  padding-left: 40px;
+  padding-left: @colWidth;
 }
 
 .container_24 .prefix_2 {
-  padding-left: 80px;
+  padding-left: @colWidth*2;
 }
 
 .container_24 .prefix_3 {
-  padding-left: 120px;
+  padding-left: @colWidth*3;
 }
 
 .container_24 .prefix_4 {
-  padding-left: 160px;
+  padding-left: @colWidth*4;
 }
 
 .container_24 .prefix_5 {
-  padding-left: 200px;
+  padding-left: @colWidth*5;
 }
 
 .container_24 .prefix_6 {
-  padding-left: 240px;
+  padding-left: @colWidth*6;
 }
 
 .container_24 .prefix_7 {
-  padding-left: 280px;
+  padding-left: @colWidth*7;
 }
 
 .container_24 .prefix_8 {
-  padding-left: 320px;
+  padding-left: @colWidth*8;
 }
 
 .container_24 .prefix_9 {
-  padding-left: 360px;
+  padding-left: @colWidth*9;
 }
 
 .container_24 .prefix_10 {
-  padding-left: 400px;
+  padding-left: @colWidth*10;
 }
 
 .container_24 .prefix_11 {
-  padding-left: 440px;
+  padding-left: @colWidth*11;
 }
 
 .container_24 .prefix_12 {
-  padding-left: 480px;
+  padding-left: @colWidth*12;
 }
 
 .container_24 .prefix_13 {
-  padding-left: 520px;
+  padding-left: @colWidth*13;
 }
 
 .container_24 .prefix_14 {
-  padding-left: 560px;
+  padding-left: @colWidth*14;
 }
 
 .container_24 .prefix_15 {
-  padding-left: 600px;
+  padding-left: @colWidth*15;
 }
 
 .container_24 .prefix_16 {
-  padding-left: 640px;
+  padding-left: @colWidth*16;
 }
 
 .container_24 .prefix_17 {
-  padding-left: 680px;
+  padding-left: @colWidth*17;
 }
 
 .container_24 .prefix_18 {
-  padding-left: 720px;
+  padding-left: @colWidth*18;
 }
 
 .container_24 .prefix_19 {
-  padding-left: 760px;
+  padding-left: @colWidth*19;
 }
 
 .container_24 .prefix_20 {
-  padding-left: 800px;
+  padding-left: @colWidth*20;
 }
 
 .container_24 .prefix_21 {
-  padding-left: 840px;
+  padding-left: @colWidth*21;
 }
 
 .container_24 .prefix_22 {
-  padding-left: 880px;
+  padding-left: @colWidth*22;
 }
 
 .container_24 .prefix_23 {
-  padding-left: 920px;
+  padding-left: @colWidth*23;
 }
 
 /* `Suffix Extra Space >> 24 Columns
 ----------------------------------------------------------------------------------------------------*/
 
 .container_24 .suffix_1 {
-  padding-right: 40px;
+  padding-right: @colWidth;
 }
 
 .container_24 .suffix_2 {
-  padding-right: 80px;
+  padding-right: @colWidth*2;
 }
 
 .container_24 .suffix_3 {
-  padding-right: 120px;
+  padding-right: @colWidth*3;
 }
 
 .container_24 .suffix_4 {
-  padding-right: 160px;
+  padding-right: @colWidth*4;
 }
 
 .container_24 .suffix_5 {
-  padding-right: 200px;
+  padding-right: @colWidth*5;
 }
 
 .container_24 .suffix_6 {
-  padding-right: 240px;
+  padding-right: @colWidth*6;
 }
 
 .container_24 .suffix_7 {
-  padding-right: 280px;
+  padding-right: @colWidth*7;
 }
 
 .container_24 .suffix_8 {
-  padding-right: 320px;
+  padding-right: @colWidth*8;
 }
 
 .container_24 .suffix_9 {
-  padding-right: 360px;
+  padding-right: @colWidth*9;
 }
 
 .container_24 .suffix_10 {
-  padding-right: 400px;
+  padding-right: @colWidth*10;
 }
 
 .container_24 .suffix_11 {
-  padding-right: 440px;
+  padding-right: @colWidth*11;
 }
 
 .container_24 .suffix_12 {
-  padding-right: 480px;
+  padding-right: @colWidth*12;
 }
 
 .container_24 .suffix_13 {
-  padding-right: 520px;
+  padding-right: @colWidth*13;
 }
 
 .container_24 .suffix_14 {
-  padding-right: 560px;
+  padding-right: @colWidth*14;
 }
 
 .container_24 .suffix_15 {
-  padding-right: 600px;
+  padding-right: @colWidth*15;
 }
 
 .container_24 .suffix_16 {
-  padding-right: 640px;
+  padding-right: @colWidth*16;
 }
 
 .container_24 .suffix_17 {
-  padding-right: 680px;
+  padding-right: @colWidth*17;
 }
 
 .container_24 .suffix_18 {
-  padding-right: 720px;
+  padding-right: @colWidth*18;
 }
 
 .container_24 .suffix_19 {
-  padding-right: 760px;
+  padding-right: @colWidth*19;
 }
 
 .container_24 .suffix_20 {
-  padding-right: 800px;
+  padding-right: @colWidth*20;
 }
 
 .container_24 .suffix_21 {
-  padding-right: 840px;
+  padding-right: @colWidth*21;
 }
 
 .container_24 .suffix_22 {
-  padding-right: 880px;
+  padding-right: @colWidth*22;
 }
 
 .container_24 .suffix_23 {
-  padding-right: 920px;
+  padding-right: @colWidth*23;
 }
 
 /* `Push Space >> 24 Columns
 ----------------------------------------------------------------------------------------------------*/
 
 .container_24 .push_1 {
-  left: 40px;
+  left: @colWidth;
 }
 
 .container_24 .push_2 {
-  left: 80px;
+  left: @colWidth*2;
 }
 
 .container_24 .push_3 {
-  left: 120px;
+  left: @colWidth*3;
 }
 
 .container_24 .push_4 {
-  left: 160px;
+  left: @colWidth*4;
 }
 
 .container_24 .push_5 {
-  left: 200px;
+  left: @colWidth*5;
 }
 
 .container_24 .push_6 {
-  left: 240px;
+  left: @colWidth*6;
 }
 
 .container_24 .push_7 {
-  left: 280px;
+  left: @colWidth*7;
 }
 
 .container_24 .push_8 {
-  left: 320px;
+  left: @colWidth*8;
 }
 
 .container_24 .push_9 {
-  left: 360px;
+  left: @colWidth*9;
 }
 
 .container_24 .push_10 {
-  left: 400px;
+  left: @colWidth*10;
 }
 
 .container_24 .push_11 {
-  left: 440px;
+  left: @colWidth*11;
 }
 
 .container_24 .push_12 {
-  left: 480px;
+  left: @colWidth*12;
 }
 
 .container_24 .push_13 {
-  left: 520px;
+  left: @colWidth*13;
 }
 
 .container_24 .push_14 {
-  left: 560px;
+  left: @colWidth*14;
 }
 
 .container_24 .push_15 {
-  left: 600px;
+  left: @colWidth*15;
 }
 
 .container_24 .push_16 {
-  left: 640px;
+  left: @colWidth*16;
 }
 
 .container_24 .push_17 {
-  left: 680px;
+  left: @colWidth*17;
 }
 
 .container_24 .push_18 {
-  left: 720px;
+  left: @colWidth*18;
 }
 
 .container_24 .push_19 {
-  left: 760px;
+  left: @colWidth*19;
 }
 
 .container_24 .push_20 {
-  left: 800px;
+  left: @colWidth*20;
 }
 
 .container_24 .push_21 {
-  left: 840px;
+  left: @colWidth*21;
 }
 
 .container_24 .push_22 {
-  left: 880px;
+  left: @colWidth*22;
 }
 
 .container_24 .push_23 {
-  left: 920px;
+  left: @colWidth*23;
 }
 
 /* `Pull Space >> 24 Columns
 ----------------------------------------------------------------------------------------------------*/
 
 .container_24 .pull_1 {
-  left: -40px;
+  left: -@colWidth;
 }
 
 .container_24 .pull_2 {
-  left: -80px;
+  left: -@colWidth*2;
 }
 
 .container_24 .pull_3 {
-  left: -120px;
+  left: -@colWidth*3;
 }
 
 .container_24 .pull_4 {
-  left: -160px;
+  left: -@colWidth*4;
 }
 
 .container_24 .pull_5 {
-  left: -200px;
+  left: -@colWidth*5;
 }
 
 .container_24 .pull_6 {
-  left: -240px;
+  left: -@colWidth*6;
 }
 
 .container_24 .pull_7 {
-  left: -280px;
+  left: -@colWidth*7;
 }
 
 .container_24 .pull_8 {
-  left: -320px;
+  left: -@colWidth*8;
 }
 
 .container_24 .pull_9 {
-  left: -360px;
+  left: -@colWidth*9;
 }
 
 .container_24 .pull_10 {
-  left: -400px;
+  left: -@colWidth*10;
 }
 
 .container_24 .pull_11 {
-  left: -440px;
+  left: -@colWidth*11;
 }
 
 .container_24 .pull_12 {
-  left: -480px;
+  left: -@colWidth*12;
 }
 
 .container_24 .pull_13 {
-  left: -520px;
+  left: -@colWidth*13;
 }
 
 .container_24 .pull_14 {
-  left: -560px;
+  left: -@colWidth*14;
 }
 
 .container_24 .pull_15 {
-  left: -600px;
+  left: -@colWidth*15;
 }
 
 .container_24 .pull_16 {
-  left: -640px;
+  left: -@colWidth*16;
 }
 
 .container_24 .pull_17 {
-  left: -680px;
+  left: -@colWidth*17;
 }
 
 .container_24 .pull_18 {
-  left: -720px;
+  left: -@colWidth*18;
 }
 
 .container_24 .pull_19 {
-  left: -760px;
+  left: -@colWidth*19;
 }
 
 .container_24 .pull_20 {
-  left: -800px;
+  left: -@colWidth*20;
 }
 
 .container_24 .pull_21 {
-  left: -840px;
+  left: -@colWidth*21;
 }
 
 .container_24 .pull_22 {
-  left: -880px;
+  left: -@colWidth*22;
 }
 
 .container_24 .pull_23 {
-  left: -920px;
+  left: -@colWidth*23;
 }
 
 /* `Clear Floated Elements

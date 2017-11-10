@@ -118,7 +118,11 @@ angular.module('luZhouApp')
               $scope.showError = true;
             } else if (data.Type == 1) {
               setUserCookie();
-              $state.go($stateParams.name,JSON.parse($stateParams.params));
+              if($stateParams.name){
+                $state.go($stateParams.name,JSON.parse($stateParams.params));
+              }else {
+                location.href="/admin"
+              }
             } else if (data.Type == 2) {
               setUserCookie();
               commonService.alertMs("首次登录，请设置密保！");
