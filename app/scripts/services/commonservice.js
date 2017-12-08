@@ -432,13 +432,7 @@ angular.module('luZhouApp')
             window.location.reload();
           }
         }).error(function (ex) {
-          clearTimeout(timer);
-          if (ex.Message) {
-            alert("出现错误:" + ex.Message + ", 将返回首页");
-            document.body.innerHTML = "";
-            $state.go('main');
-            window.location.reload();
-          }
+          alert("和平台通讯出错！");
         });
       }
       var timer = setInterval(fresh, 3000);

@@ -1102,7 +1102,7 @@ body {
 .tree-checkbox,
 .tree-indent {
   display: inline-block;
-  width: 16px;
+  width: 12px;
   height: 22px;
   vertical-align: middle;
   overflow: hidden;
@@ -1114,7 +1114,7 @@ body {
   background: url('../images/tree_icons.png') no-repeat -50px 0px;
 }
 .tree-collapsed {
-  background: url('../images/tree_icons.png') no-repeat 0px 0px;
+  background: url('../images/tree_icons.png') no-repeat;
 }
 .tree-collapsed-hover {
   background: url('../images/tree_icons.png') no-repeat -32px 0px;
@@ -1146,14 +1146,12 @@ body {
 }
 .tree-folder {
   /*background: url('../images/tree_icons.png') no-repeat -208px 0;*/
-  width: 10px;
 }
 .tree-folder-open {
   /*background: url('../images/tree_icons.png') no-repeat -224px 0;*/
 }
 .tree-file {
   /*background: url('../images/tree_icons.png') no-repeat -240px 0;*/
-  width: 10px;
 }
 .tree-loading {
   background: url('../images/loading.gif') no-repeat center center;
@@ -1229,7 +1227,7 @@ body {
 }
 .tree-node-hover {
   background-color: #f5f9ed;
-  color: #8cb534;
+  color: #6fa301;
 }
 .tree-node-selected {
   background-color: #f5f9ed;
@@ -3605,6 +3603,11 @@ input:hover {
 .classDetail .myTab .tab-content {
   min-height: 200px;
 }
+.classDetail .myTab .tab-content .classMore a {
+  display: inline-block;
+  padding: 4px 30px;
+  color: #6fa301;
+}
 /**
  * 班级说说
  */
@@ -4957,7 +4960,7 @@ input:hover {
   font-weight: 500;
   margin-right: 0;
   border: none;
-  width: 171.42857143px;
+  width: 171px;
   height: 42px;
   line-height: 42px;
 }
@@ -6043,18 +6046,22 @@ input:hover {
 }
 .specialLearningCourse .courseList li {
   float: left !important;
-  margin: 20px 26px 0 0;
+  width: 25%;
+  padding: 20px 26px 0 0;
 }
 .specialLearningCourse .courseList li.last {
-  margin-right: 0;
+  padding-right: 0;
 }
 .specialLearningCourse .courseList li img {
-  width: 280px;
+  width: 100%;
   height: 158px;
 }
 .specialLearningCourse .courseList li .courseName {
   margin-top: 10px;
-  width: 280px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .specialLearningCourse .courseList li .courseName a {
   color: #003333;
