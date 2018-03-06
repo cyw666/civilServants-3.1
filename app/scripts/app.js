@@ -171,7 +171,7 @@ angular
       .state('modifyPassword', {
         url: '/personalCenter/modifyPassword',
         data: {title: "修改密码"},
-        templateUrl: 'views/personalCenter/modifyPassword.html',
+        templateUrl: 'views/personalCenter/modifypassword.html',
         controller: 'modifyPasswordCtrl',
         controllerAs: 'modifyPassword'
       })
